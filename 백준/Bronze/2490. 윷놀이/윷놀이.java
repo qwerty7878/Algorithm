@@ -4,21 +4,21 @@ public class Main{
         Scanner sc = new Scanner(System.in);
 
         for(int i = 0; i < 3; i++){
-            int sum = 0;
+            int cnt = 0;
 
             for(int j = 0; j < 4; j++){
-                sum += sc.nextInt();
+                cnt += sc.nextInt();
             }
 
-            if(sum == 0)
+            if(cnt == 0)
                 System.out.println("D");
-            else if(sum == 1)
+            else if(cnt == 1)
                 System.out.println("C");
-            else if(sum == 2)
+            else if(cnt == 2)
                 System.out.println("B");
-            else if(sum == 3)
+            else if(cnt == 3)
                 System.out.println("A");
-            else if(sum == 4)
+            else if(cnt == 4)
                 System.out.println("E");
 
         }
