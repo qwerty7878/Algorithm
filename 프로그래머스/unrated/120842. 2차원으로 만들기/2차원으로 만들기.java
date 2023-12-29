@@ -13,3 +13,17 @@ class Solution {
         return answer;
     }
 }
+
+/*다른 풀이로 2중 for 문 대신 1중을 사용한 경우임
+class Solution {
+    public int[][] solution(int[] num_list, int n) {
+        int[][] answer = new int[num_list.length/n][n];
+
+        for(int i=0; i<num_list.length; i++){
+            answer[i/n][i%n]=num_list[i];
+        }
+
+        return answer;
+    }
+}
+*/
