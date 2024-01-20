@@ -12,4 +12,13 @@ class Solution {
         }        
         return answer;
     }
+    
+    /*
+    다른 풀이 
+    
+    char[] c = my_string.toLowerCase().toCharArray();
+    Arrays.sort(c);
+    return new String(c);
+    
+    */
 }
