@@ -16,5 +16,7 @@ class Solution {
             answer = 0;
         }
         return answer;
+        
+        //return new String(a).equals(new String(b)) ? 1 :0; if문 대신 사용가능
     }
 }
