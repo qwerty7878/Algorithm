@@ -3,30 +3,29 @@ import java.util.*;
 public class Main{
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-		//최대값 저장할 변수 선언
+        int n = sc.nextInt();
 		int max = 0;
 
-		for(int i = 0; i < N; i++) {
+		for(int i = 0; i < n; i++) {
 
-			int money = 0;
-			int A = sc.nextInt();
-			int B = sc.nextInt();
-			int C = sc.nextInt();
+			int price = 0;
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			int c = sc.nextInt();
 			
-			if(A == B && B == C ) {
-				money = 10000 + (A * 1000);
-			}else if(A != B && B != C && A != C) {
-				money = Math.max(A, Math.max(B, C)) * 100;
+			if(a == b && b == c ) {
+				price = 10000 + (a * 1000);
+			}else if(a != b && b != c && a != c) {
+				price = Math.max(a, Math.max(b, c)) * 100;
 			}else {
-				if(A == B || A == C) {
-					money = 1000 + (A * 100);
+				if(a == b || a == c) {
+					price = 1000 + (a * 100);
 				}else {
-					money = 1000 + (B * 100);
+					price = 1000 + (b * 100);
 				}
 			}
-			if(money > max) {
-				max = money;
+			if(price > max) {
+				max = price;
 			}
 		}
 		System.out.println(max);
