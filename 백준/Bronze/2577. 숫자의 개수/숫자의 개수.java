@@ -7,6 +7,8 @@ public class Main{
         int c = sc.nextInt();
         
         String str = String.valueOf(a*b*c);
+        // String str = Integer.toString(res); 
+        // String str = "" + res;
         //charAt()을 쓰려면 string 형태여야해서
 
         for(int i = 0; i <= 9; i++){ // 1~9까지 출력하려고
