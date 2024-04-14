@@ -1,10 +1,12 @@
+import java.util.*;
+
 class Solution {
-    public int[] solution(int n) {
-        int[] answer = new int [(n+1)/2];
+    public ArrayList solution(int n) {
+        ArrayList<Integer> answer = new ArrayList<Integer>();
         
         for(int i = 1; i <= n; i++){
-            if(i % 2 != 0)
-                answer[i/2] = i;
+            if( i % 2 != 0)
+                answer.add(i);
         }
         return answer;
     }
