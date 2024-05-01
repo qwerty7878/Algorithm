@@ -1,21 +1,28 @@
-import java.util.*;
+import java.util.Scanner;
+
 public class Main{
-    public static void main(String args[]){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
         
-        int N = sc.nextInt();
-        int arr[]= new int[N];
-        int M = sc.nextInt();
-        for(int i = 0; i < M; i++){
-            int I = sc.nextInt();
-            int J = sc.nextInt();
-            int K = sc.nextInt();
-            for(int j = I -1; j < J; j++){
-                arr[j] = K;
+        int arr[] = new int [n + 1];
+
+        for(int a = 1; a <= m; a++){
+            int i = sc.nextInt();
+            int j = sc.nextInt();
+            int k = sc.nextInt();
+
+            for(int b = i; b <= j; b++){
+                arr[b] = k;
             }
         }
-        for(int k = 0; k < arr.length; k++){
-            System.out.print(arr[k] + " ");
+
+        for(int a = 1; a <= n; a++){
+            System.out.print(arr[a] + " ");
         }
+
+        sc.close();
     }
 }
