@@ -1,14 +1,19 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int n = sc.nextInt();
-        String S = sc.next();
-        
+        String s = sc.next();
         int sum = 0;
+
         for(int i = 0; i < n; i++){
-            sum += S.charAt(i)-'0';
+            char c = s.charAt(i);
+            sum += Integer.valueOf(c) -'0';
         }
+
         System.out.println(sum);
+        sc.close();
     }
 }
