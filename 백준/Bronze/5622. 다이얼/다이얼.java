@@ -1,40 +1,36 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
-        String S = sc.next();
-        int count = 0;
-        int num = S.length();
-        
-        for(int i = 0; i < num; i++){
-            switch(S.charAt(i)){
-                case 'A': case 'B': case 'C':
-                    count += 3;
-                    break;
-                case 'D': case 'E': case 'F':
-                    count += 4;
-                    break;
-                case 'G': case 'H': case 'I':
-                    count += 5;
-                    break;
-                case 'J': case 'K': case 'L':
-                    count += 6;
-                    break;
-                case 'M': case 'N': case 'O':
-                    count += 7;
-                    break;
-                case 'P': case 'Q': case 'R': case 'S':
-                    count += 8;
-                    break;
-                case 'T': case 'U': case 'V':
-                    count += 9;
-                    break;
-                case 'W': case 'X': case 'Y': case 'Z':
-                    count += 10;
-                    break;                    
-            }
+
+        String s = sc.next();
+        int sum = 0;
+        for(int i = 0; i < s.length(); i++) {
+            int num;
+            if (s.charAt(i) == 'A' || s.charAt(i) == 'B' || s.charAt(i) == 'C')
+            num = 2;
+            else if (s.charAt(i) == 'D' || s.charAt(i) == 'E' || s.charAt(i) == 'F')
+                num = 3;
+            else if (s.charAt(i) == 'G' || s.charAt(i) == 'H' || s.charAt(i) == 'I')
+                num = 4;
+            else if (s.charAt(i) == 'J' || s.charAt(i) == 'K' || s.charAt(i) == 'L')
+                num = 5;
+            else if (s.charAt(i) == 'M' || s.charAt(i) == 'N' || s.charAt(i) == 'O')
+                num = 6;
+            else if (s.charAt(i) == 'P' || s.charAt(i) == 'Q' || s.charAt(i) == 'R' || s.charAt(i) == 'S')
+                num = 7;
+            else if (s.charAt(i) == 'T' || s.charAt(i) == 'U' || s.charAt(i) == 'V')
+                num = 8;
+            else if (s.charAt(i) == 'W' || s.charAt(i) == 'X' || s.charAt(i) == 'Y' || s.charAt(i) == 'Z')
+                num = 9;
+
+            else num = 1;
+
+            sum += num;
         }
-        System.out.print(count);
+
+        System.out.println(sum + s.length());
+        sc.close();
     }
 }
