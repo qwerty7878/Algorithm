@@ -1,19 +1,19 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(true){
-            int num1 = sc.nextInt();
-            int num2 = sc.nextInt();
+
+        while (true){
+            int n = sc.nextInt();
+            int m = sc.nextInt();
             
-            if(num1 == 0 && num2 == 0)
-                break;
-            if(num2 % num1 == 0)
-                System.out.println("factor");
-            else if(num1 % num2 == 0)
-                System.out.println("multiple");
-            else
-                System.out.println("neither");
+            if(n == 0 && m == 0)    break;
+
+            if(m % n == 0) System.out.println("factor");
+            else if (n % m == 0) System.out.println("multiple");
+            else System.out.println("neither");
         }
     }
 }
+
