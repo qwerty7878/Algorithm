@@ -1,27 +1,31 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int x[] = new int [3];
-        int y[] = new int [3];
-        
-        int xx,yy;
+        int arrx[] = new int[3];
+        int arry[] = new int[3];
+        int fx = 0;
+        int fy = 0;
         for(int i = 0; i < 3; i++){
-            x[i] = sc.nextInt();
-            y[i] = sc.nextInt();
+            arrx[i] = sc.nextInt();
+            arry[i] = sc.nextInt();
         }
-        if(x[0] == x[1])
-            xx = x[2];
-        else if(x[0] == x[2])
-            xx = x[1];
+
+        if(arrx[0] == arrx[1])
+            fx = arrx[2];
+        else if(arrx[0] == arrx[2])
+            fx = arrx[1];
         else
-            xx = x[0];
-        if(y[0] == y[1])
-            yy = y[2];
-        else if(y[0] == y[2])
-            yy = y[1];
+            fx = arrx[0];
+
+        if(arry[0] == arry[1])
+            fy = arry[2];
+        else if(arry[0] == arry[2])
+            fy = arry[1];
         else
-            yy = y[0];
-        System.out.println(xx + " " + yy);
+            fy = arry[0];
+
+        System.out.println(fx + " " + fy);
     }
 }
