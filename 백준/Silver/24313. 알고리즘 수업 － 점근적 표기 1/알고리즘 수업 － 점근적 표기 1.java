@@ -1,15 +1,17 @@
-import java.util.*;
-public class Main{
-   public static void main(String args[]){
-      Scanner sc = new Scanner(System.in);
-       int a1 = sc.nextInt();
-       int a0 = sc.nextInt();
-       int c = sc.nextInt();
-       int n0 = sc.nextInt();
-       
-       if(a1 * n0 + a0 <= c * n0 && a1 * 100 + a0 <= c * 100)
-           System.out.println(1);
-       else
-           System.out.println(0);
-   }
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        int a1 = Integer.parseInt(st.nextToken());
+        int a0 = Integer.parseInt(st.nextToken());
+        int c = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
+
+        if(a1 * n + a0 <= c * n && c >= a1) System.out.println(1);
+        else System.out.println(0);
+    }
 }
