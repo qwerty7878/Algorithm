@@ -1,13 +1,18 @@
-import java.util.*;
+import java.io.*;
+import java.util.StringTokenizer;
 
-public class Main{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int sum = 0;
-        for(int i = 0; i < 5; i++){
-            int n = sc.nextInt();
-            sum += Math.pow(n,2);   
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        int arr[] = new int[5];
+        long sum = 0;
+
+        for(int i = 0; i < arr.length; i++){
+            arr[i] = Integer.parseInt(st.nextToken());
+            sum += Math.pow(arr[i], 2);
         }
-        System.out.println(sum%10);
+        System.out.println(sum % 10);
     }
 }
