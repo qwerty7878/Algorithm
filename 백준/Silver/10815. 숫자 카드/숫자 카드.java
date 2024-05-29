@@ -1,24 +1,31 @@
-import java.util.*;
+import java.io.*;
+import java.util.HashSet;
+import java.util.StringTokenizer;
 
-public class Main{
-	public static void main(String[] args){
-		Scanner sc = new Scanner(System.in);
-		StringBuilder sb = new StringBuilder();
 
-		int n = sc.nextInt();
-		int card[] = new int [n];
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
 
-		for(int i = 0; i < n; i++){
-			card[i] = sc.nextInt();
-		}
-		Arrays.sort(card);
-		
-		int m = sc.nextInt();
-		for(int i = 0; i < m; i++){
-			int num = sc.nextInt();
-			if(Arrays.binarySearch(card, num) < 0) sb.append("0 ");
-			else sb.append("1 ");
-		}
-		System.out.println(sb);
-	}
+        HashSet<Integer> hp = new HashSet<>();
+
+        int n = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine(), " ");
+        for(int i = 0; i < n; i++){
+            hp.add(Integer.parseInt(st.nextToken()));
+        }
+
+        int m = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine(), " ");
+        for(int i = 0; i < m; i++){
+            if(hp.contains(Integer.parseInt(st.nextToken()))){
+                sb.append(1).append(" ");
+            }
+            else sb.append(0).append(" ");
+        }
+
+        System.out.println(sb);
+   }
 }
