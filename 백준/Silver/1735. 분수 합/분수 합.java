@@ -1,23 +1,31 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
-public class Main{
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		int a = sc.nextInt(); // a/b
-		int b = sc.nextInt();
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int c = sc.nextInt(); // c/d
-		int d = sc.nextInt();
+        StringTokenizer st = new StringTokenizer(br.readLine()," ");
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
 
-		int ans1 = (a*d) + (b*c);
-		int ans2 = b * d;
+        st = new StringTokenizer(br.readLine()," ");
+        int c = Integer.parseInt(st.nextToken());
+        int d = Integer.parseInt(st.nextToken());
 
-		System.out.println(ans1/gcd(ans1,ans2) + " " + ans2/gcd(ans1,ans2));
-	}
-	public static int gcd(int n,int m){ // 유클리드 호제법
-		if(m == 0) return n;
+        int mom = b * d;
+        int son = (a * d) + (b * c);
 
-		return gcd(m, n%m);
-	}
+        int divide = gcd(son, mom);
+        mom /= divide;
+        son /= divide;
+        System.out.println(son + " " + mom);
+    }
+
+   public static int gcd(int n, int m){
+        if(m == 0)  return n;
+        return gcd(m, n % m);
+   }
 }
