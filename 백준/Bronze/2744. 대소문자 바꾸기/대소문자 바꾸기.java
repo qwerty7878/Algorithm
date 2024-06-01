@@ -1,17 +1,21 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class Main{
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-		String s = sc.next();
+public class Main {
+    public static void main(String[] args)  throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-		for(int i = 0; i < s.length(); i++){
-			char c = s.charAt(i);
+        String score = br.readLine();
 
-			if(Character.isUpperCase(c))
-				System.out.print(String.valueOf(c).toLowerCase());
-			else
-				System.out.print(String.valueOf(c).toUpperCase());
-		}
-	}
+        for (int i = 0; i < score.length(); i++) {
+            if (Character.isUpperCase(score.charAt(i))) {
+                sb.append(Character.toLowerCase(score.charAt(i)));
+            } else {
+                sb.append(Character.toUpperCase(score.charAt(i)));
+            }
+        }
+        System.out.println(sb);
+    }
 }
