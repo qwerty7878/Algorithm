@@ -1,22 +1,31 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
-class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-		int a = sc.nextInt();
-		int b = sc.nextInt();
-		int gcd = gcd(a,b);
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-		System.out.println(gcd);
-		System.out.println((a * b)/gcd);
-	}
+        sb.append(gcd(n, m))
+                .append("\n")
+                .append(lcm(n, m));
 
-	public static int gcd(int a, int b){
-		
-		if(b == 0)
-			return a;
-		
-			return gcd(b, a % b);
-	}
+        System.out.println(sb);
+    }
+
+    static int gcd(int a, int b) {
+        if(b == 0)  return a;
+        return gcd(b, a % b);
+    }
+
+    static int lcm(int a, int b) {
+        if(b == 0) return a;
+        return (a * b) / gcd(a, b);
+    }
 }
