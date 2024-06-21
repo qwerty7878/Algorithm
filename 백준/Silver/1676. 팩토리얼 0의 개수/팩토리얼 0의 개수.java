@@ -1,17 +1,30 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
 
-public class Main{
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
 
-		int n = sc.nextInt();
-		int cnt = 0;
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-		// 0으로 끝난다는 것은 2 * 5가 최소로 박혀있다는 것이므로
-		while(n >= 5){ 
-			cnt += n / 5;
-			n /= 5;
-		}
-		System.out.println(cnt);
-	}
+        int n = Integer.parseInt(br.readLine());
+        BigInteger num = new BigInteger("1");
+
+        for (int i = 1; i <= n; i++) {
+            num = num.multiply(BigInteger.valueOf(i));
+        }
+
+        String s = "" + num;
+        int cnt = 0;
+
+        for (int i = s.length() -1; i >= 0; i--) {
+            if (s.charAt(i) == '0') {
+                cnt++;
+            }else break;
+        }
+        sb.append(cnt);
+        System.out.println(cnt);
+    }
 }
