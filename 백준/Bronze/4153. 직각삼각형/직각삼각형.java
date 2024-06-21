@@ -1,26 +1,32 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
-class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		while(true){
 
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-			int c = sc.nextInt();
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
 
-			if(a == 0 && b == 0 && c == 0)
-				break;
-			
-			if(Math.pow(a,2) + Math.pow(b,2) == Math.pow(c,2))
-				System.out.println("right");
-			else if(Math.pow(c,2) + Math.pow(b,2) == Math.pow(a,2))
-				System.out.println("right");
-			else if(Math.pow(a,2) + Math.pow(c,2) == Math.pow(b,2))
-				System.out.println("right");
-			else
-				System.out.println("wrong");
-		}
-	}
+        while (true) {
+            int arr[] = new int[3];
+            st = new StringTokenizer(br.readLine(), " ");
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = Integer.parseInt(st.nextToken());
+            }
+
+            if(arr[0] == 0 && arr[1] == 0 && arr[2] == 0)   break;
+            Arrays.sort(arr);
+
+            if (Math.pow(arr[0], 2) + Math.pow(arr[1], 2) == Math.pow(arr[2], 2)) {
+                sb.append("right").append("\n");
+            } else {
+                sb.append("wrong").append("\n");
+            }
+        }
+        System.out.println(sb);
+    }
 }
