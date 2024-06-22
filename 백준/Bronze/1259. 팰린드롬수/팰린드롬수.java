@@ -1,18 +1,22 @@
-import java.util.*;
-public class Main{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        while(true){
-            String s = sc.next();
-            StringBuilder sb = new StringBuilder(s);
-            String Reverse = sb.reverse().toString();
-            //reverse를 쓰기 위해서 stringbuilder를 사용
-            if(s.equals("0"))
-                break;
-            if(s.equals(Reverse))
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb;
+
+        while (true) {
+            String s = br.readLine();
+            if(s.equals("0")) break;
+            sb = new StringBuilder(s);
+            if (s.equals(sb.reverse().toString())) {
                 System.out.println("yes");
-            else
+            } else {
                 System.out.println("no");
+            }
         }
     }
 }
