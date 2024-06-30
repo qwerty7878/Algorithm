@@ -1,35 +1,36 @@
-import java.util.*;
+import java.io.*;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Main {
-	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-        
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int arr[] = new int [n];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        for(int i = 0; i < n; i++){
-            arr[i] = sc.nextInt();
+        int n = Integer.parseInt(br.readLine());
+        int m = Integer.parseInt(br.readLine());
+        int arr[] = new int[n];
+
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(arr);
 
-        int cnt = 0;
         int start = 0;
         int end = n - 1;
+        int cnt = 0;
 
-        while(start < end){
-            if(arr[start] + arr[end] < m)
-                start++;
-            else if(arr[start] + arr[end] > m)
-                end--;
-            else{
+        while (start < end) {
+            if (arr[start] + arr[end] == m) {
                 cnt++;
                 start++;
+                end--;
+            } else if (arr[start] + arr[end] < m) {
+                start++;
+            } else {
                 end--;
             }
         }
         System.out.println(cnt);
-	}
-
+    }
 }
