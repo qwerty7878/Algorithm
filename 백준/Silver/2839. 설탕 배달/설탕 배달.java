@@ -1,16 +1,26 @@
+import java.io.*;
 import java.util.*;
-public class Main{
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        
-        if(n == 4 || n == 7)
-            System.out.println(-1);
-        else if(n % 5 == 0)
-            System.out.println(n/5);
-        else if(n % 5 == 1 || n % 5 == 3)
-            System.out.println(n/5 + 1);
-        else if(n % 5 == 2 || n % 5 == 4)
-            System.out.println(n/5 + 2);
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       
+        int n = Integer.parseInt(br.readLine());
+        int cnt = 0;
+
+        while (n > 0) {
+            if (n % 5 == 0) {
+                cnt += n / 5;
+                break;
+            }
+            else {
+                n -= 3;
+                cnt++;
+            }
+            if (n < 0) {
+                cnt = -1;
+            }
+        }
+        System.out.println(cnt);
     }
 }
