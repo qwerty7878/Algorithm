@@ -1,63 +1,50 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.io.*;
+import java.util.*;
 
-public class Main{
-	public static void main(String[] args) throws IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
-		String n = br.readLine();
-		int m = Integer.parseInt(br.readLine());
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		LinkedList<Character> list = new LinkedList<Character>();
+        String s = br.readLine();   //  초기 문자열
+        Stack<Character> left = new Stack<>();
+        Stack<Character> right = new Stack<>();
+        // 커서 위치를 left | right 라고 생각
 
-		for(int i = 0; i < n.length(); i++){
-			list.add(n.charAt(i));
-		}
+        for (int i = 0; i < s.length(); i++) {  //  초기 문자열 입력
+            left.push(s.charAt(i));
+        }
 
-		ListIterator<Character> iter = list.listIterator();
+        int n = Integer.parseInt(br.readLine());    //  반복 횟수
 
-		while(iter.hasNext()){
-			iter.next();
-		}
+        for (int i = 0; i < n; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            char c = st.nextToken().charAt(0);  //  문자열 첫글자
 
-		for(int i = 0; i < m; i++){
-			String command = br.readLine();
-			char c = command.charAt(0);
-			switch(c){
-				case 'L' :
-					if(iter.hasPrevious())
-						iter.previous();
-					break;
+            if (c == 'L') {
+                if (!left.isEmpty()) {  // 커서가 맨 앞에 가면 무시한다 = 스택이 비어있다면
+                    right.push(left.pop());
+                }
+            } else if (c == 'D') {
+                if (!right.isEmpty()) {
+                    left.push(right.pop());
+                }
+            } else if (c == 'B') {
+                if (!left.isEmpty()) {
+                    left.pop();
+                }
+            } else if (c == 'P') {
+                left.push(st.nextToken().charAt(0));
+            }
+        }
 
-				case 'D' :
-					if(iter.hasNext())
-						iter.next();
-					break;
+        while (!left.isEmpty()) {   //  끝날땐 커서 맨 앞으로 보내줘야하니까 left비우고 right으로 채워줌
+            right.push(left.pop());
+        }
 
-				case 'B' :
-				if(iter.hasPrevious()){
-						iter.previous();
-						iter.remove();
-				}
-					break;
-
-				case 'P' :
-					char t = command.charAt(2);
-					iter.add(t);
-				
-					break;
-			}
-		}
-		for(Character chr : list)
-			bw.write(chr);
-
-		bw.flush();
-		bw.close();
-	}
+        StringBuilder sb = new StringBuilder();
+        while (!right.isEmpty()) {  //  right 스택 출력
+            sb.append(right.pop());
+        }
+        System.out.println(sb);
+    }
 }
