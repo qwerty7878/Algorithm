@@ -1,28 +1,28 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int arr[][] = new int [15][15];
+        int t = Integer.parseInt(br.readLine());    //  testcase
+        int apt[][] = new int[15][15];  // 14까지니까
 
-		for(int i = 0; i < 15; i++){
-			arr[0][i] = i;
-			arr[i][1] = 1;
-		}
+        for (int i = 0; i < 15; i++) {  //  기본값 설정
+            apt[i][1] = 1;  // i층 1호
+            apt[0][i] = i;  // 0층 i호
+        }
 
-		for(int i = 1; i < 15; i++){
-			for(int j = 2; j < 15; j++){
-				arr[i][j] = arr[i - 1][j] + arr[i][j-1];
-			}
-		}
+        for (int i = 1; i < 15; i++) {  //  14층 까지
+            for (int j = 2; j < 15; j++) {  //  호수, 1호는 이미 기본값으로 설정되어 있음
+                apt[i][j] = apt[i - 1][j] + apt[i][j - 1];   //  한 층 빼고 그 밑에 호수 사람들 더한 값이 해당 층의 사람들
+            }
+        }
 
-		int t = sc.nextInt();
-
-		for(int i = 0; i < t; i++){
-			int k = sc.nextInt();
-			int n = sc.nextInt();
-			System.out.println(arr[k][n]);
-		}
-	}
+        for (int i = 0; i < t; i++) {
+            int k = Integer.parseInt(br.readLine());
+            int n = Integer.parseInt(br.readLine());
+            System.out.println(apt[k][n]);
+        }
+    }
 }
