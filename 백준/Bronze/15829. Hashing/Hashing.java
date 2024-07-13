@@ -7,16 +7,14 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());    //  문자열 길이
         String s = br.readLine();   //  문자열
-        char carr[] = new char[n];
-
-        for (int i = 0; i < n; i++) {
-            carr[i] = s.charAt(i);
-        }
 
         long sum = 0;
-        for (int i = 0; i < n; i++) {
-            long num = carr[i] - 'a' + 1;
-            sum += (long) Math.pow(31,i) * num;
+        long r = 1;
+
+        for (int i = 1; i <= n; i++) {
+            long num = s.charAt(i - 1) - 'a' + 1;
+            sum += (num * r) % 1234567891;
+            r = ((r * 31) % 1234567891);
         }
 
         System.out.println(sum % 1234567891);
