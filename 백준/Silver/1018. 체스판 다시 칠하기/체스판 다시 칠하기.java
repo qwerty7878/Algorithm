@@ -1,65 +1,58 @@
-import java.util.Scanner;
- 
-public class Main {
- 
-	public static boolean[][] arr;
-	public static int min = 64;
- 
-	public static void main(String[] args) {
- 
-		Scanner sc = new Scanner(System.in);
- 
-		int N = sc.nextInt();
-		int M = sc.nextInt();
- 
-		arr = new boolean[N][M];
-		
-		for (int i = 0; i < N; i++) {
-			String str = sc.next();
-			
-			for (int j = 0; j < M; j++) {
-				if (str.charAt(j) == 'W') {
-					arr[i][j] = true;
-				} else {
-					arr[i][j] = false;
-				}
- 
-			}
-		}
- 
-		
-		int N_row = N - 7;
-		int M_col = M - 7;
- 
-		for (int i = 0; i < N_row; i++) {
-			for (int j = 0; j < M_col; j++) {
-				find(i, j);
-			}
-		}
-		System.out.println(min);
-	}
- 
-	
-	public static void find(int x, int y) {
-		int end_x = x + 8;
-		int end_y = y + 8;
-		int count = 0;
- 
-		boolean TF = arr[x][y];
- 
-		for (int i = x; i < end_x; i++) {
-			for (int j = y; j < end_y; j++) {
- 
-				if (arr[i][j] != TF) {	
-					count++;
-				}
-				TF = (!TF);
-			}
-			
-			TF = !TF;
-		}
+import java.io.*;
+import java.util.*;
 
-		count = Math.min(count, 64 - count);
-		min = Math.min(min, count);
-	}
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+
+        String example[] = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            example[i] = br.readLine();
+        }
+
+        String whiteboard[] = new String[8];
+        String blackboard[] = new String[8];
+
+        for (int i = 0; i < 8; i++) {   //  검은 보드
+            if (i % 2 == 0) {
+                blackboard[i] = "BWBWBWBW";
+            } else {
+                blackboard[i] = "WBWBWBWB";
+            }
+        }
+
+        for (int i = 0; i < 8; i++) {   //  흰 보드
+            if (i % 2 == 0) {
+                whiteboard[i] = "WBWBWBWB";
+            } else {
+                whiteboard[i] = "BWBWBWBW";
+            }
+        }
+
+        int min = 64;
+        for (int i = 0; i < (n - 7); i++) {
+            for (int j = 0; j < (m - 7); j++) {
+                int wcnt = 0;
+                int bcnt = 0;
+                for (int k = 0; k < 8; k++) {
+                    for (int l = 0; l < 8; l++) {
+                        if (whiteboard[k].charAt(l) != example[k + i].charAt(l + j)) {
+                            wcnt++;
+                        }
+                        if (blackboard[k].charAt(l) != example[k + i].charAt(l + j)) {
+                            bcnt++;
+                        }
+                    }
+                }
+                min = Math.min(min,Math.min(wcnt, bcnt));
+            }
+        }
+
+        System.out.println(min);
+    }
 }
