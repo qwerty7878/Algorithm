@@ -1,16 +1,22 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int up = sc.nextInt();
-        int down = sc.nextInt();
-        int height = sc.nextInt();
-        
-        int day = (height - down) / (up - down);
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
-        if((height - down) % (up - down) != 0)
-            day++;
-        
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        long a = Long.parseLong(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
+        long v = Long.parseLong(st.nextToken());
+
+        double up = a - b;
+        double distace = v - a;
+
+        int day = 1;
+        day += (int)Math.ceil(distace / up);
         System.out.println(day);
     }
 }
