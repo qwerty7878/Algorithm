@@ -1,67 +1,31 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
-public class Main{
-	public static void main(String[] args) throws IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-		int t = Integer.parseInt(br.readLine());
-		long arr[] = new long [41];
-		arr[1] = 1;
+        int t = Integer.parseInt(br.readLine());
 
-		for(int i = 2; i < 41; i++){
-			arr[i] = arr[i-1] + arr[i-2];
-		}
+        int dp_zero[] = new int[41];
+        int dp_one[] = new int[41];
 
-		for(int i = 0; i < t; i++){
-			int n = Integer.parseInt(br.readLine());
-			if(n == 0){
-				sb.append("1 0").append('\n');
-				continue;
-			}
-			sb.append(arr[n-1] + " " + arr[n]).append('\n');
-		}
-		System.out.println(sb.toString());
-	}
-}
+        //  초기값
+        dp_one[0] = 0;
+        dp_one[1] = 1;
+        dp_zero[0] = 1;
+        dp_zero[1] = 0;
 
+        for (int i = 0; i < t; i++) {
+            int n = Integer.parseInt(br.readLine());
 
-//2번째 방법
+            for (int j = 2; j <= n; j++) {
+                dp_one[j] = dp_one[j - 1] + dp_one[j - 2];
+                dp_zero[j] = dp_zero[j - 1] + dp_zero[j - 2];
+            }
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class Main{
-
-	static Integer arr[][] = new Integer [41][2];
-
-	public static void main(String[] args) throws IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-
-		int t = Integer.parseInt(br.readLine());
-
-		arr[0][0] = 1;
-		arr[0][1] = 0;
-		arr[1][0] = 0;
-		arr[1][1] = 1;
-		
-		for(int i = 0; i < t; i++){
-			int n = Integer.parseInt(br.readLine());
-			fibo(n);
-			sb.append(arr[n][0] + " " + arr[n][1]).append('\n');
-		}
-		System.out.println(sb.toString());
-	}
-
-	static Integer[] fibo(int n){
-		if(arr[n][0] == null || arr[n][1] == null){
-			arr[n][0] = fibo(n-1)[0] + fibo(n-2)[0];
-			arr[n][1] = fibo(n-1)[1] + fibo(n-2)[1];
-		}
-		return arr[n];
-	}
+            sb.append(dp_zero[n] + " " + dp_one[n]).append("\n");
+        }
+        System.out.println(sb.toString());
+    }
 }
