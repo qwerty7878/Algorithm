@@ -1,11 +1,6 @@
-import java.util.*;
-
 class Solution {
     public int solution(int[] arrayA, int[] arrayB) {
         int answer = 0;
-        
-        Arrays.sort(arrayA);
-        Arrays.sort(arrayB);
         
         //최대공약수 A
         int numA = arrayA[0];
