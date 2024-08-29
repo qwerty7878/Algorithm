@@ -1,35 +1,37 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
-class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		boolean check[] = new boolean[10001];
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		for(int i = 1; i < 10001; i++){
-			int n = d(i);
+        boolean check[] = new boolean[10001];
 
-			if(n < 10001)
-				check[n] = true;
-		}
+        for (int i = 1; i < 10001; i++) {
+            int num = d(i);
 
-		StringBuilder sb = new StringBuilder();
-		
-		for(int i = 1; i < 10001; i++){
-			if(!check[i])
-				sb.append(i).append('\n');
-		}
-		System.out.println(sb);
-	}
+            if (num < 10001) {
+                check[num] = true;
+            }
+        }
+        
+        for (int i = 1; i < 10001; i++) {
 
-	public static int d(int number){
-		int sum = number;
+            if (!check[i]) {
+                System.out.println(i);
+            }
+        }
+    }
 
-		while(number != 0){
-			sum += number % 10;
-			number = number/10;
-		}
+    static int d(int n) {
 
-		return sum;
-	}
+        int sum = n;
+        while (n != 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
 }
