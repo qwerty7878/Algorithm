@@ -1,10 +1,10 @@
 # [level 0] 암호 해독 - 120892 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120892) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120892?language=python3) 
 
 ### 성능 요약
 
-메모리: 80.2 MB, 시간: 9.85 ms
+메모리: 9.95 MB, 시간: 0.09 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 04월 16일 15:39:59
+2024년 12월 17일 21:45:38
 
 ### 문제 설명
 
