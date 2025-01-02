@@ -1,12 +1,12 @@
-import sys
+n,m = map(int,input().split())
 
-n,m = map(int,sys.stdin.readline().split())
-list = [0] * n
-for t in range(m):
-    a,b,c, = map(int,sys.stdin.readline().split())
+arr = [0 for i in range(n)]
 
-    for i in range(a,b + 1):
-        list[i - 1] = c
+for _ in range(m):
+    i,j,k = map(int,input().split())
 
-for i in range(n):
-    print(list[i],end=" ")
+    for a in range(i,j + 1):
+        arr[a - 1] = k
+
+for i in arr:
+    print(i,end=" ")
