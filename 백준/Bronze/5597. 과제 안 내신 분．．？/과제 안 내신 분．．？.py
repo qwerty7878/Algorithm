@@ -1,11 +1,8 @@
-student = []
-
-for i in range(1,31):
-    student.append(i)
+arr = [i for i in range(1,31)]
 
 for i in range(28):
-    num = int(input())
-    student.remove(num)
+    n = int(input())
+    arr.remove(n)
 
-print(min(student))
-print(max(student))
+print(min(arr))
+print(max(arr))
