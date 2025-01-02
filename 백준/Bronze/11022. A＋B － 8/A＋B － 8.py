@@ -1,8 +1,5 @@
-import sys
+t = int(input())
 
-num = int(sys.stdin.readline())
-
-for i in range(num):
-    a,b = map(int, sys.stdin.readline().split())
-    text = "Case #"
-    print(text,i + 1,": ",a," + ",b," = ",a+b,sep="")
+for i in range(t):
+    a,b = map(int, input().split())
+    print(f'Case #{i + 1}: {a} + {b} = {a + b}')
