@@ -1,3 +1,2 @@
-str = '??!'
 name = input()
-print(name + str)
+print(name + '??!')
