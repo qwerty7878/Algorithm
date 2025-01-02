@@ -1,5 +1,4 @@
 n = int(input())
-list = list(map(int, input().split()))
-list.sort()
+arr = list(map(int, input().split()))
 
-print(list[0],list[len(list)-1])
+print(min(arr),max(arr))
