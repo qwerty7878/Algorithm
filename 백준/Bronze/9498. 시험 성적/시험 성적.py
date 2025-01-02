@@ -1,12 +1,11 @@
-a = int(input())
-
-if a >= 90 and a <= 100:
-    print("A")
-elif a >= 80 and a < 90:
-    print("B")
-elif a >= 70 and a < 80:
-    print("C")
-elif a >= 60 and a < 70:
-    print("D")
-else :
-    print("F")
+score = int(input())
+if(score > 89 and score <= 100):
+    print('A')
+elif(score > 79 and score <= 90):
+    print('B')
+elif (score > 69 and score <= 80):
+    print('C')
+elif (score > 59 and score <= 70):
+    print('D')
+else:
+    print('F')
