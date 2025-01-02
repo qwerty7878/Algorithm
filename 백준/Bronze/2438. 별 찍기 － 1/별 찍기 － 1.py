@@ -1,4 +1,5 @@
-num = int(input())
+n = int(input())
 
-for i in range(1,num + 1):
-    print("*" * i)
+for i in range(n):
+    print('*' * (i + 1))
+print()
