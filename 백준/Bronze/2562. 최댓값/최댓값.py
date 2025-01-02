@@ -1,9 +1,7 @@
-import sys
+arr = []
 
-list = []
-for i in range (9):
-    num = int(sys.stdin.readline())
-    list.append(num)
+for i in range(9):
+    arr.append(int(input()))
 
-print(max(list))
-print(list.index(max(list)) + 1)
+print(max(arr))
+print(arr.index(max(arr)) + 1)
