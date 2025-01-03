@@ -1,3 +1,3 @@
 str = input()
-num = int(input())
-print(str[num - 1])
+n = int(input())
+print(str[n - 1])
