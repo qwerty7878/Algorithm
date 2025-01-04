@@ -1,2 +1,2 @@
-str = input()
-print(ord(str))
+code = input()
+print(ord(code))
