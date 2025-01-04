@@ -1,2 +1,3 @@
-str = input().split()
-print(len(str))
+str = input().strip()
+arr = str.split()
+print(len(arr))
