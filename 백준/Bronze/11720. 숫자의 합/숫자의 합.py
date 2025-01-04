@@ -1,8 +1,6 @@
 n = int(input())
-num = input()
+str = input()
 sum = 0
-
 for i in range(n):
-    sum += int(num[i])
-
+    sum += int(str[i])
 print(sum)
