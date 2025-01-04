@@ -1,4 +1,4 @@
-test = int(input())
-for i in range (test):
+t = int(input())
+for i in range(t):
     str = input()
-    print(str[0] + str[len(str)-1])
+    print(str[0] + str[-1])
