@@ -1,5 +1,6 @@
-while True:
+while(True):
     try:
-        print(input())
+        str = input().strip()
+        print(str)
     except:
         break
