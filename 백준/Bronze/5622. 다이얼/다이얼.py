@@ -1,11 +1,10 @@
-dial = ["ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"]
-alpha = input()
-time = 0
+dial = ['ABC','DEF','GHI','JKL','MNO','PQRS','TUV','WXYZ']
+word = input()
+ans = 0
+for i in dial:
+    for j in word:
+        if j in i:
+            ans += dial.index(i) + 2
 
-for i in alpha:
-    for j in dial:
-        if i in str(j):
-            num = dial.index(j) + 3
-            time += num
-
-print(time)
+ans += len(word)
+print(ans)
