@@ -1,6 +1,5 @@
 str = input()
-pal = str[::-1]
-if str == pal:
-    print(1)
+if str == str[::-1]:
+   print(1)
 else:
-    print(0)
+   print(0)
