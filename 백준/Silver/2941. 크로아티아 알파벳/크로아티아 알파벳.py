@@ -1,8 +1,10 @@
-alpha = ['c=','c-','dz=','d-','lj','nj','s=','z=']
 str = input()
-
-for i in alpha:
-    if i in str:
-        str = str.replace(i,'*')
-
+str = str.replace('c=','@')
+str = str.replace('c-','@')
+str = str.replace('dz=','@')
+str = str.replace('d-','@')
+str = str.replace('lj','@')
+str = str.replace('nj','@')
+str = str.replace('s=','@')
+str = str.replace('z=','@')
 print(len(str))
