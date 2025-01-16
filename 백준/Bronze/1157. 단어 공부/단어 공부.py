@@ -1,13 +1,12 @@
-word = input().upper()
-list = list(set(word))
-
+str = input().upper()
+word = list(set(str))
 cnt = []
 
-for i in list:
-    count = word.count(i)
+for i in word:
+    count = str.count(i)
     cnt.append(count)
 
-if cnt.count(max(cnt)) >= 2:
+if cnt.count(max(cnt)) > 1:
     print('?')
 else:
-    print(list[cnt.index(max(cnt))])
+    print(word[cnt.index(max(cnt))])
