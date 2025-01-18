@@ -1,16 +1,16 @@
-n,m = map(int, input().split())
+n,m = map(int,input().split())
 
-A,B = [], []
-
+a = []
 for i in range(n):
-    a = list(map(int, input().split()))
-    A.append(a)
+    num1 = list(map(int,input().split()))
+    a.append(num1)
 
+b = []
 for i in range(n):
-    b = list(map(int, input().split()))
-    B.append(b)
+    num1 = list(map(int,input().split()))
+    b.append(num1)
 
 for i in range(n):
     for j in range(m):
-        print(A[i][j] + B[i][j], end=" ")
+        print(a[i][j] + b[i][j],end=' ')
     print()
