@@ -1,23 +1,33 @@
-grade_dict = {
-    'A+' : 4.5,
-    'A0': 4.0,
-    'B+': 3.5,
-    'B0': 3.0,
-    'C+': 2.5,
-    'C0': 2.0,
-    'D+': 1.5,
-    'D0': 1.0,
-    'F': 0.0
-}
+total = 0
+div = 0
 
-major_score = 0
-total_score = 0
+for _ in range(20):
+    name,score,grade = input().split()
+    score = float(score)
 
-for i in range(20):
-    n,s,g = input().split()
-    if g == 'P':
+    if grade == 'P':
         continue
-    major_score += float(s) * grade_dict[g]
-    total_score +=  float(s)
 
-print('%.6f' % (major_score / total_score))
+    if grade == 'A+':
+        grade_score = 4.5
+    elif grade == 'A0':
+        grade_score = 4.0
+    elif grade == 'B+':
+        grade_score = 3.5
+    elif grade == 'B0':
+        grade_score = 3.0
+    elif grade == 'C+':
+        grade_score = 2.5
+    elif grade == 'C0':
+        grade_score = 2.0
+    elif grade == 'D+':
+        grade_score = 1.5
+    elif grade == 'D0':
+        grade_score = 1.0
+    elif grade == 'F':
+        grade_score = 0.0
+
+    total += score * grade_score
+    div += score
+
+print(f'{total / div :.6f}')
