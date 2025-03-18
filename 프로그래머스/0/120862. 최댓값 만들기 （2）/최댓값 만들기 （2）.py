@@ -1,8 +1,9 @@
 def solution(numbers):
-    answer = 0
     numbers.sort()
-    if numbers[0] * numbers[1] > numbers[-1] * numbers[-2]:
-        answer = numbers[0] * numbers[1]
+    plus_max = numbers[-1] * numbers[-2]
+    minus_max = numbers[0] * numbers[1]
+    
+    if plus_max > minus_max:
+        return plus_max
     else:
-        answer = numbers[-1] * numbers[-2]
-    return answer
+        return minus_max
