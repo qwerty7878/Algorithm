@@ -1,3 +1,4 @@
 def solution(num1, num2):
-    answer = num1 / num2
-    return int(answer * 1000)
+    answer = (float)(num1 / num2)
+    result = (int)(answer * 1000)
+    return result
