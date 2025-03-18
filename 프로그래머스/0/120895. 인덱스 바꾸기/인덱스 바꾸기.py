@@ -1,7 +1,6 @@
 def solution(my_string, num1, num2):
-    answer = ''
-    my_string = list(my_string)
-    temp = my_string[num1]
-    my_string[num1] = my_string[num2]
-    my_string[num2] = temp
-    return answer.join(my_string)
+    answer = list(my_string)
+    temp = answer[num1]
+    answer[num1] = answer[num2]
+    answer[num2] = temp
+    return ''.join(answer)
