@@ -1,9 +1,11 @@
-from collections import deque
-
 def solution(numbers, direction):
-    numbers = deque(numbers)
+    answer = []
     if direction == 'right':
-        numbers.rotate(1)
+        answer.append(numbers[-1])
+        for i in range(0,len(numbers) - 1):
+            answer.append(numbers[i])
     elif direction == 'left':
-        numbers.rotate(-1)
-    return list(numbers)
+        for i in range(1,len(numbers)):
+            answer.append(numbers[i])
+        answer.append(numbers[0])
+    return answer
