@@ -1,6 +1,7 @@
-import math
-
 def solution(n):
-    answer = 0
-    answer = n * 6 // math.gcd(n,6) // 6
+    answer = 1
+    while True:
+        if (answer * 6) % n == 0:
+            break
+        answer += 1
     return answer
