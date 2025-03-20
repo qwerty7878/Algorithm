@@ -7,3 +7,5 @@ def solution(s):
         else:
             word += ' '
     return word[:-1]
+
+    # return " ".join([word.capitalize() for word in s.split(" ")])
