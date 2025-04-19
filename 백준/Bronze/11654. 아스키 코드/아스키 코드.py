@@ -1,2 +1,1 @@
-code = input()
-print(ord(code))
+print(ord(input()))
