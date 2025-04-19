@@ -1,4 +1,4 @@
-t = int(input())
-for i in range(t):
+n = int(input())
+for i in range(n):
     str = input()
-    print(str[0] + str[-1])
+    print(f'{str[0]}{str[-1]}')
