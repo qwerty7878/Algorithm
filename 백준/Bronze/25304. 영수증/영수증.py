@@ -1,11 +1,12 @@
-total = int(input())
+x = int(input())
 n = int(input())
-sum = 0
-for i in range(n):
-    price,cnt = map(int, input().split())
-    sum += price * cnt
 
-if(sum == total):
+price = 0
+for i in range(n):
+    a,b = map(int, input().split())
+    price += (a * b)
+
+if price == x:
     print('Yes')
 else:
     print('No')
