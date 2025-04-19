@@ -1,12 +1,11 @@
 a,b = map(int,input().split())
-m = int(input())
-b = b + m
-if(b + m < 60):
-    print(a,b)
-else:
-    a = a + (b // 60)
-    if(a > 23):
-        a = a % 24
-        print(a,b % 60)
-    else:
-        print(a, b % 60)
+c = int(input())
+
+time = b + c
+
+if time < 60:
+    print(a, time)
+if time >= 60 and (a + (time // 60)) < 24:
+    print(a + (time // 60), time % 60)
+if time >= 60 and (a + (time // 60)) >= 24:
+    print((a + (time // 60)) % 24, time % 60)
