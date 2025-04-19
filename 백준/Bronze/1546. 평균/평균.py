@@ -1,8 +1,8 @@
 n = int(input())
 arr = list(map(int, input().split()))
+maxN = max(arr)
 
-score = max(arr)
-for i in range(n):
-    arr[i] = (arr[i] / score) * 100
+for i in range(len(arr)):
+    arr[i] = arr[i] / maxN * 100
 
-print(sum(arr)/len(arr))
+print(sum(arr) / len(arr))
