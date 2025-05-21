@@ -1,9 +1,9 @@
 n,b = map(int,input().split())
+answer = ''
 arr = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-ans = ''
 
-while n != 0:
-    ans += str(arr[n%b])
-    n = n // b
+while n > 0:
+    answer += arr[n % b]
+    n //= b
 
-print(ans[::-1])
+print(answer[::-1])
