@@ -1,17 +1,15 @@
 x = int(input())
 line = 1
 
-while (line * (line + 1) // 2) < x:
+while x > line:
+    x -= line
     line += 1
 
-start = line * (line - 1) // 2 + 1
-position = x - start + 1
-
 if line % 2 == 0:
-    up = position
-    down = line - position + 1
-elif line % 2 == 1:
-    up = line - position + 1
-    down = position
+    a = x
+    b = line - x + 1
+elif line % 2 != 0:
+    a = line - x + 1
+    b = x
 
-print(f'{up}/{down}')
+print(f'{a}/{b}')
