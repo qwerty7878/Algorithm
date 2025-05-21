@@ -1,4 +1,5 @@
-str,n = map(str, input().split())
-n = int(n)
+n,b = input().split()
+b = int(b)
 
-print((int(str,n)))
+# 수, 변환할 수
+print(int(n,b))
