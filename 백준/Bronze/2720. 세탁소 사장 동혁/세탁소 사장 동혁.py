@@ -1,11 +1,13 @@
 t = int(input())
-c = []
-for _ in range(t):
-    c.append(int(input()))
-
-for i in c:
-    q = i // 25
-    d = (i % 25) // 10
-    n = ((i % 25) % 10) // 5
-    p = ((i % 25) % 10) % 5
-    print(q, d, n, p)
+for i in range(t):
+    c = int(input())
+    q,d,n,p = 0,0,0,0
+    
+    while c > 0:
+        q = c // 25
+        d = (c % 25) // 10
+        n = ((c % 25) % 10) // 5
+        p = (c % 25 % 10 % 5) // 1
+        break
+        
+    print(q,d,n,p)
