@@ -1,6 +1,13 @@
+import math
+
 n = int(input())
-num = 2
-for i in range(n):
-    # 1 2 4 8 16
-    num += (2 ** i)
-print(num ** 2)
+arr = [0] * 17
+
+arr[0] = 4
+arr[1] = 9
+arr[2] = 25
+
+for i in range(3, n + 1):
+    arr[i] = ((math.sqrt(arr[i - 1]) * 2) - 1) ** 2
+
+print(int(arr[n]))
