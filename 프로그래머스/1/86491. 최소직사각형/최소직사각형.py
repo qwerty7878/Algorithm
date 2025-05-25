@@ -1,10 +1,8 @@
 def solution(sizes):
-    answer = 0
     max0 = -1
     max1 = -1
     
     for i in sizes:
-        temp = 0
         if i[0] < i[1]:
             temp = i[0]
             i[0] = i[1]
