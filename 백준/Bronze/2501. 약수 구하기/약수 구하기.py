@@ -1,13 +1,11 @@
-from warnings import catch_warnings
-
 n,k = map(int,input().split())
-answer = []
 
+arr = []
 for i in range(1,n + 1):
     if n % i == 0:
-        answer.append(i)
+        arr.append(i)
 
-try:
-    print(answer[k-1])
-except IndexError:
+if len(arr) < k:
     print(0)
+else:
+    print(arr[k - 1])
