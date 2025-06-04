@@ -1,11 +1,14 @@
-import sys
+n = int(input())
 
-n = int(sys.stdin.readline())
-num = 2
+arr = []
+index = 2
 
-while n > 1:
-    if n % num == 0:
-        n = n // num
-        print(num)
+while n != 1:
+    if n % index == 0:
+        arr.append(index)
+        n /= index
     else:
-        num += 1
+        index += 1
+
+for i in arr:
+    print(i)
