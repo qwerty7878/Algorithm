@@ -1,2 +1,1 @@
-n = int(input())
-print(4 * n)
+print(int(input()) * 4)
