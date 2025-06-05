@@ -1,14 +1,17 @@
-arrX = []
-arrY = []
+arrx = []
+arry = []
+
 for i in range(3):
     x,y = map(int, input().split())
-    arrX.append(x)
-    arrY.append(y)
 
-for i in arrX:
-    if arrX.count(i) == 1:
-        print(i,end=' ')
+    if x in arrx:
+        arrx.remove(x)
+    else:
+        arrx.append(x)
+        
+    if y in arry:
+        arry.remove(y)
+    else:
+        arry.append(y)
 
-for i in arrY:
-    if arrY.count(i) == 1:
-        print(i,end=' ')
+print(arrx.pop(), arry.pop())
