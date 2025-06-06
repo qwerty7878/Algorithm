@@ -1,17 +1,14 @@
 while True:
-    angle1,angle2,angle3 = map(int,input().split())
-    arr = [angle1, angle2, angle3]
-    arr.sort()
-
-    if angle1 == 0 and angle2 == 0 and angle3 == 0:
+    angle = list(map(int, input().split()))
+    if angle[0] == 0 and angle[1] == 0 and angle[2] == 0:
         break
 
-    if arr[0] + arr[1] > arr[2]:
-        if angle1 == angle2 and angle2 == angle3 and angle1 == angle3:
-            print('Equilateral')
-        elif angle1 == angle2 or angle2 == angle3 or angle1 == angle3:
-            print('Isosceles')
-        elif angle1 != angle2 and angle2 != angle3 and angle1 != angle3:
-            print('Scalene')
-    else:
+    if max(angle) >= sum(angle) - max(angle):
         print('Invalid')
+    else:
+        if angle[0] == angle[1] and angle[1] == angle[2] and angle[2] == angle[0]:
+            print('Equilateral')
+        elif angle[0] != angle[1] and angle[1] != angle[2] and angle[2] != angle[0]:
+            print('Scalene')
+        else:
+            print('Isosceles')
