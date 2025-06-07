@@ -1,7 +1,8 @@
-cnt = []
+cnt = 0
+arr = []
 for i in range(10):
-    num = int(input())
-    cnt.append(num % 42)
+    n = int(input())
+    arr.append(n % 42)
 
-cnt = sorted(set(cnt))
-print(len(cnt))
+arr = set(arr)
+print(len(arr))
