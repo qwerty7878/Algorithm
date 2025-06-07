@@ -1,8 +1,10 @@
-student = [i for i in range(1, 31)]
+arr = [i for i in range(1,31)]
+list(arr)
+
 for i in range(28):
     num = int(input())
-    student.remove(num)
+    if num in arr:
+        arr.remove(num)
 
-student.sort()
-for i in student:
+for i in arr:
     print(i)
