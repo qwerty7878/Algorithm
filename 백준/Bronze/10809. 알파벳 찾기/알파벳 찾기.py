@@ -1,4 +1,10 @@
 str = input()
-arr = ['a','b','c','d','e','f','g', 'h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-for i in arr:
-    print(str.find(i),end=' ')
+alpha = [-1] * 26
+
+for i in str:
+    if alpha[ord(i) - ord('a')] != -1:
+        continue
+    alpha[ord(i) - ord('a')] += (str.index(i) + 1)
+
+for i in alpha:
+    print(i, end=' ')
