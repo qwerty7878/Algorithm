@@ -1,8 +1,7 @@
 t = int(input())
 for i in range(t):
-    n,str = input().split()
-    n = int(n)
-
-    for j in str:
-        print(j * n,end='')
+    r,s = input().split()
+    r = int(r)
+    for j in s:
+        print(j * r,end='')
     print()
