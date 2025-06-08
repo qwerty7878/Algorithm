@@ -1,14 +1,6 @@
-n = input()
-num = int(input())
-
+n = int(input())
+str = input()
 sum = 0
-while num > 10:
-    sum += num % 10
-    num = num // 10
-
-sum += num % 10
-
-if num >= 10:
-    num = num // 10
-    sum += num % 10
+for i in str:
+    sum += int(i)
 print(sum)
