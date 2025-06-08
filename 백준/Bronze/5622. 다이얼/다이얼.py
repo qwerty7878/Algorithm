@@ -1,21 +1,20 @@
-str = input()
-time = len(str)
-for i in str:
-    if i == 'A' or i == 'B' or i == 'C':
+str = input().upper()
+time = 0
+for char in str:
+    if char in 'ABC':
         time += 2
-    elif i == 'D' or i == 'E' or i == 'F':
+    if char in 'DEF':
         time += 3
-    elif i == 'G' or i == 'H' or i == 'I':
+    if char in 'GHI':
         time += 4
-    elif i == 'J' or i == 'K' or i == 'L':
+    if char in 'JKL':
         time += 5
-    elif i == 'M' or i == 'N' or i == 'O':
+    if char in 'MNO':
         time += 6
-    elif i == 'P' or i == 'Q' or i == 'R' or i == 'S':
+    if char in 'PQRS':
         time += 7
-    elif i == 'T' or i == 'U' or i == 'V':
+    if char in 'TUV':
         time += 8
-    elif i == 'W' or i == 'X' or i == 'Y' or i == 'Z':
+    if char in 'WXYZ':
         time += 9
-
-print(time)
+print(time + len(str))
