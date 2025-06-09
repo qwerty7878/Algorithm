@@ -1,26 +1,25 @@
-# 단어 개수
 n = int(input())
-
-# 개수 저장
-count = n
-
-# 단어 개수 반복
+count = 0
 for i in range(n):
+    stack = []
+    str = input()
 
-    # 단어 입력
-    word = input()
+    for char in str:
+        # 첫글자
+        if len(stack) == 0:
+            stack.append(char)
+        else:
+            # 완전히 다른 글자인 경우 happ 'y'
+            if char not in stack:
+                stack.append(char)
+            # 바로 전에 같은 글자 일때 ha p 'p'
+            elif stack[-1] == char:
+                stack.append(char)
+            # 떨어져서 나오는 경우 ab 'a'
+            elif stack[-1] != char and char in stack:
+                break
 
-    # 단어 하나하나 확인하기
-    for j in range(0, len(word) - 1):
-        # 바로 그 다음에 나오는 경우   ex) happy
-        if word[j] == word[j + 1]:
-            continue
+        if len(stack) == len(str):
+            count += 1
 
-        # 바로 그 다음 경우를 제외하고 이후에 나오는 경우
-        elif word[j] in word[j + 1:]:
-
-            # 더이상 볼 가치도 없음
-            count -= 1
-            break
-# 출력
 print(count)
