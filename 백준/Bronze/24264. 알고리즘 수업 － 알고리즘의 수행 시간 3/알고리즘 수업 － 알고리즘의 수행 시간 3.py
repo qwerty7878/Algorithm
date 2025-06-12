@@ -1,4 +1,3 @@
 n = int(input())
-cnt = 0
-print(n * n)
+print(n ** 2)
 print(2)
