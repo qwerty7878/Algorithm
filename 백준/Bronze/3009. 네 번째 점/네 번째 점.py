@@ -1,17 +1,17 @@
-arrx = []
-arry = []
+arrX = []
+arrY = []
 
-for i in range(3):
+for _ in range(3):
     x,y = map(int, input().split())
 
-    if x in arrx:
-        arrx.remove(x)
+    if x in arrX:
+        arrX.remove(x)
     else:
-        arrx.append(x)
-        
-    if y in arry:
-        arry.remove(y)
-    else:
-        arry.append(y)
+        arrX.append(x)
 
-print(arrx.pop(), arry.pop())
+    if y in arrY:
+        arrY.remove(y)
+    else:
+        arrY.append(y)
+
+print(arrX.pop(),arrY.pop())
