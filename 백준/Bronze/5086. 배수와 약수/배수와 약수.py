@@ -4,9 +4,9 @@ while True:
     if a == 0 and b == 0:
         break
 
-    if a > b and a % b == 0:
+    if a % b == 0:
         print('multiple')
-    elif a < b and b % a == 0:
+    elif b % a == 0:
         print('factor')
-    else:
+    elif a % b != 0 and b % a != 0:
         print('neither')
