@@ -1,14 +1,15 @@
 while True:
-    angle = list(map(int, input().split()))
-    if angle[0] == 0 and angle[1] == 0 and angle[2] == 0:
+    staff = list(map(int,input().split()))
+
+    if staff[0] == 0 and staff[1] == 0 and staff[2] == 0:
         break
 
-    if max(angle) >= sum(angle) - max(angle):
+    if max(staff) >= sum(staff) - max(staff):
         print('Invalid')
     else:
-        if angle[0] == angle[1] and angle[1] == angle[2] and angle[2] == angle[0]:
+        if staff[0] == staff[1] and staff[1] == staff[2] and staff[0] == staff[2]:
             print('Equilateral')
-        elif angle[0] != angle[1] and angle[1] != angle[2] and angle[2] != angle[0]:
+        elif staff[0] != staff[1] and staff[1] != staff[2] and staff[0] != staff[2]:
             print('Scalene')
         else:
             print('Isosceles')
