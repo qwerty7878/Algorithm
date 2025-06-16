@@ -1,10 +1,16 @@
 t = int(input())
 
-arrX = []
-arrY = []
-for _ in range(t):
+arrx = []
+arry = []
+for i in range(t):
     x,y = map(int, input().split())
-    arrX.append(x)
-    arrY.append(y)
+    arrx.append(x)
+    arry.append(y)
 
-print((max(arrX) - min(arrX)) * (max(arrY) - min(arrY)))
+arrx.sort()
+arry.sort()
+
+if len(arrx) <= 1 or len(arry) <= 1:
+    print(0)
+else:
+    print((arrx[-1] - arrx[0]) * (arry[-1] - arry[0]))
