@@ -1,8 +1,7 @@
-angle1,angle2,angle3 = map(int,input().split())
-arr = [angle1, angle2, angle3]
-arr.sort()
+staff = list(map(int,input().split()))
+staff.sort()
 
-if arr[2] >= arr[0] + arr[1]:
-    arr[2] = arr[0] + arr[1] -1
-
-print(sum(arr))
+if staff[-1] >= sum(staff) - staff[-1]:
+    print(((staff[0] + staff[1]) * 2) - 1)
+else:
+    print(sum(staff))
