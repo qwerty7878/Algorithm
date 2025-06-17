@@ -1,9 +1,7 @@
 def solution(s):
-    s = s.lower()
-    pcnt = s.count('p')
-    ycnt = s.count('y')
-    
-    if pcnt == ycnt or (pcnt == 0 and ycnt == 0):
+    s = s.upper()
+    print(s.upper())
+    if s.count('P') == s.count('Y'):
         return True
     else:
         return False
