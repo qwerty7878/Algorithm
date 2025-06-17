@@ -1,19 +1,14 @@
-from collections import deque
-
 def solution(s):
-    
-    st = deque()
+    stack = []
     for i in s:
         if i == '(':
-            st.append(i)
-        elif i == ')' and len(st) != 0:
-            st.pop()
-        elif i == ')' and len(st) == 0:
-            return False
-            break
+            stack.append(i)
+        elif i == ')':
+            if len(stack) != 0 and stack[-1] == '(':
+                stack.pop()
+            else:
+                stack.append(i)
         
-            
-    if len(st) == 0:
-        return True
-    else:
+    if len(stack) != 0:
         return False
+    return True
