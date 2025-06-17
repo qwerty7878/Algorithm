@@ -1,6 +1,8 @@
 def solution(numbers):
-    answer = 0
+    answer = -1
+    sum = 0
     for i in range(0,10):
         if i not in numbers:
-            answer += i
+            sum += i
+    answer = sum
     return answer
