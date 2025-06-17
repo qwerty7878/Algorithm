@@ -1,2 +1,6 @@
 def solution(seoul):
-    return f"김서방은 {seoul.index('Kim')}에 있다"
+    answer = ''
+    idx = seoul.index('Kim')
+    print(idx)
+    answer = f'김서방은 {idx}에 있다'
+    return answer
