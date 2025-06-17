@@ -1,13 +1,17 @@
 n = int(input())
-arr = list(map(int, input().split()))
+list = list(map(int, input().split()))
+count = 0
 
-cnt = 0
-for i in arr:
-    if i < 2:
+for i in list:
+    if i == 1:
         continue
-    for j in range(2, int(i ** 0.5) + 1):
+    if i == 2:
+        count += 1
+        continue
+    for j in range(2, i):
         if i % j == 0:
             break
-    else:
-        cnt += 1
-print(cnt)
+        if i == (j + 1) and i % j != 0:
+            count += 1
+
+print(count)
