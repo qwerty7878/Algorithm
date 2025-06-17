@@ -1,16 +1,22 @@
 m = int(input())
 n = int(input())
 
-arr = []
+primeNum = []
 for i in range(m,n + 1):
-    for j in range(2,n + 1):
-        if i != j and i % j == 0:
-            break
-        elif i == j:
-            arr.append(i)
 
-if (len(arr) == 0):
-    print(-1)
+    if i == 1:
+        continue
+    if i == 2:
+        primeNum.append(i)
+        continue
+    for j in range(2,i):
+        if i % j == 0:
+            break
+        if i % j != 0 and i == (j + 1):
+            primeNum.append(i)
+            break
+if len(primeNum) >= 1:
+    print(sum(primeNum))
+    print(min(primeNum))
 else:
-    print(sum(arr))
-    print(min(arr))
+    print(-1)
