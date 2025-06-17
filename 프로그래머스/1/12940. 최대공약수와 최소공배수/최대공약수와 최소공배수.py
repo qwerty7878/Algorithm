@@ -1,6 +1,10 @@
 import math
 
 def solution(n, m):
-    num1 = math.gcd(n,m)
-    num2 = n * m // num1
-    return [num1,num2]
+    answer = []
+    answer.append(math.gcd(n,m))
+    answer.append(lcm(n,m))
+    return answer
+
+def lcm(n,m):
+    return n * m // math.gcd(n,m)
