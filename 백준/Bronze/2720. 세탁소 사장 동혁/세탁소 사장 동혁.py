@@ -1,13 +1,15 @@
 t = int(input())
+
 for i in range(t):
     c = int(input())
-    q,d,n,p = 0,0,0,0
-    
-    while c > 0:
-        q = c // 25
-        d = (c % 25) // 10
-        n = ((c % 25) % 10) // 5
-        p = (c % 25 % 10 % 5) // 1
+
+    quarter, dime, nickel, penny = 0, 0, 0, 0
+
+    while True:
+        quarter = c // 25
+        dime = (c % 25) // 10
+        nickel = ((c % 25) % 10) // 5
+        penny = ((c % 25) % 10) % 5
         break
-        
-    print(q,d,n,p)
+
+    print(quarter, dime, nickel, penny)
