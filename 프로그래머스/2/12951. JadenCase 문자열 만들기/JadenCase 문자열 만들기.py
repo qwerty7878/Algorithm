@@ -1,11 +1,14 @@
 def solution(s):
-    answer = s.split(' ')
-    word = ''
-    for i in answer:
-        if i:
-            word += i[0].upper() + i[1:].lower() + ' '
+    answer = ''
+    for i in s:
+        if len(answer) != 0:
+            if answer[-1] == ' ' and i != ' ':
+                i = i.upper()
+            else:
+                i = i.lower()
         else:
-            word += ' '
-    return word[:-1]
-
-    # return " ".join([word.capitalize() for word in s.split(" ")])
+            if i.isalpha():
+                i = i.upper()
+        answer += i
+        # print(answer)
+    return answer
