@@ -5,9 +5,5 @@ def solution(numbers):
             if i == j:
                 continue
             answer.append(numbers[i] + numbers[j])
-    answer = set(answer)
-    # print(answer)
-    answer = list(answer)
-    answer.sort()
-    # print(answer)
+    answer = sorted(list(set(answer)))
     return answer
