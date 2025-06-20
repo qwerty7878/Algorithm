@@ -1,7 +1,6 @@
-list = list(map(int, input().split()))
-sum = 0
+arr = list(map(int, input().split()))
 
-for i in list:
-    sum += i ** 2
+for i in range(len(arr)):
+	arr[i] = arr[i] ** 2
 
-print(sum % 10)
+print(sum(arr) % 10)
