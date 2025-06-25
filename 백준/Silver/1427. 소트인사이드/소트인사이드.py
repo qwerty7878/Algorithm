@@ -1,4 +1,9 @@
-arr = list(map(int, str(input())))
+s = input()
+
+arr = []
+for i in s:
+    arr.append((i))
+
 arr.sort(reverse=True)
 
 for i in arr:
