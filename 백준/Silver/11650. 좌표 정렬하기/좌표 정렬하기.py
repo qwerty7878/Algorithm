@@ -1,14 +1,12 @@
 import sys
 
-t = int(sys.stdin.readline())
+n = int(input())
 
 arr = []
+for i in range(n):
+    arr.append(list(map(int,sys.stdin.readline().split())))
 
-for i in range(t):
-    [a,b] = map(int, sys.stdin.readline().split())
-    arr.append([a,b])
+arr.sort(key=lambda x: (x[0], x[1]))
 
-arr.sort()
-
-for i in range(t):
-    print (arr[i][0], arr[i][1])
+for i in arr:
+    print(i[0],i[1])
