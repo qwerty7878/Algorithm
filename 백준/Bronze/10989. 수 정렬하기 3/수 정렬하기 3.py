@@ -1,13 +1,13 @@
 import sys
 
-n = int(sys.stdin.readline())
-cnt = [0] * 10001
+n = int(input())
+arr = [0] * 10001
 
 for i in range(n):
     num = int(sys.stdin.readline())
-    cnt[num] += 1
+    arr[num] += 1
 
 for i in range(10001):
-    if cnt[i] != 0:
-        for j in range(cnt[i]):
+    if arr[i] != 0:
+        for j in range(arr[i]):
             print(i)
