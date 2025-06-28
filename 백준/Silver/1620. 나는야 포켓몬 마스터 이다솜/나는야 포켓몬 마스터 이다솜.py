@@ -1,15 +1,17 @@
-m,n = map(int, input().split())
-pocketmons = []
-pocketmons_idx = dict()
+import sys
 
-for i in range(m):
-    name = input()
-    pocketmons.append(name)
-    pocketmons_idx[name] = i + 1
+n,m = map(int,sys.stdin.readline().split())
+pocketmon = {}
+pocketmonlist = []
 
 for i in range(n):
-    question = input()
+    name = sys.stdin.readline().strip()
+    pocketmonlist.append(name)
+    pocketmon[name] = i + 1
+
+for i in range(m):
+    question = sys.stdin.readline().strip()
     if question.isdigit():
-        print(pocketmons[int(question) - 1])
+        print(pocketmonlist[int(question) - 1])
     else:
-        print(pocketmons_idx[question])
+        print(pocketmon[question])
