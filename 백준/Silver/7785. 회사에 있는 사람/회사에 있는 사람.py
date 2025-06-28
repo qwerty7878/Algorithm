@@ -1,12 +1,12 @@
-n = int(input())
-company = set()
+import sys
+
+n = int(sys.stdin.readline())
+company = {}
 
 for i in range(n):
-    name,iscome = input().split()
-    if iscome == 'enter':
-        company.add(name)
-    else:
-        company.remove(name)
+    name,isEnter = sys.stdin.readline().split()
+    company[name] = isEnter
 
-for i in sorted(company, reverse=True):
-    print(i)
+for name in sorted(company.keys(), reverse=True):
+    if company[name] == 'enter':
+        print(name)
