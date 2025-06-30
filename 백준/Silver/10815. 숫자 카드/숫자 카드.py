@@ -1,11 +1,12 @@
-n = int(input())
-card_arr1 = set(map(int, input().split()))
+import sys
 
-m = int(input())
-card_arr2 = list(map(int, input().split()))
+m = int(sys.stdin.readline())
+cardA = set(map(int, sys.stdin.readline().split()))
+n = int(sys.stdin.readline())
+cardB = list(map(int, sys.stdin.readline().split()))
 
-for i in card_arr2:
-    if i in card_arr1:
-        print(1, end=' ')
+for i in cardB:
+    if i in cardA:
+        print(1,end=' ')
     else:
-        print(0, end=' ')
+        print(0,end=' ')
