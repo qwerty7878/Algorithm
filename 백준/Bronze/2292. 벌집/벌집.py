@@ -1,8 +1,14 @@
-n = int(input())
+import sys
 
-cnt,room,index = 1,1,1
-while n > room:
-    room += 6 * index
-    cnt += 1
-    index += 1
-print(cnt)
+n = int(sys.stdin.readline())
+
+room = 1
+idx = 1
+before = 0
+while True:
+    if before < room and n <= room:
+        break
+    before = room
+    room += (idx * 6)
+    idx += 1
+print(idx)
