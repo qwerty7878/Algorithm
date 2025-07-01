@@ -4,19 +4,19 @@
 
 ### 성능 요약
 
-메모리: 14116 KB, 시간: 120 ms
+메모리: 32412 KB, 시간: 32 ms
 
 ### 분류
 
-사칙연산, 수학
+수학, 사칙연산
 
 ### 제출 일자
 
-2024년 6월 4일 14:54:08
+2025년 7월 1일 21:22:08
 
 ### 문제 설명
 
-<p style="text-align: center;"><img alt="" src="" style="height: 71px; width: 300px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/d90f56a3-1cd2-4389-a352-3049748c8dad/-/preview/" style="height: 71px; width: 300px;"></p>
 
 <blockquote>
 <p>Naver D2를 아시나요? D2는 For Developers, By Developers의 약자로, 개발자들을 위해 개발자들이 직접 만들어 가고 있는 네이버 개발자 지원 프로그램입니다. 네이버가 축적한 기술과 지식을 공유하고, 외부 개발자들을 지원해 대한민국 개발자 역량 강화를 이끌고, 이를 통해 업계 전체와 네이버가 함께 성장하는 선순환 구조를 만들고자 합니다.</p>
@@ -34,7 +34,7 @@
 
 <p>녹색거탑의 정상에서는 매년 <strong>NAVER</strong>가 개최하는 개발자 컨퍼런스<strong> DEVIEW</strong>가 열린다. 이 DEVIEW에 참여하면, 코딩에 깊은 깨달음을 얻어 코딩괴물이 될 수 있다고 전해진다. 그리고 코딩괴물은 녹색거탑의 정상에서 내려온다. 예전부터 전해 내려오는 <strong>D2</strong> 비전서에 의하면, 코딩괴물이 녹색거탑의 정상에서 내려오는 경우의 수를 파악한 사람은, 개발자 컨퍼런스<strong> </strong>DEVIEW에 참여할 수 있다 한다. 그리고 DEVIEW에 참여해 본인도 코딩괴물이 될 수 있다!</p>
 
-<p style="text-align: center;"><img alt="" src="" style="width: 600px; height: 457px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/db58c1ff-9dcd-4f53-8401-b66d74adcc66/-/preview/" style="width: 600px; height: 457px;"></p>
 
 <p>녹색거탑은 위 그림과 같이 규칙적으로 쌓여있다.</p>
 
