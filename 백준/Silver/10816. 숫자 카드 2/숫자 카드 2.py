@@ -1,15 +1,12 @@
+import sys
 from collections import Counter
 
-n = int(input())
-card_arr1 = list(map(int, input().split()))
+m = int(sys.stdin.readline())
+cardA = list(map(int, sys.stdin.readline().split()))
+n = int(sys.stdin.readline())
+cardB = list(map(int, sys.stdin.readline().split()))
 
-m = int(input())
-card_arr2 = list(map(int, input().split()))
-
-counter = Counter(card_arr1)
-
-for i in card_arr2:
-    if i in counter:
-        print(counter[i],end=' ')
-    else:
-        print(0,end=' ')
+counter = Counter(cardA)
+for i in range(n):
+    cardB[i] = counter[cardB[i]]
+print(*cardB)
