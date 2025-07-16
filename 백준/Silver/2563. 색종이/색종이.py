@@ -1,12 +1,16 @@
-t = int(input())
-paper = [[0] * 100 for _ in range(100)]
+import sys
 
-for _ in range(t):
-    a,b = map(int, input().split())
-    # 중복검열
-    for i in range(a, a + 10):
-        for j in range(b, b + 10):
-            paper[i][j] = 1
-    # 1로 된 부분 더하기
-    area = sum(sum(row) for row in paper)
-print(area)
+t = int(sys.stdin.readline())
+paper = [[0] * 100 for i in range(100)]
+
+for i in range(t):
+    x,y = map(int, sys.stdin.readline().split())
+
+    for a in range(x, x + 10):
+        for b in range(y, y + 10):
+            paper[a][b] = 1
+
+ans = 0
+for i in range(100):
+    ans += paper[i].count(1)
+print(ans)
