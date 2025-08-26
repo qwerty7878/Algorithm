@@ -1,36 +1,33 @@
+import sys
 from collections import deque
 
-n,m,v = map(int,input().split())
-arr = [[0] * (n + 1) for i in range(n + 1)]
+n,m,v = map(int, sys.stdin.readline().split())
+graph = [[0] * (n + 1) for _ in range(n+1)]
 
-for _ in range(m):
-    a,b = map(int,input().split())
-    arr[a][b] = 1
-    arr[b][a] = 1
+for i in range(m):
+    a,b = map(int, sys.stdin.readline().split())
+    graph[a][b] = graph[b][a] = 1
 
-visited_dfs = [False] * (n + 1)
-visited_bfs = [False] * (n + 1)
+isVisited1 = [False for _ in range(n+1)]
+isVisited2 = [False for _ in range(n+1)]
 
 def dfs(v):
-    visited_dfs[v] = True
+    isVisited1[v] = True
     print(v, end=' ')
-
-    for i in range(1, n + 1):
-        if not visited_dfs[i] and arr[v][i] == 1:
+    for i in range(1, n+1):
+        if graph[v][i] == 1 and not isVisited1[i]:
             dfs(i)
 
 def bfs(v):
     queue = deque([v])
-    visited_bfs[v] = True
-
+    isVisited2[v] = True
     while queue:
         v = queue.popleft()
         print(v, end=' ')
-
-        for i in range(1, n + 1):
-            if not visited_bfs[i] and arr[v][i] == 1:
+        for i in range(1, n+1):
+            if graph[v][i] == 1 and not isVisited2[i]:
                 queue.append(i)
-                visited_bfs[i] = True
+                isVisited2[i] = True
 
 dfs(v)
 print()
