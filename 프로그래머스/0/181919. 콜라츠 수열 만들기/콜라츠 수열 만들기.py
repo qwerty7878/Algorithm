@@ -1,11 +1,13 @@
 def solution(n):
     answer = []
     answer.append(n)
-    while n != 1:
+    while True:
+        if n == 1:
+            break
+
         if n % 2 == 0:
-            answer.append(n // 2)
-            n =  n // 2
-        elif n % 2 != 0:
-            answer.append((3 * n) + 1)
+            n //= 2
+        else:
             n = (3 * n) + 1
+        answer.append(n)
     return answer
