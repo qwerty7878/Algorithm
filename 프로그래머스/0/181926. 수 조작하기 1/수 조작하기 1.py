@@ -4,9 +4,9 @@ def solution(n, control):
         if i == 'w':
             answer += 1
         elif i == 's':
-            answer -= 1
+            answer += -1
         elif i == 'd':
             answer += 10
         elif i == 'a':
-            answer -= 10
+            answer += -10
     return answer
