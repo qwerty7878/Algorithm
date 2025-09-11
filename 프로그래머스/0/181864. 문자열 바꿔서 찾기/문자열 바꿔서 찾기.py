@@ -1,9 +1,16 @@
 def solution(myString, pat):
-    myString = myString.replace('A','@')
-    myString = myString.replace('B','A')
-    myString = myString.replace('@','B')
+    answer = 0
+    temp = ''
+    for i in myString:
+        if i == 'A':
+            i = 'B'
+        else:
+            i = 'A'
+        temp += i
     
-    if pat in myString:
-        return 1
+    print(temp)
+    if pat in temp:
+        answer = 1
     else:
-        return 0
+        answer = 0
+    return answer
