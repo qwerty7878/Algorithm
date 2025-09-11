@@ -1,5 +1,5 @@
 def solution(num_list, n):
-    if n not in num_list:
-        return 0
-    else:
-        return 1
+    answer = 0
+    if n in num_list:
+        answer = 1
+    return answer
