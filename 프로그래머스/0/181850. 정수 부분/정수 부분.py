@@ -1,2 +1,3 @@
 def solution(flo):
-    return flo // 1
+    answer = int(flo)
+    return answer
