@@ -1,14 +1,18 @@
-# [Bronze IV] Hello Judge - 9316 
+# [Bronze V] Hello Judge - 9316 
 
 [문제 링크](https://www.acmicpc.net/problem/9316) 
 
 ### 성능 요약
 
-메모리: 1112 KB, 시간: 0 ms
+메모리: 32412 KB, 시간: 32 ms
 
 ### 분류
 
 구현
+
+### 제출 일자
+
+2025년 9월 13일 23:55:47
 
 ### 문제 설명
 
