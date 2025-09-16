@@ -1,9 +1,7 @@
 import math
 
 def solution(n):
-    answer = 0
+    answer = -1
     if int(math.sqrt(n)) ** 2 == n:
-        answer = int(math.sqrt(n) + 1) ** 2
-    else:
-        answer = -1
+        answer = (math.sqrt(n) + 1) ** 2
     return answer
