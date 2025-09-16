@@ -1,16 +1,10 @@
 def solution(n):
     answer = 0
     arr = []
-    s = str(n)
-    for i in s:
-        arr.append(i)
+    for i in str(n):
+        arr.append(int(i))
     arr.sort(reverse=True)
-    print(arr)
-    
-    temp = ''
-    for i in arr:
-        temp += i
-    print(temp)
-    
-    answer = int(temp)
+    for i in range(len(arr)):
+        answer += max(arr) * (10 ** (len(arr) -1))
+        arr.remove(max(arr))
     return answer
