@@ -1,7 +1,6 @@
 def solution(n):
     answer = []
-    Str = str(n)[::-1]
-    print(Str)
-    for i in Str:
+    for i in str(n):
         answer.append(int(i))
+    answer.reverse()
     return answer
