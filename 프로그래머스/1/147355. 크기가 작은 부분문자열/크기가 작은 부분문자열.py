@@ -1,14 +1,10 @@
 def solution(t, p):
     answer = 0
-    arr = []
-    for i in range(0, len(t) - len(p) + 1):
-        arr.append(t[i:len(p) + i])
-    # print(arr)
-
-    count = 0
-    for i in arr:
-        if i <= p:
-            count += 1
-    answer = count
-    
+    temp = []
+    for i in range(len(t) - len(p) + 1):
+        temp.append(t[i:i + len(p)])
+    print(temp)
+    for i in temp:
+        if int(i) <= int(p):
+            answer += 1
     return answer
