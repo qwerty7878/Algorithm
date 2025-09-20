@@ -1,14 +1,15 @@
 def solution(s):
-    stack = []
+    answer = True
+    st = []
+    
     for i in s:
-        if i == '(':
-            stack.append(i)
-        elif i == ')':
-            if len(stack) != 0 and stack[-1] == '(':
-                stack.pop()
+        if len(st) == 0:
+            st.append(i)
+        else:
+            if st[-1] == '(' and i == ')':
+                st.pop()
             else:
-                stack.append(i)
-        
-    if len(stack) != 0:
-        return False
-    return True
+                st.append(i)
+    if len(st) != 0:
+        answer = False
+    return answer
