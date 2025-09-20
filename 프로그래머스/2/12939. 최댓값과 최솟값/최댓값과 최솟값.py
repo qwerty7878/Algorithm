@@ -1,8 +1,6 @@
 def solution(s):
     answer = ''
-    arr = list(map(int, s.split()))
-    arr.sort()
-    # print(arr)
-    answer += str(arr[0]) + ' ' + str(arr[-1])
-    # print(answer)
+    arr = list(map(int, s.split(' ')))
+    print(arr)
+    answer += str(min(arr)) + ' ' + str(max(arr))
     return answer
