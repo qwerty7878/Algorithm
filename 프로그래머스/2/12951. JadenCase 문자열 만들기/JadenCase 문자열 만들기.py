@@ -1,14 +1,9 @@
 def solution(s):
-    answer = ''
-    for i in s:
-        if len(answer) != 0:
-            if answer[-1] == ' ' and i != ' ':
-                i = i.upper()
-            else:
-                i = i.lower()
+    answer = []
+    arr = s.split(' ')
+    for i in range(len(arr)):
+        if arr[i] == '':
+            answer.append(arr[i])
         else:
-            if i.isalpha():
-                i = i.upper()
-        answer += i
-        # print(answer)
-    return answer
+            answer.append(arr[i][0].upper() + arr[i][1:].lower())
+    return ' '.join(answer)
