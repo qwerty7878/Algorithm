@@ -1,8 +1,5 @@
 def solution(a, b):
-    answer = 1234567890
-    
-    sum = 0
+    answer = 0
     for i in range(len(a)):
-        sum += (a[i] * b[i])
-    answer = sum
+        answer += (a[i] * b[i])
     return answer
