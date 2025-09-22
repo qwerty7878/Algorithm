@@ -2,8 +2,9 @@ def solution(numbers):
     answer = []
     for i in range(len(numbers)):
         for j in range(len(numbers)):
-            if i == j:
-                continue
-            answer.append(numbers[i] + numbers[j])
-    answer = sorted(list(set(answer)))
+            if i < j:
+                sum = numbers[i] + numbers[j]
+                if sum not in answer:
+                    answer.append(sum)
+    answer.sort()
     return answer
