@@ -1,0 +1,13 @@
+import math
+
+def solution(n):
+    answer = 1
+    for i in range(3, n + 1):
+        isPrime = True
+        for j in range(2, int(math.sqrt(i)) + 1):
+            if i % j == 0:
+                isPrime = False
+                break
+        if isPrime:
+            answer += 1
+    return answer
