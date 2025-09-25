@@ -1,20 +1,14 @@
 def solution(s):
-    answer = -1
-    stack = []
+    answer = 1
+    st = []
     
     for i in s:
-        if len(stack) == 0:
-            stack.append(i)
-        
-        elif stack[-1] == i:
-            stack.pop()
+        if st and st[-1] != i:
+            st.append(i)
+        elif st and st[-1] == i:
+            st.pop()
         else:
-            stack.append(i)
-        # print(stack)
-        
-    if len(stack) == 0:
-        answer = 1
-    else:
+            st.append(i)
+    if st:
         answer = 0
-        
     return answer
