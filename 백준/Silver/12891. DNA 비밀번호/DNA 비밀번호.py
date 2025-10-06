@@ -1,5 +1,4 @@
 import sys
-from tabnanny import check
 
 s, p = map(int, sys.stdin.readline().strip().split())
 dna = sys.stdin.readline().strip()
