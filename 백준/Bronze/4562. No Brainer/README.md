@@ -1,14 +1,18 @@
-# [Bronze III] No Brainer - 4562 
+# [Bronze IV] No Brainer - 4562 
 
 [문제 링크](https://www.acmicpc.net/problem/4562) 
 
 ### 성능 요약
 
-메모리: 1116 KB, 시간: 0 ms
+메모리: 32412 KB, 시간: 32 ms
 
 ### 분류
 
 구현
+
+### 제출 일자
+
+2025년 10월 7일 23:44:42
 
 ### 문제 설명
 
