@@ -1,2 +1,2 @@
 str1, str2 = input().strip().split(' ')
-print(str1 + str2)
+print(f"{str1}{str2}")
