@@ -1,3 +1,3 @@
-a,b = map(int,input().split())
-print('a =',a)
-print('b =',b)
+a, b = map(int, input().strip().split(' '))
+print(f"a = {a}")
+print(f"b = {b}")
