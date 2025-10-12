@@ -1,2 +1,7 @@
 str = input()
-print(str.swapcase())
+for char in str:
+    if char.islower():
+        char = char.upper()
+    else:
+        char = char.lower()
+    print(char,end='')
