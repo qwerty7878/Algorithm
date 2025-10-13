@@ -1,7 +1,5 @@
 def solution(my_string, alp):
     answer = ''
-    for i in my_string:
-        if i == alp:
-            i = i.upper()
-        answer += i
+    my_string = my_string.replace(alp, alp.upper())
+    answer = my_string
     return answer
