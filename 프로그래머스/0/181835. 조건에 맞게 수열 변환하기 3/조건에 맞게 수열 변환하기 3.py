@@ -1,6 +1,11 @@
 def solution(arr, k):
-    if k % 2 != 0:
-        answer = [i * k for i in arr]
+    answer = []
+    
+    if k % 2 == 0:
+        for number in arr:
+            answer.append(number + k)
     else:
-        answer = [i + k for i in arr]
+        for number in arr:
+            answer.append(number * k)
+    
     return answer
