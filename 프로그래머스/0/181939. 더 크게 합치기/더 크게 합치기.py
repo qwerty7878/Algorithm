@@ -1,6 +1,10 @@
 def solution(a, b):
-    if int(str(a) + str(b)) >= int(str(b) + str(a)):
-        return int(str(a) + str(b))
-    elif int(str(a) + str(b)) < int(str(b) + str(a)):
-        return int(str(b) + str(a))
+    answer = 0
+    biggerA = str(a) + str(b)
+    biggerB = str(b) + str(a)
     
+    if int(biggerA) > int(biggerB):
+        answer = int(biggerA)
+    else:
+        answer = int(biggerB)
+    return answer
