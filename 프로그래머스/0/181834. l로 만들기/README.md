@@ -1,10 +1,10 @@
 # [level 0] l로 만들기 - 181834 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181834?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181834) 
 
 ### 성능 요약
 
-메모리: 9.39 MB, 시간: 9.81 ms
+메모리: 10.7 MB, 시간: 7.84 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 09월 11일 20:28:56
+2025년 10월 14일 03:31:32
 
 ### 문제 설명
 
