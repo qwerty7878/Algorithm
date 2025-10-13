@@ -1,9 +1,11 @@
 def solution(num_list):
-    even = ''
-    odd = ''
-    for i in num_list:
-        if i % 2 == 0:
-            even += str(i)
+    answer = 0
+    odd_num = ''
+    even_num = ''
+    for num in num_list:
+        if num % 2 == 0:
+            even_num += str(num)
         else:
-            odd += str(i)
-    return int(even) + int(odd)
+            odd_num += str(num)
+    answer = int(even_num) + int(odd_num)
+    return answer
