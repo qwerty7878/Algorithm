@@ -1,5 +1,11 @@
 def solution(a, b):
-    if int(str(a) + str(b)) >= 2 * a * b:
-        return int(str(a) + str(b))
+    answer = 0
+    
+    ab2 = 2 * a * b
+    ab = int(str(a) + str(b))
+    
+    if ab2 < ab:
+        answer = ab
     else:
-        return 2 * a * b
+        answer = ab2
+    return answer
