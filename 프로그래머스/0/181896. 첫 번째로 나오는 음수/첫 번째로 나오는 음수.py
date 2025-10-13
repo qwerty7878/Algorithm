@@ -1,11 +1,11 @@
 def solution(num_list):
-    idx = 0
-    for i in num_list:
-        if i < 0:
-            idx = i
+    answer = 0
+    isMinus = False
+    for idx in range(len(num_list)):
+        if num_list[idx] < 0:
+            isMinus = True
+            answer = idx
             break
-    
-    if idx != 0:
-        return num_list.index(idx)
-    else:
-        return -1
+    if isMinus == False:
+        answer = -1
+    return answer
