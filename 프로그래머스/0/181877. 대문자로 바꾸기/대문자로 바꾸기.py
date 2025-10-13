@@ -1,2 +1,4 @@
 def solution(myString):
-    return myString.upper()
+    answer = ''
+    answer = myString.upper()
+    return answer
