@@ -1,9 +1,12 @@
 def solution(num_list):
-    answer = 1
-    for i in num_list:
-        answer *= i
-        
-    if answer < sum(num_list) ** 2:
-        return 1
+    answer = 0
+    multiple = 1
+    sumpow = sum(num_list) ** 2
+    for num in num_list:
+        multiple *= num
+    
+    if multiple > sumpow:
+        answer = 0
     else:
-        return 0
+        answer = 1
+    return answer
