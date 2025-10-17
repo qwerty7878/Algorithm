@@ -1,15 +1,11 @@
 def solution(arr, n):
     answer = []
     if len(arr) % 2 != 0:
-        for i in range(0, len(arr)):
-            if i % 2 == 0:
-                answer.append(arr[i] + n)
-            else:
-                answer.append(arr[i])
+        for idx in range(len(arr)):
+            if idx % 2 == 0:
+                arr[idx] += n
     else:
-        for i in range(0, len(arr)):
-            if i % 2 != 0:
-                answer.append(arr[i] + n)
-            else:
-                answer.append(arr[i])
-    return answer
+        for idx in range(len(arr)):
+            if idx % 2 != 0:
+                arr[idx] += n
+    return arr
