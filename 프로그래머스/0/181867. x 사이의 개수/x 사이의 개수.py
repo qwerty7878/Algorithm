@@ -1,6 +1,6 @@
 def solution(myString):
-    list = myString.split('x')
     answer = []
-    for i in list:
-        answer.append(len(i))
+    array = myString.split('x')
+    for char in array:
+        answer.append(len(char))
     return answer
