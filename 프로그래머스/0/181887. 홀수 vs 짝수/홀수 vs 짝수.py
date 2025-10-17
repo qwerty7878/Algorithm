@@ -1,12 +1,11 @@
 def solution(num_list):
-    even,odd = 0,0
-    for i in range(0, len(num_list)):
-        if i % 2 == 0:
-            even += num_list[i]
+    answer = 0
+    odd = 0
+    even = 0
+    for idx in range(len(num_list)):
+        if idx % 2 == 0:
+            odd += num_list[idx]
         else:
-            odd += num_list[i]
-    
-    if even >= odd:
-        return even
-    else:
-        return odd
+            even += num_list[idx]
+    answer = max(even,odd)
+    return answer
