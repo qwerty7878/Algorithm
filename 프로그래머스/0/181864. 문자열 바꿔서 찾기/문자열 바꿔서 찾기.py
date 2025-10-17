@@ -1,16 +1,11 @@
 def solution(myString, pat):
     answer = 0
-    temp = ''
-    for i in myString:
-        if i == 'A':
-            i = 'B'
-        else:
-            i = 'A'
-        temp += i
+    myString = myString.replace('A','b')
+    myString = myString.replace('B','a')
     
-    print(temp)
-    if pat in temp:
+    pat = pat.replace('A','a')
+    pat = pat.replace('B','b')
+
+    if pat in myString:
         answer = 1
-    else:
-        answer = 0
     return answer
