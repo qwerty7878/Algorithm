@@ -1,6 +1,8 @@
 def solution(str_list, ex):
     answer = ''
-    for i in str_list:
-        if ex not in i:
-            answer += i
+    for word in str_list:
+        if ex in word:
+            continue
+        else:
+            answer += word
     return answer
