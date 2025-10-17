@@ -1,8 +1,10 @@
 def solution(binomial):
-    answer = binomial.split(' ')
-    if answer[1] == '+':
-        return int(answer[0]) + int(answer[2])
-    if answer[1] == '*':
-        return int(answer[0]) * int(answer[2])
-    if answer[1] == '-':
-        return int(answer[0]) - int(answer[2])
+    answer = 0
+    array = binomial.split()
+    if array[1] == '-':
+        answer = int(array[0]) - int(array[2])
+    elif array[1] == '+':
+        answer = int(array[0]) + int(array[2]) 
+    else:
+        answer = int(array[0]) * int(array[2]) 
+    return answer
