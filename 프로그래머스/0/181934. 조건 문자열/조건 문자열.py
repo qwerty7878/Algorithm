@@ -1,23 +1,23 @@
 def solution(ineq, eq, n, m):
-    if ineq == '>' and eq == '=':
-        if n >= m:
-            return 1
-        else:
-            return 0
-    if ineq == '>' and eq == '!':
-        if n > m:
-            return 1
-        else:
-            return 0
+    answer = 0
     if ineq == '<' and eq == '=':
         if n <= m:
-            return 1
+            answer = 1
         else:
-            return 0
-    if ineq == '<' and eq == '!':
+            answer = 0
+    elif ineq == '<' and eq == '!':
         if n < m:
-            return 1
+            answer = 1
         else:
-            return 0
-    
-    
+            answer = 0
+    elif ineq == '>' and eq == '!':
+        if n > m:
+            answer = 1
+        else:
+            answer = 0
+    elif ineq == '>' and eq == '=':
+        if n >= m:
+            answer = 1
+        else:
+            answer = 0
+    return answer
