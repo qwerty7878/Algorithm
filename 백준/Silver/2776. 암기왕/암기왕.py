@@ -1,14 +1,12 @@
-import sys
-
-t = int(sys.stdin.readline())
+t = int(input())
 for _ in range(t):
-    n = int(sys.stdin.readline())
-    note1 = set(map(int, sys.stdin.readline().split()))
-    m = int(sys.stdin.readline())
-    note2 = list(map(int, sys.stdin.readline().split()))
+    n = int(input())
+    note_1 = set(map(int, input().split()))
+    m = int(input())
+    note_2 = list(map(int, input().split()))
 
-    for i in note2:
-        if i in note1:
+    for num in note_2:
+        if num in note_1:
             print(1)
         else:
             print(0)
