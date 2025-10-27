@@ -1,7 +1,6 @@
 class Solution {
     fun solution(age: Int): Int {
-        var answer: Int = 0
-        answer = 2022 - age + 1
+        var answer = 2023 - age
         return answer
     }
 }
