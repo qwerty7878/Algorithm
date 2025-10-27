@@ -1,3 +1,3 @@
 def solution(numbers):
-    answer = [2 * i for i in numbers]
+    answer = [num * 2 for num in numbers]
     return answer
