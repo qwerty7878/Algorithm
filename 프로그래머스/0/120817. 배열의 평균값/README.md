@@ -1,10 +1,10 @@
 # [level 0] 배열의 평균값 - 120817 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120817?language=kotlin) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120817) 
 
 ### 성능 요약
 
-메모리: 64.9 MB, 시간: 18.33 ms
+메모리: 65.3 MB, 시간: 21.16 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 07월 04일 20:36:17
+2025년 11월 03일 15:57:33
 
 ### 문제 설명
 

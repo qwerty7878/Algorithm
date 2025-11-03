@@ -1,7 +1,6 @@
 class Solution {
     fun solution(numbers: IntArray): Double {
-        var answer: Double = 0.0
-        answer = numbers.average()
+        var answer = numbers.sum().toDouble() / numbers.size
         return answer
     }
 }
