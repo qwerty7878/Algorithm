@@ -1,10 +1,10 @@
 # [level 0] 짝수 홀수 개수 - 120824 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120824?language=kotlin) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120824) 
 
 ### 성능 요약
 
-메모리: 64.4 MB, 시간: 6.85 ms
+메모리: 62.6 MB, 시간: 0.08 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 07월 04일 22:10:51
+2025년 11월 05일 12:37:12
 
 ### 문제 설명
 
