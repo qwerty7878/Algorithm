@@ -1,12 +1,20 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
-public class Main{
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
-        for(int i = 1; i <= T; i++){
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            System.out.println("Case #" + i + ": " + a + " + " + b + " = " + (a+b));
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
+        int t = Integer.parseInt(br.readLine());
+        for (int i = 0; i < t; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            sb.append("Case #" + (i + 1) + ": " + a + " + " + b + " = " + (a + b)).append("\n");
         }
+
+        System.out.println(sb.toString());
     }
 }
