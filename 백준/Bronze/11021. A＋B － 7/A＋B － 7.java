@@ -1,18 +1,19 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-public class Main{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-        int t = sc.nextInt();
-
-        for(int i = 1; i <= t; i++){
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            
-            System.out.println("Case #" + i + ": " + (a+b));
+        int t = Integer.parseInt(br.readLine());
+        for (int i = 0; i < t; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            sb.append("Case #" + (i + 1) + ": " + (a + b)).append("\n");
         }
 
-        sc.close();
+        System.out.println(sb.toString());
     }
 }
