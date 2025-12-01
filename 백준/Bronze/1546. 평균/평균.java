@@ -1,49 +1,23 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(); //과목갯수
-        double arr[] = new double [n];
-        
-        for(int i = 0; i < n; i++){
-            arr[i] = sc.nextDouble();
-        }
-        double sum = 0;
-        Arrays.sort(arr);
-        
-        for(int i = 0; i < arr.length; i++){
-            sum += ((arr[i]/arr[arr.length-1])*100);
-        }
-        System.out.print(sum/arr.length);
-    }
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-
-
-    // 2번째 방법
-    import java.util.*;
-
-public class Main{
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int arr[] = new int [n];
 
-        for(int i = 0; i < n; i++){
-            arr[i] = sc.nextInt();
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            int num = sc.nextInt();
+            list.add(num);
         }
 
-        sc.close();
-
-        int sum = 0;
-        int max = 0;
-
-        for(int i = 0; i < n; i++){
-            if(arr[i] > max){
-                max = arr[i];
-            }
-            sum += arr[i];
-        }
-
-        System.out.println((double)sum * 100/n/max);
+        int max = list.stream().max(Integer::compareTo).get();
+        double sum = list.stream()
+                .mapToDouble(a -> a * 100.0 / max)
+                .sum();
+        double average = sum / n;
+        System.out.printf("%f", average);
     }
 }
