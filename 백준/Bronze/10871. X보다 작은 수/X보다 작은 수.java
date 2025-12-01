@@ -1,18 +1,21 @@
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
-public class Main{
-    public static void main(String args[]){
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int X = sc.nextInt();
-        int arr[] = new int[N];
-        
-        for(int i = 0; i < N; i++){
-            arr[i] = sc.nextInt();
+        int n = sc.nextInt();
+        int x = sc.nextInt();
+
+        List<Integer> list = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            int num = sc.nextInt();
+            list.add(num);
         }
-        for(int i = 0; i < N; i++){
-            if(arr[i] < X)
-                System.out.print(arr[i] + " ");
-        }
-        
+
+        list.stream()
+                .filter(a -> a < x)
+                .forEach(a -> System.out.print(a + " "));
     }
 }
