@@ -1,18 +1,27 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = sc.next();
-        int len = str.length();
-        int mid = len/2;
-        int result = 1;
-        
-        for(int i = 0; i < mid; i++){
-            if(str.charAt(i) != str.charAt(len-1-i)){
-                result = 0;
-                break;
-            }
+        String word = sc.nextLine();
+        String PalindromeWord = reverseWord(word);
+        if (isPalindrome(word, PalindromeWord)) {
+            System.out.println(1);
+        } else {
+            System.out.println(0);
         }
-        System.out.println(result);
+    }
+
+    private static boolean isPalindrome(String word, String palindromeWord) {
+        if (word.equals(palindromeWord)) {
+            return true;
+        }else  {
+            return false;
+        }
+    }
+
+    private static String reverseWord(String word) {
+        StringBuilder sb = new StringBuilder(word);
+        return sb.reverse().toString();
     }
 }
