@@ -3,20 +3,32 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
 
-        String s = sc.next()
-                .replace("c=","0")
-                .replace("c-","0")
-                .replace("dz=","0")
-                .replace("d-","0")
-                .replace("lj","0")
-                .replace("nj","0")
-                .replace("s=","0")
-                .replace("z=","0");
-
-        String sAr[] = s.split("");
-        System.out.println(sAr.length);
-
-        sc.close();
+        if (input.contains("c=")) {
+            input = input.replace("c=", "@");
+        }
+        if (input.contains("c-")) {
+            input = input.replace("c-", "@");
+        }
+        if (input.contains("dz=")) {
+            input = input.replace("dz=", "@");
+        }
+        if (input.contains("d-")) {
+            input = input.replace("d-", "@");
+        }
+        if (input.contains("lj")) {
+            input = input.replace("lj", "@");
+        }
+        if (input.contains("nj")) {
+            input = input.replace("nj", "@");
+        }
+        if (input.contains("s=")) {
+            input = input.replace("s=", "@");
+        }
+        if (input.contains("z=")) {
+            input = input.replace("z=", "@");
+        }
+        System.out.println(input.length());
     }
 }
