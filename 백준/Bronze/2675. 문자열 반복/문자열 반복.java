@@ -1,19 +1,25 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int T =  sc.nextInt();
-        
-        for(int i = 0; i < T; i++){
-            int R = sc.nextInt();
-            String S = sc.next();
-        
-        for(int j = 0; j < S.length(); j++){
-            for(int k = 0; k < R; k++){
-                System.out.print(S.charAt(j));
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
+        int t = Integer.parseInt(br.readLine());
+
+        for (int i = 0; i < t; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int r = Integer.parseInt(st.nextToken());
+            String s = st.nextToken();
+            for (int j = 0; j < s.length(); j++) {
+                for (int k = 0; k < r; k++) {
+                    sb.append(s.charAt(j));
+                }
             }
+            sb.append("\n");
         }
-        System.out.println();
-        }
+        System.out.println(sb.toString());
     }
 }
