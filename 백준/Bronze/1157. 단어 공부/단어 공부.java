@@ -1,27 +1,47 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
 
-public class Main{
-    public static void main(String args[]){
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = sc.next().toUpperCase();
-        int count[] = new int[26];
-        
-        for(int i = 0; i < str.length(); i++){
-            int num = str.charAt(i)-'A';
-            count[num]++;
+        String input = sc.nextLine().toUpperCase();
+
+        Set<Character> words = new HashSet<>();
+        for (char c : input.toCharArray()) {
+            words.add(c);
         }
         
+        int alphaCount[] = new int[words.size()];
+        List<Character> alphabet = new ArrayList<>(words);
+
+        for (int i = 0; i < alphaCount.length; i++) {
+            for  (int j = 0; j < input.length(); j++) {
+                if (alphabet.get(i) == input.charAt(j)) {
+                    alphaCount[i]++;
+                }
+            }
+        }
+
         int max = 0;
-        char answer = '?';
-        for(int i = 0; i < count.length; i++){
-            if(max < count[i]){
-                max = count[i];
-                answer = (char)(i + 'A');
-            }
-            else if(max == count[i]){
-                answer = '?';
+        int maxIndex = 0;
+        boolean isEqual = false;
+        for (int i = 0; i < alphaCount.length; i++) {
+            if (alphaCount[i] > max) {
+                max = alphaCount[i];
+                maxIndex = i;
+                isEqual = false;
+            }else if (alphaCount[i] == max) {
+                isEqual = true;
             }
         }
-        System.out.println(answer);
+
+        if (!isEqual) {
+            System.out.println(alphabet.get(maxIndex));
+        }else  {
+            System.out.println("?");
+        }
     }
 }
