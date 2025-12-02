@@ -1,24 +1,27 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        String num1 = st.nextToken();
+        String num2 = st.nextToken();
 
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        int rev_num1 = reverseNum(num1);
+        int rev_num2 = reverseNum(num2);
 
-        StringBuilder sb = new StringBuilder();
-        String revA = sb.append(a).reverse().toString();
-//        sb.setLength(0);
-        sb = new StringBuilder();
-        String revB = sb.append(b).reverse().toString();
+        if (rev_num1 > rev_num2) {
+            System.out.println(rev_num1);
+        } else {
+            System.out.println(rev_num2);
+        }
+    }
 
-        int nA = Integer.valueOf(revA);
-        int nB = Integer.valueOf(revB);
-
-        if(nA > nB) System.out.println(nA);
-        else System.out.println(nB);
-
-        sc.close();
+    private static int reverseNum(String num) {
+        StringBuilder sb = new StringBuilder(num);
+        String number = sb.reverse().toString();
+        return Integer.parseInt(number);
     }
 }
