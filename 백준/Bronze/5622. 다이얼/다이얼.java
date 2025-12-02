@@ -3,34 +3,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
 
-        String s = sc.next();
-        int sum = 0;
-        for(int i = 0; i < s.length(); i++) {
-            int num;
-            if (s.charAt(i) == 'A' || s.charAt(i) == 'B' || s.charAt(i) == 'C')
-            num = 2;
-            else if (s.charAt(i) == 'D' || s.charAt(i) == 'E' || s.charAt(i) == 'F')
-                num = 3;
-            else if (s.charAt(i) == 'G' || s.charAt(i) == 'H' || s.charAt(i) == 'I')
-                num = 4;
-            else if (s.charAt(i) == 'J' || s.charAt(i) == 'K' || s.charAt(i) == 'L')
-                num = 5;
-            else if (s.charAt(i) == 'M' || s.charAt(i) == 'N' || s.charAt(i) == 'O')
-                num = 6;
-            else if (s.charAt(i) == 'P' || s.charAt(i) == 'Q' || s.charAt(i) == 'R' || s.charAt(i) == 'S')
-                num = 7;
-            else if (s.charAt(i) == 'T' || s.charAt(i) == 'U' || s.charAt(i) == 'V')
-                num = 8;
-            else if (s.charAt(i) == 'W' || s.charAt(i) == 'X' || s.charAt(i) == 'Y' || s.charAt(i) == 'Z')
-                num = 9;
-
-            else num = 1;
-
-            sum += num;
+        int time = 0;
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if (c == 'A' || c == 'B' || c =='C') {
+                time += 2;
+            }else if (c == 'D' || c == 'E' || c == 'F') {
+                time += 3;
+            }else if (c == 'G' || c == 'H' || c == 'I') {
+                time += 4;
+            }else if (c == 'J' || c == 'K' || c == 'L') {
+                time += 5;
+            }else if (c == 'M' || c == 'N' || c == 'O') {
+                time += 6;
+            }else if (c == 'P' || c == 'Q' || c == 'R' || c == 'S') {
+                time += 7;
+            }else if (c == 'T' || c == 'U' || c == 'V') {
+                time += 8;
+            }else if (c == 'W' || c == 'X' || c == 'Y' || c == 'Z') {
+                time += 9;
+            }
         }
-
-        System.out.println(sum + s.length());
-        sc.close();
+        System.out.println(time + input.length());
     }
 }
