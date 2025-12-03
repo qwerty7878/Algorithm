@@ -1,30 +1,32 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        sc.nextLine();
+        
+        int count = 0;
+        for (int i = 0; i < t; i++) {
+            String s = sc.nextLine();
+            List<Character> list = new ArrayList<>();
+            boolean isGroupWord = false;
 
-        int n = sc.nextInt();
-        int cnt = n;
-
-        for(int i = 0; i < n; i++){
-            int alpha[] = new int[26];
-            String s = sc.next();
-            int prev = 0;
-
-            for(int j = 0; j < s.length(); j++){
-                if(prev != s.charAt(j)){
-                    if(alpha[s.charAt(j) - 'a'] == 0){
-                        alpha[s.charAt(j) - 'a']++;
-                        prev = s.charAt(j);
-                    }
-                    else {
-                        cnt--;
-                        break;
-                    }
+            for (int j = 0; j < s.length(); j++) {
+                if (!list.contains(s.charAt(j))) {
+                    list.add(s.charAt(j));
+                } else if (list.contains(s.charAt(j)) && !(list.get(list.size() - 1).equals(s.charAt(j))))  {
+                    isGroupWord = true;
+                    break;
                 }
             }
+
+            if (!isGroupWord) {
+                count++;
+            }
         }
-        System.out.println(cnt);
+        System.out.println(count);
     }
 }
