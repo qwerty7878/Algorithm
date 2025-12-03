@@ -1,57 +1,51 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
-public  class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        double majorSum = 0;
-        double scoreSum = 0;
+public class Main {
+    public static void main(String args[]) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        for(int i = 0; i < 20; i++){
-            String major = sc.next();
-            double score = sc.nextDouble();
-            String grade = sc.next();
+        double gradeSum = 0;
+        double gradeTotal = 0;
+        for (int i = 0; i < 20; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine()," ");
+            String name = st.nextToken();
+            double score = Double.parseDouble(st.nextToken());
+            String grade = st.nextToken();
 
-            if(grade.equals("P"))   continue;
-            else{
-                if(grade.equals("A+")){
-                    scoreSum += score;
-                    majorSum += score * 4.5;
-                }
-                else if(grade.equals("A0")){
-                    scoreSum += score;
-                    majorSum += score * 4.0;
-                }
-                else if(grade.equals("B+")){
-                    scoreSum += score;
-                    majorSum += score * 3.5;
-                }
-                else if(grade.equals("B0")){
-                    scoreSum += score;
-                    majorSum += score * 3.0;
-                }
-                else if(grade.equals("C+")){
-                    scoreSum += score;
-                    majorSum += score * 2.5;
-                }
-                else if(grade.equals("C0")){
-                    scoreSum += score;
-                    majorSum += score * 2.0;
-                }
-                else if(grade.equals("D+")){
-                    scoreSum += score;
-                    majorSum += score * 1.5;
-                }
-                else if(grade.equals("D0")){
-                    scoreSum += score;
-                    majorSum += score * 1.0;
-                }
-                else if(grade.equals("F")){
-                    scoreSum += score;
-                    majorSum += score * 0.0;
-                }
+            if (grade.equals("A+")) {
+                gradeSum += score * 4.5;
+                gradeTotal += score;
+            }else if (grade.equals("A0")) {
+                gradeSum += score * 4.0;
+                gradeTotal += score;
+            }else if (grade.equals("B+")) {
+                gradeSum += score * 3.5;
+                gradeTotal += score;
+            }else if (grade.equals("B0")) {
+                gradeSum += score * 3.0;
+                gradeTotal += score;
+            }else if (grade.equals("C+")) {
+                gradeSum += score * 2.5;
+                gradeTotal += score;
+            }else if (grade.equals("C0")) {
+                gradeSum += score * 2.0;
+                gradeTotal += score;
+            }else if (grade.equals("D+")) {
+                gradeSum += score * 1.5;
+                gradeTotal += score;
+            }else if (grade.equals("D0")) {
+                gradeSum += score * 1.0;
+                gradeTotal += score;
+            }else if (grade.equals("F")) {
+                gradeSum += score * 0.0;
+                gradeTotal += score;
+            }else if (grade.equals("P")) {
+                continue;
             }
         }
-        System.out.println(majorSum / scoreSum);
+        System.out.printf("%.6f", gradeSum /  gradeTotal);
     }
 }
-
