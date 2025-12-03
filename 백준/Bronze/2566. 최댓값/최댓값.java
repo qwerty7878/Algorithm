@@ -1,25 +1,35 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
-        int arr[][] = new int [10][10];
-        int max = 0;
-        int x = 0;
-        int y = 0;
-        
-        for(int i = 0;  i < 9; i++){
-            for(int j = 0; j < 9; j++){
-                
+        int arr[][] = new int[9][9];
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
                 arr[i][j] = sc.nextInt();
-                if(max < arr[i][j]){
-                    max = arr[i][j];
-                    x = i;
-                    y = j;
+            }
+        }
+
+        int max = Arrays.stream(arr)
+                .flatMapToInt(Arrays::stream)
+                .max()
+                .getAsInt();
+
+        int index_i = 0;
+        int index_j = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i][j] == max) {
+                    index_i = i + 1;
+                    index_j = j + 1;
+                    break;
                 }
             }
         }
         System.out.println(max);
-        System.out.println((x+1) + " " + (y+1));
+        System.out.printf("%d %d", index_i, index_j);
     }
 }
