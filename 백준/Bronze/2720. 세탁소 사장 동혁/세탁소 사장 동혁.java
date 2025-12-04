@@ -3,18 +3,20 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int t =  sc.nextInt();
 
-        int t = sc.nextInt();
+        for (int i = 0; i < t; i++) {
+            int c =  sc.nextInt();
 
-        for(int i = 0; i < t; i++){
-            int c = sc.nextInt();
+            int quarter = c/25;
+            c = c % 25;
+            int dime = c / 10;
+            c = c % 10;
+            int nickel = c / 5;
+            c = c % 5;
+            int penny = c;
 
-            int q = c / 25;
-            int d = (c % 25) /10;
-            int n = ((c % 25) % 10) / 5;
-            int p = (((c % 25) % 10) % 5) / 1;
-            System.out.println(q + " "  + d + " " + n + " " + p);
+            System.out.printf("%d %d %d %d\n",quarter,dime,nickel,penny);
         }
-
     }
 }
