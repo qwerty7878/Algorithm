@@ -1,28 +1,26 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
-        int n = 0;
-        int top = 1;
-        int bot = 1;
-        int cnt = 0;
-        while(cnt < x){
-            n++;
-            cnt = n*(n+1)/2;
+        int n = sc.nextInt();
+
+        int crossCount = 1;
+        int prevCountSum = 0;
+
+        while (true) {
+            if (n <= prevCountSum + crossCount) {
+                if (crossCount % 2 == 1) {
+                    System.out.println(crossCount - (n - prevCountSum - 1) + "/" + (n - prevCountSum));
+                    break;
+                } else {
+                    System.out.println((n - prevCountSum) + "/" + (crossCount - (n - prevCountSum - 1)));
+                    break;
+                }
+            } else {
+                prevCountSum += crossCount;
+                crossCount += 1;
+            }
         }
-        int num = x -(n-1)*n/2;
-        if(n%2 == 0){
-            top = num;
-            bot = n - num + 1;
-        }
-        else{
-            top = n - num + 1;
-            bot = num;
-        }
-        if(x == 1)
-            System.out.println("1/1");
-        else
-            System.out.println(top + "/" + bot);
     }
 }
