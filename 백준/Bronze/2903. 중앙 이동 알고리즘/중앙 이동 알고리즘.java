@@ -1,11 +1,16 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
         int n = sc.nextInt();
-        long dot = 1 + (long)Math.pow(2,n); // 2가 들어간 이유는 4 9 25... 로 제곱이므로
-                                            // = 2의 (n+1)승이란 뜻임
-        System.out.println(dot * dot);
+
+        int dot[] = new int[n + 1];
+        dot[0] = 4;
+
+        for (int i = 1; i <= n; i++) {
+            dot[i] = (int) Math.pow((2 * (Math.sqrt(dot[i - 1])) - 1), 2);
+        }
+        System.out.println(dot[n]);
     }
 }
