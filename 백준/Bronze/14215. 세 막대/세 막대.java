@@ -4,18 +4,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         int arr[] = new int[3];
-        int sum = 0;
-
-        for(int i = 0; i < 3; i++){
-            arr[i] = sc.nextInt();
-            sum += arr[i];
+        for (int i = 0; i < 3; i++) {
+            int angle = sc.nextInt();
+            arr[i] = angle;
         }
-
         Arrays.sort(arr);
 
-        if(arr[0] + arr[1] > arr[2]) System.out.println(sum);
-        else System.out.println((arr[0] + arr[1]) * 2 -1);
+        int lineLimit = arr[0] + arr[1] - 1;
+        if (lineLimit < arr[2]) {
+            arr[2] = lineLimit;
+        }
+        int sum = Arrays.stream(arr).sum();
+        System.out.println(sum);
     }
 }
