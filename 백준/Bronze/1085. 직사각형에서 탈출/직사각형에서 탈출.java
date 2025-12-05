@@ -1,16 +1,26 @@
-import java.util.*;
-public class Main{
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        
-        int x = sc.nextInt();
-        int y = sc.nextInt();
-        int w = sc.nextInt();
-        int h = sc.nextInt();
-        
-        int min_x = Math.min(x,w-x);
-        int min_y = Math.min(y,h-y);
-        
-        System.out.println(Math.min(min_x,min_y));
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int x = Integer.parseInt(st.nextToken());
+        int y = Integer.parseInt(st.nextToken());
+        int w = Integer.parseInt(st.nextToken());
+        int h = Integer.parseInt(st.nextToken());
+
+        List<Integer> list = new ArrayList<>();
+        list.add(x);
+        list.add(y);
+        list.add(Math.abs(w - x));
+        list.add(Math.abs(h - y));
+
+        int min = list.stream().min(Integer::compareTo).get();
+        System.out.println(min);
     }
 }
