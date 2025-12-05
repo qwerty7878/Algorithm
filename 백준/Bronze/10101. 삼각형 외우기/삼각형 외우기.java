@@ -1,18 +1,33 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
 
-        int sum = a + b + c;
-        if(sum == 180){
-            if(a == 60 && b ==60 && c == 60) System.out.println("Equilateral");
-            else if (a == b || a == c || b ==c) System.out.println("Isosceles");
-            else System.out.println("Scalene");
+        List<Integer> angles =  new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            int angle = sc.nextInt();
+            angles.add(angle);
         }
-        else System.out.println("Error");
+
+        int sum = angles.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
+
+        Set<Integer> set = new HashSet<>(angles);
+        
+        if  (set.size() == 1 && sum == 180) {
+            System.out.println("Equilateral");
+        }else if (set.size() == 2 && sum == 180) {
+            System.out.println("Isosceles");
+        }else if (set.size() == 3 && sum == 180) {
+            System.out.println("Scalene");
+        } else if (sum != 180) {
+            System.out.println("Error");
+        }
     }
 }
