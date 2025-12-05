@@ -1,37 +1,37 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        ArrayList<Integer> list = new ArrayList<>();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        int n = Integer.parseInt(br.readLine());
-        int m = Integer.parseInt(br.readLine());
-        int sum = 0;
-
-        for(int i = n; i <= m; i++) {
-            for(int j = 2; j <= i; j++){
-                if(i == j) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = n; i <= m; i++) {
+            boolean isPrime = true;
+            if (i == 2) {
+                list.add(i);
+                continue;
+            }
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    break;
+                } else if (isPrime && i == j + 1) {
                     list.add(i);
                 }
-                if(i % j == 0) break;
             }
         }
 
-        int arr[] = new int[list.size()];
+        if (list.size() == 0) {
+            System.out.println(-1);
+        } else  {
+            int sum = list.stream().mapToInt(Integer::intValue).sum();
+            int min = list.stream().mapToInt(Integer::intValue).min().getAsInt();
 
-        for(int i = 0; i < list.size(); i++){
-            arr[i] = list.get(i);
-            sum += arr[i];
-        }
-
-        if(list.isEmpty()) System.out.println(-1);
-        else{
             System.out.println(sum);
-            System.out.println(arr[0]);
+            System.out.println(min);
         }
     }
 }
