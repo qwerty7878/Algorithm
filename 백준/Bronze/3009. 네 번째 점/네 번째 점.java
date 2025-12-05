@@ -1,31 +1,29 @@
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int arrx[] = new int[3];
-        int arry[] = new int[3];
-        int fx = 0;
-        int fy = 0;
-        for(int i = 0; i < 3; i++){
-            arrx[i] = sc.nextInt();
-            arry[i] = sc.nextInt();
+
+        List<Integer> x_list = new LinkedList<>();
+        List<Integer> y_list = new LinkedList<>();
+
+        for (int i = 0; i < 3; i++) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+
+            isContainDotPos(x, x_list);
+            isContainDotPos(y, y_list);
         }
+        System.out.println(x_list.get(0) + " " + y_list.get(0));
+    }
 
-        if(arrx[0] == arrx[1])
-            fx = arrx[2];
-        else if(arrx[0] == arrx[2])
-            fx = arrx[1];
-        else
-            fx = arrx[0];
-
-        if(arry[0] == arry[1])
-            fy = arry[2];
-        else if(arry[0] == arry[2])
-            fy = arry[1];
-        else
-            fy = arry[0];
-
-        System.out.println(fx + " " + fy);
+    private static void isContainDotPos(int dot, List<Integer> list) {
+        if (list.contains(dot)) {
+            list.remove(Integer.valueOf(dot));
+        } else {
+            list.add(dot);
+        }
     }
 }
