@@ -3,18 +3,31 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         int n = sc.nextInt();
-        int cnt = 0;
+        int arr[] = new int[n];
 
-        for(int i = 0; i < n; i++){
-            int m = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
 
-            for(int j = 2; j <= m; j++){
-                if(m == j) cnt++;
-                if(m % j == 0) break;
+        int primeCount = 0;
+        for (int i = 0; i < n; i++) {
+            boolean isPrime = true;
+            if (arr[i] == 1) {
+                continue;
+            } else if (arr[i] == 2) {
+                primeCount += 1;
+                continue;
+            } else {
+                for (int j = 2; j < arr[i]; j++) {
+                    if (arr[i] % j == 0) {
+                        isPrime = false;
+                    } else if (isPrime && (j + 1) == arr[i]) {
+                        primeCount += 1;
+                    }
+                }
             }
         }
-        System.out.println(cnt);
+        System.out.println(primeCount);
     }
 }
