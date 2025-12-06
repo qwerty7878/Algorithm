@@ -1,58 +1,59 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
+//        값 입력
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        String example[] = new String[n];
+//        보드 판 선언
+        char board[][] = new char[n][m];
 
+//        값 할당
         for (int i = 0; i < n; i++) {
-            example[i] = br.readLine();
+            board[i] = br.readLine().toCharArray();
         }
 
-        String whiteboard[] = new String[8];
-        String blackboard[] = new String[8];
+        int min = Integer.MAX_VALUE;
+//        전체 판에서 8 * 8판 씩 순회
+        for (int x = 0; x < n - 7; x++) {
+            for (int y = 0; y < m - 7; y++) {
 
-        for (int i = 0; i < 8; i++) {   //  검은 보드
-            if (i % 2 == 0) {
-                blackboard[i] = "BWBWBWBW";
-            } else {
-                blackboard[i] = "WBWBWBWB";
-            }
-        }
+                int bcount = 0;
+                int wcount = 0;
 
-        for (int i = 0; i < 8; i++) {   //  흰 보드
-            if (i % 2 == 0) {
-                whiteboard[i] = "WBWBWBWB";
-            } else {
-                whiteboard[i] = "BWBWBWBW";
-            }
-        }
-
-        int min = 64;
-        for (int i = 0; i < (n - 7); i++) {
-            for (int j = 0; j < (m - 7); j++) {
-                int wcnt = 0;
-                int bcnt = 0;
-                for (int k = 0; k < 8; k++) {
-                    for (int l = 0; l < 8; l++) {
-                        if (whiteboard[k].charAt(l) != example[k + i].charAt(l + j)) {
-                            wcnt++;
+//                8 * 8 범위 안에서 조회
+                for (int i = x; i < x + 8; i++) {
+                    for (int j = y; j < y + 8; j++) {
+//                        짝수인 경우
+                        if ((i + j) % 2 == 0) {
+//                            w b w b w b w 라는 가정하에
+                            if (board[i][j] != 'B') {
+                                bcount++;
+//                                b w b w b w 여야함
+                            } if (board[i][j] != 'W') {
+                                wcount++;
+                            }
                         }
-                        if (blackboard[k].charAt(l) != example[k + i].charAt(l + j)) {
-                            bcnt++;
+//                        홀수인 경우
+                        else {
+//                            w b w b w b w b
+                            if (board[i][j] != 'W') {
+                                bcount++;
+                            } if (board[i][j] != 'B') {
+                                wcount++;
+                            }
                         }
                     }
                 }
-                min = Math.min(min,Math.min(wcnt, bcnt));
+                min = Math.min(min, Math.min(bcount, wcount));
             }
         }
-
         System.out.println(min);
     }
 }
