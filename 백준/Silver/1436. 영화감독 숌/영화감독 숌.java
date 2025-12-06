@@ -1,23 +1,21 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
-        int n = Integer.parseInt(br.readLine());
-        int num = 666;
-        int cnt = 1;
-
-        while (n != cnt) {
-            num++;
-            String s = "" + num;
-            if (s.contains("666")) {
-                cnt++;
+        int movieNum = 665;
+        while (true) {
+            String movieName = Integer.toString(movieNum);
+            if (movieName.contains("666")) {
+                n -= 1;
+                if (n == 0) {
+                    System.out.println(movieNum);
+                    break;
+                }
             }
+            movieNum++;
         }
-        System.out.println(num);
     }
 }
