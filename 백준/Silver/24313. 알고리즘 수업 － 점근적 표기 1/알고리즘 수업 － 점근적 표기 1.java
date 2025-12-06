@@ -1,17 +1,17 @@
-import java.io.*;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a1 = sc.nextInt();
+        int a0 = sc.nextInt();
+        int c = sc.nextInt();
+        int n = sc.nextInt();
 
-        int a1 = Integer.parseInt(st.nextToken());
-        int a0 = Integer.parseInt(st.nextToken());
-        int c = Integer.parseInt(br.readLine());
-        int n = Integer.parseInt(br.readLine());
-
-        if(a1 * n + a0 <= c * n && c >= a1) System.out.println(1);
-        else System.out.println(0);
+        if ((a1 * n) + a0 <= (c * n) && a1 <= c) {
+            System.out.println(1);
+        } else {
+            System.out.println(0);
+        }
     }
 }
