@@ -1,26 +1,22 @@
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-       
-        int n = Integer.parseInt(br.readLine());
-        int cnt = 0;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
-        while (n > 0) {
+        int bag = 0;
+        while (true) {
             if (n % 5 == 0) {
-                cnt += n / 5;
+                bag += n / 5;
+                System.out.println(bag);
+                break;
+            } else if (n < 3) {
+                System.out.println(-1);
                 break;
             }
-            else {
-                n -= 3;
-                cnt++;
-            }
-            if (n < 0) {
-                cnt = -1;
-            }
+            n -= 3;
+            bag++;
         }
-        System.out.println(cnt);
     }
 }
