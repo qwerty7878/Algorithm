@@ -1,33 +1,31 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        int arr[] = new int[n];
-        int sum = 0;
-        int res = 0;
-
-        st = new StringTokenizer(br.readLine(), " ");
-        for(int i = 0; i < n; i++){
-            arr[i] = Integer.parseInt(st.nextToken());
+        int cards[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            int card = sc.nextInt();
+            cards[i] = card;
         }
+        Arrays.sort(cards);
 
-        for(int i = 0; i < n -2; i++){
-            for(int j = i + 1; j < n -1; j++){
-                for(int k = j + 1; k < n; k++) {
-                    sum = arr[i] + arr[j] + arr[k];
-                    if(sum <=m && sum > res)
-                        res = sum;
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    if (cards[i] + cards[j] + cards[k] <= m) {
+                        if (max < cards[i] + cards[j] + cards[k]) {
+                            max = cards[i] + cards[j] + cards[k];
+                        }
                     }
                 }
             }
-        System.out.println(res);
+        }
+        System.out.println(max);
     }
 }
