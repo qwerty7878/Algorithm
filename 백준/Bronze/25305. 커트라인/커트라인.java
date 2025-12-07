@@ -1,26 +1,24 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
 
-        int n = Integer.parseInt(st.nextToken());
-        int k = Integer.parseInt(st.nextToken());
-
-        int arr[] = new int[n];
-
-        st = new StringTokenizer(br.readLine(), " ");
-        for(int i = 0; i < arr.length; i++){
-            arr[i] = Integer.parseInt(st.nextToken());
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            list.add(sc.nextInt());
         }
-        Arrays.sort(arr);
-        sb.append(arr[n - k]);
-        System.out.println(sb);
+
+        List<Integer> reversedList = list.stream()
+                .sorted(Collections.reverseOrder())
+                .collect(Collectors.toList());
+
+        System.out.println(reversedList.get(k - 1));
     }
 }
