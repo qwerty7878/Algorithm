@@ -1,36 +1,42 @@
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
-
+import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        HashSet<String> map = new HashSet<>();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuffer sb = new StringBuffer();
 
         int n = Integer.parseInt(br.readLine());
+        Map<String, String> map = new HashMap<>();
 
         for (int i = 0; i < n; i++) {
-            st = new StringTokenizer(br.readLine(), " ");
-            String name = st.nextToken();
-            String isWork = st.nextToken();
-            if (isWork.equals("enter")) {
-                map.add(name);
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            String name =  st.nextToken();
+            String history =  st.nextToken();
+
+            if (history.equals("enter")) {
+                map.put(name, history);
             } else {
                 map.remove(name);
             }
         }
 
-        ArrayList<String> list = new ArrayList<String>(map);
-        Collections.sort(list,Collections.reverseOrder());
-
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+        List<String> nameList = new ArrayList<>(map.keySet());
+        nameList = nameList.stream().sorted().collect(Collectors.toList());
+        for(int i = nameList.size()-1; i >= 0; i--) {
+            sb.append(nameList.get(i)).append("\n");
         }
+        bw.write(sb.toString().trim());
+        bw.flush();
+        bw.close();
     }
 }
