@@ -1,32 +1,39 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
         StringBuilder sb = new StringBuilder();
 
-        int n = Integer.parseInt(br.readLine());
-        int arr[][] = new int[n][2];
+        int t = Integer.parseInt(br.readLine());
+        int dot[][] = new int[t][2];
 
-        for(int i = 0; i < arr.length; i++){
-            st = new StringTokenizer(br.readLine(), " ");
-            arr[i][0] = Integer.parseInt(st.nextToken());
-            arr[i][1] = Integer.parseInt(st.nextToken());
+        StringTokenizer st;
+        for (int i = 0; i < t; i++) {
+            st = new StringTokenizer(br.readLine());
+            dot[i][0] = Integer.parseInt(st.nextToken());
+            dot[i][1] = Integer.parseInt(st.nextToken());
         }
-        //람다식 사용
-        Arrays.sort(arr,(arr1,arr2) -> {    //arr1 과 arr2 는 arr[i][0]와 arr[i + 1][0]과 동일
-            if(arr1[0] == arr2[0])  return arr1[1] - arr2[1];
-            else return arr1[0] - arr2[0];
+        Arrays.sort(dot, (o1, o2) -> {
+            if (o1[0] == o2[0]) {
+                return o1[1] - o2[1];
+            } else {
+                return o1[0] - o2[0];
+            }
         });
 
-        for(int i = 0; i < arr.length; i++){
-            sb.append(arr[i][0]).append(" ").append(arr[i][1]).append("\n");
+        for (int i = 0; i < t; i++) {
+            sb.append(dot[i][0] + " " + dot[i][1]).append("\n");
         }
+
         bw.write(sb.toString());
         bw.flush();
+        bw.close();
     }
 }
