@@ -1,31 +1,37 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
-
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        StringBuilder sb = new StringBuilder();
-
-        HashSet<Integer> hp = new HashSet<>();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuffer sb = new StringBuffer();
 
         int n = Integer.parseInt(br.readLine());
-        st = new StringTokenizer(br.readLine(), " ");
-        for(int i = 0; i < n; i++){
-            hp.add(Integer.parseInt(st.nextToken()));
+        Set<Integer> set = new HashSet<>();
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < n; i++) {
+            set.add(Integer.parseInt(st.nextToken()));
         }
 
         int m = Integer.parseInt(br.readLine());
-        st = new StringTokenizer(br.readLine(), " ");
-        for(int i = 0; i < m; i++){
-            if(hp.contains(Integer.parseInt(st.nextToken()))){
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < m; i++) {
+            int num = Integer.parseInt(st.nextToken());
+            if (set.contains(num)) {
                 sb.append(1).append(" ");
+            } else {
+                sb.append(0).append(" ");
             }
-            else sb.append(0).append(" ");
         }
 
-        System.out.println(sb);
-   }
+        bw.write(sb.toString().trim());
+        bw.flush();
+        bw.close();
+    }
 }
