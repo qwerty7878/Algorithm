@@ -1,50 +1,34 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.StringTokenizer;
-
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
-        StringTokenizer st;
 
         int n = Integer.parseInt(br.readLine());
-        Member m[] = new Member[n];
-        for(int i = 0; i < n; i++){
-            st = new StringTokenizer(br.readLine(), " ");
-            int age = Integer.parseInt(st.nextToken());
-            String name = st.nextToken();
-            m[i] = new Member(age, name);
+        String arr[][] = new String[n][2];
+
+        for (int i = 0; i < n; i++) {
+            String input = br.readLine();
+            arr[i][0] = input.split(" ")[0];
+            arr[i][1] = input.split(" ")[1];
         }
 
-        Arrays.sort(m, new Comparator<Member>() {
-            @Override
-            public int compare(Member s1, Member s2) {
-                return s1.age - s2.age;
-            }
-        });
+        Arrays.sort(arr, ((o1, o2) -> {
+            return Integer.parseInt(o1[0]) - Integer.parseInt(o2[0]);
+        }));
 
-        for(int i = 0; i < m.length; i++){
-            sb.append(m[i]);
+        for (int i = 0; i < n; i++) {
+            sb.append(arr[i][0] + " " +  arr[i][1]).append("\n");
         }
 
-        System.out.println(sb);
-    }
-
-    public static class Member {
-        int age;
-        String name;
-
-        public Member(int age,String name){
-            this.age = age;
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            return age + " " + name + "\n";
-        }
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
