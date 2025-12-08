@@ -1,36 +1,44 @@
-import java.io.*;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Comparator;
-
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
 
         int n = Integer.parseInt(br.readLine());
-        String arr[] = new String[n];
-
-        for(int i = 0; i < n; i++){
-            arr[i] = br.readLine();
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            list.add(br.readLine());
         }
+        List<String> answer = list.stream()
+                .distinct()
+                .sorted(Comparator.comparingInt(String::length)
+                        .thenComparing(Comparator.naturalOrder()))
+                .collect(Collectors.toList());
 
-        Arrays.sort(arr, new Comparator<String>(){
-           public int compare(String s1, String s2){
-               if(s1.length() == s2.length())
-                   return s1.compareTo(s2);
-               else return s1.length() - s2.length();
-            }
-        });
+//        방법 2
+//        Set<String> set = new TreeSet<>(
+////                길이순
+//                Comparator.comparingInt(String::length)
+////                        사전 순
+//                        .thenComparing(Comparator.naturalOrder())
+//        );
+//        set.addAll(list);
 
-        sb.append(arr[0]).append("\n");
-        for(int i = 1; i < arr.length; i++){
-            if(arr[i].equals(arr[i - 1]))   continue;
-            else sb.append(arr[i]).append("\n");
+        for (String word : answer) {
+            sb.append(word).append("\n");
         }
 
         bw.write(sb.toString());
         bw.flush();
+        bw.close();
     }
 }
