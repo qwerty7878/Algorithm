@@ -1,16 +1,35 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class Main {
-    static Scanner sc = new Scanner(System.in);
-    public static void main(String[] args) {;
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-            long a = sc.nextLong();
-            long b = sc.nextLong();
-            System.out.println(a*b / gcd(a,b));
-   }
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-   public static long gcd(long n, long m){
-        if(m == 0)  return n;
-        return gcd(m, n%m);
-   }
+        long a =  Long.parseLong(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
+
+        long gcd = findGcd(a, b);
+        long lcm = (a * b) / gcd;
+
+        sb.append(lcm);
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
+    }
+
+    private static long findGcd(long a, long b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return findGcd(b, a % b);
+        }
+    }
 }
