@@ -1,43 +1,46 @@
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
+        int n =  Integer.parseInt(st.nextToken());
+        int m =  Integer.parseInt(st.nextToken());
 
-        HashSet<Integer> A = new HashSet<>();
-
+        Set<Integer> a = new HashSet<>();
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < a; i++) {
-            A.add(Integer.parseInt(st.nextToken()));
+        for(int i = 0; i < n; i++){
+            a.add(Integer.parseInt(st.nextToken()));
         }
 
-        HashSet<Integer> B = new HashSet<>();
-
+        Set<Integer> b = new HashSet<>();
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < b; i++) {
-            B.add(Integer.parseInt(st.nextToken()));
+        for(int i = 0; i < m; i++){
+            b.add(Integer.parseInt(st.nextToken()));
         }
 
-        int cnt = 0;
-        for (int i : A) {
-            if (!B.contains(i)) {
-                cnt++;
-            }
-        }
+        Set<Integer> intersection = new HashSet<>(a);
+        intersection.retainAll(b);
 
-        for (int i : B) {
-            if (!A.contains(i)) {
-                cnt++;
-            }
-        }
-        System.out.println(cnt);
+        a.removeAll(intersection);
+        b.removeAll(intersection);
+
+        Set<Integer> union = new HashSet<>(a);
+        union.addAll(b);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(union.size());
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
