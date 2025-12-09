@@ -1,64 +1,44 @@
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.io.OutputStreamWriter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
-
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        StringTokenizer st;
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
-        int arr[] = new int[n];
+        Map<Integer, Integer> cards = new HashMap<>();
 
-        st = new StringTokenizer(br.readLine(), " ");
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-        }
+            int card = Integer.parseInt(st.nextToken());
 
-        Arrays.sort(arr);
+            if (cards.containsKey(card)) {
+                cards.put(card, cards.get(card) + 1);
+            }else  {
+                cards.put(card, 1);
+            }
+        }
 
         int m = Integer.parseInt(br.readLine());
-        st = new StringTokenizer(br.readLine(), " ");
+        st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < m; i++) {
-            int key = Integer.parseInt(st.nextToken());
-            sb.append(upperBinary(arr, key) - lowerBinary(arr, key)).append(" ");
-        }
-        System.out.println(sb);
-    }
-
-    static int upperBinary(int arr[], int key) {    //  초과
-        int low = 0;
-        int high = arr.length;
-
-        while (low < high) {
-            int mid = (low + high) / 2;
-
-            if (key < arr[mid]) {
-                high = mid;
+            int num = Integer.parseInt(st.nextToken());
+            if (cards.get(num) == null) {
+                sb.append(0).append(" ");
             } else {
-                low = mid + 1;
+                sb.append(cards.get(num)).append(" ");
             }
         }
-        return low;
-    }
 
-    static int lowerBinary(int arr[], int key) {    //  이상
-        int low = 0;
-        int high = arr.length;
-
-        while (low < high) {
-            int mid = (low + high) / 2;
-
-            if (key <= arr[mid]) {
-                high = mid;
-            } else {
-                low = mid + 1;
-            }
-        }
-        return low;
+        bw.write(sb.toString().trim());
+        bw.flush();
+        bw.close();
     }
 }
