@@ -1,31 +1,39 @@
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.OutputStreamWriter;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        StringTokenizer st = new StringTokenizer(br.readLine()," ");
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
+        StringBuilder sb = new StringBuilder();
+        String input = br.readLine();
+        int a = Integer.parseInt(input.split(" ")[0]);
+        int b = Integer.parseInt(input.split(" ")[1]);
 
-        st = new StringTokenizer(br.readLine()," ");
-        int c = Integer.parseInt(st.nextToken());
-        int d = Integer.parseInt(st.nextToken());
+        input = br.readLine();
+        int c = Integer.parseInt(input.split(" ")[0]);
+        int d = Integer.parseInt(input.split(" ")[1]);
 
-        int mom = b * d;
-        int son = (a * d) + (b * c);
+        long numer = (a * d) + (b * c);
+        long denom = b * d;
 
-        int divide = gcd(son, mom);
-        mom /= divide;
-        son /= divide;
-        System.out.println(son + " " + mom);
+        long gcd = findGcd(numer, denom);
+
+        sb.append(numer / gcd).append(" ").append(denom / gcd);
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 
-   public static int gcd(int n, int m){
-        if(m == 0)  return n;
-        return gcd(m, n % m);
-   }
+    private static long findGcd(long a, long b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return findGcd(b, a % b);
+        }
+    }
 }
