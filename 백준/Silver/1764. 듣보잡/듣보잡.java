@@ -1,39 +1,48 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        HashSet<String> set = new HashSet<>();
-
-        for (int i = 0; i < n; i++) {   //  듣도 못한 사람
-            set.add(br.readLine());
+        Set<String> peopleList = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            String neverHeardName = br.readLine();
+            peopleList.add(neverHeardName);
         }
 
-        LinkedList<String> list = new LinkedList<>();
-        for (int i = 0; i < m; i++) {   // 보도 못한 사람
-            String s = br.readLine();
-            if (set.contains(s)) {  //  듣보잡
-                list.add(s);
+        StringBuilder sb = new StringBuilder();
+        List<String> answer = new ArrayList<>();
+
+        for (int i = 0; i < m; i++) {
+            String neverSeenName = br.readLine();
+            if (peopleList.contains(neverSeenName)) {
+                answer.add(neverSeenName);
             }
         }
-        Collections.sort(list);
+        answer = answer.stream().sorted().collect(Collectors.toList());
 
-        String arr[] = new String[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            arr[i] = list.get(i);
+        sb.append(answer.size()).append("\n");
+        for (int i = 0; i < answer.size(); i++) {
+            sb.append(answer.get(i)).append("\n");
         }
-        StringBuilder sb = new StringBuilder();
 
-        sb.append(list.size()).append("\n");
-        for (int i = 0; i < list.size(); i++) {
-            sb.append(arr[i]).append("\n");
-        }
-        System.out.println(sb);
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
