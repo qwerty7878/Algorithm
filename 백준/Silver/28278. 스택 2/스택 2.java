@@ -1,33 +1,49 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
-public class Main{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         Stack<Integer> stack = new Stack<>();
-        StringBuilder sb = new StringBuilder();
 
-        int n = sc.nextInt();
-        
-        for(int i = 0; i < n; i++){
-            int command = sc.nextInt();
-            switch(command){
-            case 1:
-                stack.push(sc.nextInt());
-                break;
-            case 2:
-                sb.append((stack.isEmpty()?-1:stack.pop()) + "\n");
-                break;
-            case 3:
-                sb.append((stack.size()) + "\n");
-                break;
-            case 4:
-                sb.append((stack.isEmpty()?1:0) + "\n");
-                break;
-            case 5:
-                sb.append((stack.isEmpty()?-1:stack.peek()) + "\n");
-                break;
+        int n = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int command = Integer.parseInt(st.nextToken());
+            if (command == 5) {
+                if (!stack.isEmpty()) {
+                    sb.append(stack.peek()).append("\n");
+                } else {
+                    sb.append(-1).append("\n");
+                }
+            } else if (command == 4) {
+                if (stack.isEmpty()) {
+                    sb.append(1).append("\n");
+                }else  {
+                    sb.append(0).append("\n");
+                }
+            }else if (command == 3) {
+                sb.append(stack.size()).append("\n");
+            }else if (command == 2) {
+                if (!stack.isEmpty()) {
+                    sb.append(stack.pop()).append("\n");
+                }else  {
+                    sb.append(-1).append("\n");
+                }
+            }else if (command == 1) {
+                int num = Integer.parseInt(st.nextToken());
+                stack.push(num);
             }
         }
-            System.out.println(sb);
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
