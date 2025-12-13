@@ -1,26 +1,32 @@
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.util.*;
-
+import java.io.OutputStreamWriter;
+import java.util.Stack;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Stack<Integer> s = new Stack<>();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int n = Integer.parseInt(br.readLine());
-        int sum = 0;
-        for (int i = 0; i < n; i++) {
-            int isZero = Integer.parseInt(br.readLine());
-            if (isZero == 0) {
-                sum -= s.peek();
-                s.pop();
+        int k = Integer.parseInt(br.readLine());
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < k; i++) {
+            int input = Integer.parseInt(br.readLine());
+            if (input != 0) {
+                stack.push(input);
             } else {
-                s.push(isZero);
-                sum += s.peek();
+                stack.pop();
             }
         }
-        System.out.println(sum);
+
+        int sum = stack.stream().mapToInt(Integer::intValue).sum();
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(sum);
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
