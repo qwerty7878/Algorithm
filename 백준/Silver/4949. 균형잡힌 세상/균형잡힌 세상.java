@@ -1,43 +1,50 @@
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Stack;
 
 public class Main {
-    public static void main(String[] args)  throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
 
         while (true) {
             Stack<Character> stack = new Stack<>();
-            String s = br.readLine();
-            if(s.equals("."))   break;
+            String input = br.readLine();
 
-            for (int i = 0; i < s.length(); i++) {
-                if (s.charAt(i) == '(' || s.charAt(i) == '[') {
-                    stack.push(s.charAt(i));
+            if (input.equals(".")) {
+                break;
+            }
+
+            for (char c : input.toCharArray()) {
+                if (c == '[' || c == '(') {
+                    stack.push(c);
                 }
-                if (s.charAt(i) == ')') {
-                    if (stack.empty()) {
-                        stack.push(s.charAt(i));
-                        break;
-                    } else if(stack.peek() == '('){
-                        stack.pop();
-                    }else break;
+                if (stack.isEmpty()) {
+                    if (c == ')' || c == ']') {
+                        stack.push(c);
+                    }
                 }
-                else if (s.charAt(i) == ']') {
-                    if (stack.empty()) {
-                        stack.push(s.charAt(i));
-                        break;
-                    } else if(stack.peek() == '['){
+                else {
+                    if ((c == ')' && stack.peek() != '(') || (c == ']' && stack.peek() != '[')) {
+                        stack.push(c);
+                    } else if ((c == ']' && stack.peek() == '[') || (c == ')' && stack.peek() == '(')) {
                         stack.pop();
-                    }else break;
+                    }
                 }
             }
-            if (stack.empty()) {
-                System.out.println("yes");
+
+            if (stack.isEmpty()) {
+                sb.append("yes").append('\n');
             } else {
-                System.out.println("no");
+                sb.append("no").append('\n');
             }
         }
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
