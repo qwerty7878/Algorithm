@@ -1,25 +1,30 @@
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
 
-        sb.append(factorial(n) / ((factorial(n - k)) * factorial(k))).append("\n");
-        System.out.println(sb);
+        sb.append(factorial(n) / (factorial(n - k) * factorial(k)));
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 
-    static int factorial(int a) {
-        if(a == 0)  return 1;
-        if(a == 0)  return 1;
-        return a * factorial(a - 1);
+    private static long factorial(int n) {
+        if (n <= 1) {
+            return 1;
+        }
+        return n * factorial(n - 1);
     }
 }
