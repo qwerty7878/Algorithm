@@ -1,50 +1,49 @@
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        Deque<int[]> dq = new ArrayDeque<>();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
-        int arr[] = new int[n];
+        Deque<int []> ballon = new ArrayDeque<>();
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            ballon.add(new int[]{(i + 1), Integer.parseInt(st.nextToken())});
         }
 
-        int move = arr[0];
-        sb.append("1 ");
+        StringBuilder sb = new StringBuilder();
+        while (!ballon.isEmpty()) {
+            int[] ball = ballon.pollFirst();
+            int idx = ball[0];
+            int num = ball[1];
 
-        for (int i = 1; i < n; i++) {
-            dq.add(new int[]{(i + 1), arr[i]});
-        }
+            sb.append(idx).append(" ");
 
-        while (!dq.isEmpty()) {
-            if (move > 0) {
-                for (int i = 1; i < move; i++) {
-                    dq.addLast(dq.pollFirst());
+            if (ballon.isEmpty()) {
+                break;
+            }
+
+            if (num > 0) {
+                for (int i = 0; i < num - 1; i++) {
+                    ballon.addLast(ballon.pollFirst());
                 }
-
-                int next[] = dq.poll();
-                move = next[1];
-                sb.append(next[0] + " ");
             } else {
-                for (int i = 1; i < -move; i++) {
-                    dq.addFirst(dq.pollLast());
+                for (int i = 0; i < Math.abs(num); i++) {
+                    ballon.addFirst(ballon.pollLast());
                 }
-
-                int next[] = dq.pollLast();
-                move = next[1];
-                sb.append(next[0] + " ");
             }
         }
-        System.out.println(sb.toString());
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
