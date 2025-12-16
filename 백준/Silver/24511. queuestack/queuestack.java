@@ -1,16 +1,15 @@
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.StringTokenizer;
 
-
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        Deque<Integer> dq = new ArrayDeque<>();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
         int arr[] = new int[n];
@@ -20,27 +19,28 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
+        Deque<Integer> queuestack = new ArrayDeque<>();
         st = new StringTokenizer(br.readLine());
+
         for (int i = 0; i < n; i++) {
             int num = Integer.parseInt(st.nextToken());
-            if (arr[i] == 0) {  //  어차피 스택일땐 push하고 pop하면 그대로임
-                dq.addLast(num);
+            if(arr[i] == 0){
+                queuestack.add(num);
             }
         }
 
         int m = Integer.parseInt(br.readLine());
-        int insert[] = new int[m];
-
         st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < m; i++) {
-            insert[i] = Integer.parseInt(st.nextToken());
+            int num = Integer.parseInt(st.nextToken());
+            queuestack.addFirst(num);
+            sb.append(queuestack.pollLast()).append(" ");
         }
 
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < m; i++) {
-            dq.addFirst(insert[i]);
-            sb.append(dq.pollLast() + " ");
-        }
-        System.out.println(sb.toString());
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
