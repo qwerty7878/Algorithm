@@ -1,24 +1,31 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
-
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
         int n = Integer.parseInt(br.readLine());
         int arr[] = new int[n];
 
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        for (int i = 0; i < arr.length; i++) {
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arr);
 
-        sb.append(arr[0] * arr[n - 1]);
-        System.out.println(sb);
+        int max = Arrays.stream(arr).max().getAsInt();
+        int min = Arrays.stream(arr).min().getAsInt();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(max * min);
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
