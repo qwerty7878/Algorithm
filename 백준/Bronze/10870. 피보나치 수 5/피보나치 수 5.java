@@ -1,24 +1,30 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
-
-        System.out.println(fibo(n));
+        System.out.println(fibonacci(n));
     }
 
-    static int fibo(int n) {
+    private static long fibonacci(int n) {
         if (n == 0) {
             return 0;
         } else if (n == 1) {
             return 1;
-        } else {
-            return fibo(n - 1) + fibo(n - 2);
         }
+
+        long dp[] = new long[n + 1];
+        dp[0] = 0;
+        dp[1] = 1;
+        dp[2] = 2;
+
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n - 1];
     }
 }
