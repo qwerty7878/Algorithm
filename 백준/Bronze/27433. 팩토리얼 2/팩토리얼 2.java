@@ -1,31 +1,16 @@
-//반복문
-import java.util.*;
-public class Main{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        long factorial = 1;
-        for(int i = 1; i <= n; i++){
-            factorial *= i;
-        }
-        System.out.println(factorial);
-    }
-}
-//재귀
-import java.util.*;
-public class Main{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(br.readLine());
         System.out.println(factorial(n));
     }
 
-    static long factorial(int n){
-        if(n <= 0){
-            return 1;
-        }
-        
-        return n*factorial(n-1);
+    private static long factorial(int n) {
+        if (n <= 1) return 1;
+        return n * factorial(n - 1);
     }
 }
