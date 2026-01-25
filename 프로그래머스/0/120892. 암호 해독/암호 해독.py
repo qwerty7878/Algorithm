@@ -1,5 +1,5 @@
 def solution(cipher, code):
     answer = ''
-    for i in range(code - 1, len(cipher), code):
-        answer += cipher[i]
+    for idx in range(code, len(cipher) + 1, code):
+        answer += cipher[idx - 1]
     return answer
