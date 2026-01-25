@@ -1,2 +1,8 @@
 def solution(my_string):
-    return my_string.swapcase()
+    answer = ''
+    for char in my_string:
+        if char.isupper():
+            answer += char.lower()
+        else:
+            answer += char.upper()
+    return answer
