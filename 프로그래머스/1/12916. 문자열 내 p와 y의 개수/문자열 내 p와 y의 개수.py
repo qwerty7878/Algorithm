@@ -1,8 +1,9 @@
 def solution(s):
-    answer = False
-    ss = s.lower()
-    p = ss.count('p')
-    q = ss.count('y')
-    if p == q:
+    answer = True
+    s = s.lower()
+    print(s)
+    if s.count('p') == s.count('y'):
         answer = True
+    else:
+        answer = False
     return answer
