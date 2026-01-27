@@ -1,11 +1,11 @@
 def solution(n):
     answer = 0
-    arr = []
-    for i in str(n):
-        arr.append(int(i))
-    arr.sort(reverse=True)
-    temp = ""
-    for num in arr:
-        temp += str(num)
-    answer = int(temp)
+    temp = []
+    for s in str(n):
+        temp.append(s)
+    temp.sort(reverse=True)
+    st = ""
+    for num in temp:
+        st += num
+    answer = int(st)
     return answer
