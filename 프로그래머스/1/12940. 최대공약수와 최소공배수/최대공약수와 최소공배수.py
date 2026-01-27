@@ -1,11 +1,15 @@
-import math
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def lcm(a, b):
+    return (a * b) // gcd(a, b)
 
 def solution(n, m):
     answer = []
-    gcd = math.gcd(n, m)
-    print(gcd)
-    lcm = n * m // gcd
-    print(lcm)
-    answer.append(gcd)
-    answer.append(lcm)
+    g = gcd(n, m)
+    answer.append(g)
+    l = lcm(n, m)
+    answer.append(l)
     return answer
