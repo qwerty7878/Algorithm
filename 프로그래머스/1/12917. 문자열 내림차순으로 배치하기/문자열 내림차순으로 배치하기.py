@@ -1,10 +1,6 @@
 def solution(s):
     answer = ''
-    temp = []
-    for i in s:
-        temp.append(i)
-    print(temp)
-    temp.sort(reverse=True)
-    print(temp)
-    answer = ''.join(temp)
-    return answer
+    answer = list(s)
+    answer.sort(reverse=True)
+    ans = ''.join(answer)
+    return ans
