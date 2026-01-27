@@ -1,11 +1,9 @@
 def solution(arr):
     answer = []
-    temp = arr[0]
-    answer.append(arr[0])
-    for i in range(1, len(arr)):
-        if temp == arr[i]:
-            continue
-        else:
-            answer.append(arr[i])
-        temp = arr[i]
+    for num in arr:
+#         이전의 수인지 아닌지 판별하려면 temp 존재해야함
+        if not answer:
+            answer.append(num)
+        elif answer[-1] != num:
+            answer.append(num)
     return answer
