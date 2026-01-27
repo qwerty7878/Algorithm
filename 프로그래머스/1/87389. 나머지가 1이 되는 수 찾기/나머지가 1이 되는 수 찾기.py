@@ -1,7 +1,7 @@
 def solution(n):
     answer = 0
-    for i in range(1,n + 1):
-        if n % i == 1:
-            answer = i
+    for num in range(1, n + 1):
+        if n % num == 1:
+            answer = num
             break
     return answer
