@@ -4,7 +4,8 @@ def solution(n):
     for i in str(n):
         arr.append(int(i))
     arr.sort(reverse=True)
-    for i in range(len(arr)):
-        answer += max(arr) * (10 ** (len(arr) -1))
-        arr.remove(max(arr))
+    temp = ""
+    for num in arr:
+        temp += str(num)
+    answer = int(temp)
     return answer
