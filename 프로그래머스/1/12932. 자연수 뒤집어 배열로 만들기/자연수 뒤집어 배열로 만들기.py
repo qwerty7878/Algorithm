@@ -2,5 +2,5 @@ def solution(n):
     answer = []
     for i in str(n):
         answer.append(int(i))
-    answer.reverse()
+    answer = answer[::-1]
     return answer
