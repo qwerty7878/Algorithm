@@ -1,8 +1,11 @@
 def solution(x):
-    answer = False
-    div = 0
-    for i in str(x):
-        div += int(i)
-    if x % div == 0:
+    answer = True
+    hashad = 0
+    for num in str(x):
+        hashad += int(num)
+
+    if x % hashad == 0:
         answer = True
+    else:
+        answer = False
     return answer
