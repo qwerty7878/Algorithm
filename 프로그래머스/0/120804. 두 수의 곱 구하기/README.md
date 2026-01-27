@@ -1,10 +1,10 @@
 # [level 0] 두 수의 곱 구하기 - 120804 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120804?language=kotlin) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120804) 
 
 ### 성능 요약
 
-메모리: 63.6 MB, 시간: 0.02 ms
+메모리: 9.16 MB, 시간: 0.00 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 10월 27일 20:14:34
+2026년 01월 28일 00:49:05
 
 ### 문제 설명
 
