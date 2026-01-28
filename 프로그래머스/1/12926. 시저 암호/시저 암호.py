@@ -1,10 +1,11 @@
 def solution(s, n):
     answer = ''
-    for i in s:
-        if i == ' ':
+    for char in s:
+        if char == ' ':
             answer += ' '
-        elif i.islower():
-            answer += chr((ord(i) + n - ord('a')) % 26 + ord('a'))
-        elif i.isupper():
-            answer += chr((ord(i) + n - ord('A')) % 26 + ord('A'))
+        else:
+            if char.islower():
+                answer += chr((ord(char) - ord('a') + n) % 26 + ord('a'))
+            elif char.isupper():
+                answer += chr((ord(char) - ord('A') + n) % 26 + ord('A'))
     return answer
