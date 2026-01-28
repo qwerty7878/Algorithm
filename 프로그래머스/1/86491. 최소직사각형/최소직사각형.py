@@ -1,18 +1,17 @@
 def solution(sizes):
     answer = 0
-    
-    max_w = -1
-    max_h = -1
-    for i in sizes:
-        if i[0] < i[1]:
-            temp = i[1]
-            i[1] = i[0]
-            i[0] = temp
+    maxXSize = 0
+    maxYSize = 0
+    for card in sizes:
+        xSize = max(card[0], card[1])
+        ySize = min(card[0], card[1])
+        # print(xSize, ySize)
         
-        if i[0] >= max_w:
-            max_w = i[0]
-        if i[1] >= max_h:
-            max_h = i[1]
-            
-    answer = max_h * max_w
+        if xSize > maxXSize:
+            maxXSize = xSize
+        if ySize > maxYSize:
+            maxYSize = ySize
+        
+    # print(maxXSize, maxYSize)
+    answer = maxXSize * maxYSize
     return answer
