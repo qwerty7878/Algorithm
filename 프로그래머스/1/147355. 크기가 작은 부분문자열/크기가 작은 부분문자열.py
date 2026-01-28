@@ -1,10 +1,8 @@
 def solution(t, p):
     answer = 0
-    temp = []
-    for i in range(len(t) - len(p) + 1):
-        temp.append(t[i:i + len(p)])
-    print(temp)
-    for i in temp:
-        if int(i) <= int(p):
+    for i in range(len(t)):
+        target = t[i:i + len(p)]
+        # print(target)
+        if target <= p and len(p) == len(target):
             answer += 1
     return answer
