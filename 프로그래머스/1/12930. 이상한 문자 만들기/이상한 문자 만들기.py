@@ -1,12 +1,15 @@
 def solution(s):
-    answer = []
-    arr = s.split(' ')
-    for i in arr:
-        temp = ""
-        for j in range(len(i)):
-            if j % 2 == 0:
-                temp += i[j].upper()
+    answer = ''
+    words = s.split(' ')
+    temp = []
+    print(words)
+    for word in words:
+        newWord = ''
+        for idx in range(len(word)):
+            if (idx + 1) % 2 == 0:
+                newWord += word[idx].lower()
             else:
-                temp += i[j].lower()
-        answer.append(temp)
-    return ' '.join(answer)
+                newWord += word[idx].upper()
+        temp.append(newWord)
+    answer = ' '.join(temp)
+    return answer
