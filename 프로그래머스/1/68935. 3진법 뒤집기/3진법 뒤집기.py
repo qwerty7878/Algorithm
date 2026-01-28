@@ -1,14 +1,22 @@
 def solution(n):
     answer = 0
     temp = []
+    
     while True:
         if n < 3:
-            temp.append(n)
+            temp.append(str(n))
             break
-        temp.append(n % 3)
+        if n % 3 == 0:
+            temp.append("0")
+        elif n % 3 != 0:
+            temp.append(str(n % 3))
         n //= 3
-
-    temp.reverse()
-    for i in range(len(temp)):
-        answer += (3 ** i) * temp[i]
+    
+    three = ''.join(temp)
+    
+    index = 0
+    for num in three[::-1]:
+        answer += (3 ** index) * int(num)
+        index += 1
+    
     return answer
