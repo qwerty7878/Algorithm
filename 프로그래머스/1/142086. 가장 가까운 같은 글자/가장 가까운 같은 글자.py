@@ -1,13 +1,17 @@
 def solution(s):
     answer = []
     temp = []
-    for i in range(len(s)):
-        if s[i] not in temp:
+    
+    for char in s:
+        if char not in temp:
             answer.append(-1)
-        elif s[i] in temp:
-            for j in range(1, len(temp) + 1):
-                if temp[-j] == s[i]:
-                    answer.append(j)
+        else:
+            idx = 1
+            while True:
+                if temp[-idx] == char:
                     break
-        temp.append(s[i])
+                else:
+                    idx += 1
+            answer.append(idx)
+        temp.append(char)
     return answer
