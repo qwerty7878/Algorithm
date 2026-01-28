@@ -1,13 +1,14 @@
 def solution(array, commands):
     answer = []
     
-    for i in commands:
-        start = i[0]
-        end = i[1]
-        choice = i[2]
+    for command in commands:
+        start = command[0]
+        end = command[1]
+        target = command[2]
+        
         temp = []
-        for j in range(start - 1, end):
-            temp.append(array[j])
+        for num in range(start - 1, end):
+            temp.append(array[num])
         temp.sort()
-        answer.append(temp[choice - 1])
+        answer.append(temp[target - 1])
     return answer
