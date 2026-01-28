@@ -1,8 +1,13 @@
 def solution(d, budget):
     answer = 0
     d.sort()
-    for i in d:
-        if budget - i >= 0:
-            budget -= i
-            answer += 1
+    idx = 0
+    while idx != len(d):
+        budget -= d[idx]
+        
+        if budget < 0:
+            break
+            
+        idx += 1
+        answer += 1
     return answer
