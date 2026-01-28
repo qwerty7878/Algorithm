@@ -4,19 +4,14 @@ def solution(n):
     
     while True:
         if n < 3:
-            temp.append(str(n))
+            temp.append(n)
             break
         if n % 3 == 0:
-            temp.append("0")
+            temp.append(0)
         elif n % 3 != 0:
-            temp.append(str(n % 3))
+            temp.append(n % 3)
         n //= 3
     
-    three = ''.join(temp)
-    
-    index = 0
-    for num in three[::-1]:
-        answer += (3 ** index) * int(num)
-        index += 1
+    print(*temp)
     
     return answer
