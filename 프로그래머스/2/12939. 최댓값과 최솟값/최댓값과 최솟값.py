@@ -1,6 +1,6 @@
 def solution(s):
     answer = ''
-    arr = list(map(int, s.split(' ')))
-    print(arr)
-    answer += str(min(arr)) + ' ' + str(max(arr))
+    numList = list(map(int, s.split(' ')))
+    numList.sort()
+    answer += f"{numList[0]} {numList[-1]}"
     return answer
