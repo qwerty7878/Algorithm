@@ -1,9 +1,11 @@
 def solution(participant, completion):
     answer = ''
-    completion.sort()
     participant.sort()
+    completion.sort()
+    for p_runner, c_runner in zip(participant, completion):
+        if p_runner != c_runner:
+            answer = p_runner
+            return answer
     
-    for p,c in zip(participant, completion):
-        if p != c:
-            return p
-    return participant[-1]
+    answer = participant[-1]
+    return answer
