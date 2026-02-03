@@ -1,11 +1,12 @@
 import sys
+input = sys.stdin.readline
 
-n = int(input())
-arr = []
+n = int(input().strip())
+numList = []
 
-for i in range(n):
-	arr.append(int(sys.stdin.readline()))
-arr.sort()
+for _ in range(n):
+    numList.append(int(input().strip()))
 
-for i in arr:
-	print(i)
+numList = sorted(set(numList))
+for num in numList:
+    print(num)
