@@ -1,13 +1,13 @@
-n = int(input())
+import sys
+input = sys.stdin.readline
 
+n = int(input().strip())
+start = 665
 count = 0
-num = 1
 while True:
-    if count == n:
-        print(num)
-        break
-        
-    num += 1
-    temp = str(num)
-    if '666' in temp:
+    if '666' in str(start):
         count += 1
+        if count == n:
+            print(start)
+            break
+    start += 1
