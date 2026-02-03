@@ -1,17 +1,17 @@
 n = int(input())
-list = list(map(int, input().split()))
-count = 0
+isPrimeNum = list(map(int, input().split(' ')))
 
-for i in list:
-    if i == 1:
+count = 0
+for num in isPrimeNum:
+    if num < 2:
         continue
-    if i == 2:
+    if num == 2:
         count += 1
         continue
-    for j in range(2, i):
-        if i % j == 0:
-            break
-        if i == (j + 1) and i % j != 0:
-            count += 1
-
+    else:
+        for i in range(2, num):
+            if num % i == 0:
+                break
+            elif i + 1 == num and num % i != 0:
+                count += 1
 print(count)
