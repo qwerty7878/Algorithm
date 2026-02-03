@@ -1,14 +1,13 @@
 import sys
+input = sys.stdin.readline
 
-t = int(sys.stdin.readline())
-arr = []
+n = int(input())
+numList = []
+for _ in range(n):
+    numList.append(input().strip())
+numList = sorted(list(set(numList)))
+numList.sort(key=len)
+# print(numList)
 
-for i in range(t):
-	arr.append(input())
-
-arr = list(set(arr))
-arr.sort()
-arr.sort(key=len)
-
-for i in arr:
-	print(i)
+for word in numList:
+    print(word)
