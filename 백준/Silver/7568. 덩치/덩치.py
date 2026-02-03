@@ -1,17 +1,18 @@
 import sys
+input = sys.stdin.readline
 
-t = int(sys.stdin.readline())
-person = []
+n = int(input().strip())
+people = []
 
-for i in range(t):
-    person.append(list(map(int, sys.stdin.readline().split())))
+for _ in range(n):
+    w,h = map(int, input().split(' '))
+    people.append([w, h])
 
-ans = []
-for i in range(t):
-    rank = 1
-    h = person[i][1]
-    w = person[i][0]
-    for j in range(len(person)):
-        if h < person[j][1] and w < person[j][0]:
-            rank += 1
-    print(rank, end=' ')
+for i in range(n):
+    current_w = people[i][0]
+    current_h = people[i][1]
+    ranking = 1
+    for j in range(len(people)):
+        if current_w < people[j][0] and current_h < people[j][1]:
+            ranking += 1
+    print(ranking, end=' ')
