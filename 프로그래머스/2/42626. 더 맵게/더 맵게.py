@@ -5,10 +5,7 @@ def solution(scoville, K):
 #     기존 리스트 -> 힙으로 변환
     heapq.heapify(scoville)
     # print(scoville)
-    if scoville[0] >= K:
-        return answer
-    
-    while scoville[0] < K:
+    while any(num < K for num in scoville):
 #         2개의 수를 뽑을 수 없는 경우
         if len(scoville) < 2:
             return -1
@@ -20,8 +17,5 @@ def solution(scoville, K):
         newScovilleNum = first + (second * 2)
         heapq.heappush(scoville, newScovilleNum)
         answer += 1
-        
-        #         모든 수가 K 이상이 되었을 경우
-        if all(num >= K for num in scoville):
-            return answer
-        
+    return answer
+    
