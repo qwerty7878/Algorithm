@@ -1,13 +1,13 @@
-t = int(input())
+import sys
+input = sys.stdin.readline
 
+n = int(input())
 stack = []
-for i in range(t):
-    k = input()
-
-    if k == '0':
-        if len(stack) > 0:
-            stack.pop()
+for _ in range(n):
+    num = int(input().strip())
+    if stack and num == 0:
+        stack.pop()
     else:
-        stack.append(int(k))
-
+        stack.append(num)
+    # print(stack)
 print(sum(stack))
