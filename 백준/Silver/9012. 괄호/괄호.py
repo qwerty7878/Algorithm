@@ -1,25 +1,16 @@
 import sys
+input = sys.stdin.readline
 
-t = int(sys.stdin.readline())
-answer = []
-for i in range(t):
-    str = sys.stdin.readline().strip()
+n = int(input())
+for _ in range(n):
+    s = input().strip()
     stack = []
-
-    for j in str:
-
-        if j == '(':
-            stack.append(j)
-        elif j == ')':
-            if len(stack) > 0 and stack[-1] == '(':
-                stack.pop()
-            else:
-                stack.append(j)
-
-    if len(stack) > 0:
-        answer.append('NO')
+    for char in s:
+        if stack and stack[-1] == '(' and char == ')':
+            stack.pop()
+        else:
+            stack.append(char)
+    if stack:
+        print("NO")
     else:
-        answer.append('YES')
-
-for i in answer:
-    print(i)
+        print("YES")
