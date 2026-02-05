@@ -1,31 +1,27 @@
 import sys
+input = sys.stdin.readline
 
-answer = []
 while True:
-	str = sys.stdin.readline().rstrip()
-	stack = []
+    word = input()
 
-	if str == '.':
-		break
+    if word.startswith('.'):
+        break
 
-	for j in str:
-		if j == '(' or j == '[':
-			stack.append(j)
-		elif j == ')':
-			if len(stack) > 0 and stack[-1] == '(':
-				stack.pop()
-			else:
-				stack.append(j)
-		elif j == ']':
-			if len(stack) > 0 and stack[-1] == '[':
-				stack.pop()
-			else:
-				stack.append(j)
-
-	if len(stack) > 0:
-		answer.append('no')
-	else:
-		answer.append('yes')
-
-for i in answer:
-	print(i)
+    stack = []
+    for char in word:
+        if char == '[' or char == '(':
+            stack.append(char)
+        elif char == ']' or char == ')':
+            if not stack:
+                stack.append(char)
+                break
+            elif stack[-1] == '(' and char ==')':
+                stack.pop()
+            elif stack[-1] == '[' and char ==']':
+                stack.pop()
+            else:
+                stack.append(char)
+    if stack:
+        print('no')
+    else:
+        print('yes')
