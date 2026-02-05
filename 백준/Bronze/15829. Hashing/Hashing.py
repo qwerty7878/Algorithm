@@ -9,6 +9,6 @@ ans = 0
 pos = 0
 for char in s:
     if char in alpha:
-        ans += alpha[char] * ((31 ** pos) % 1234567891)
+        ans += alpha[char] * (31 ** pos) % 1234567891
         pos += 1
-print(ans)
+print(ans % 1234567891)
