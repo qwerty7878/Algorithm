@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 61892 KB, 시간: 436 ms
+메모리: 54600 KB, 시간: 212 ms
 
 ### 분류
 
@@ -12,7 +12,7 @@
 
 ### 제출 일자
 
-2025년 12월 9일 12:29:49
+2026년 2월 7일 01:35:22
 
 ### 문제 설명
 
@@ -66,15 +66,15 @@
 
 <p>이다솜 : 그럼 꼬렛을 다시 잡으러 가야겠다. 영식아, 그리고 민식박사님 빠잉!</p>
 
-<p><img alt="" src="" style="height:179px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/p5.PNG" style="height:179px; width:274px"></p>
 
 <p>이다솜 : 피카츄 공격!</p>
 
-<p><img alt="" src="" style="height:182px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/p6.PNG" style="height:182px; width:274px"></p>
 
 <p>가라 몬스터 볼!</p>
 
-<p><img alt="" src="" style="height:184px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/p7.PNG" style="height:184px; width:274px"></p>
 
 <p>이다솜 : 야호! 신난다. 꼬렛을 잡았다!!!!!</p>
 
@@ -102,19 +102,19 @@
 
 <p><img alt="" src="https://www.acmicpc.net/upload/201004/pb.PNG" style="height:181px; width:274px"></p>
 
-<p><img alt="" src="" style="height:183px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/pc.PNG" style="height:183px; width:274px"></p>
 
-<p><img alt="" src="" style="height:182px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/pd.PNG" style="height:182px; width:274px"></p>
 
-<p><img alt="" src="" style="height:183px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/pe.PNG" style="height:183px; width:274px"></p>
 
-<p><img alt="" src="" style="height:183px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/pf.PNG" style="height:183px; width:274px"></p>
 
-<p><img alt="" src="" style="height:181px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/pg.PNG" style="height:181px; width:274px"></p>
 
-<p><img alt="" src="" style="height:184px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/ph.PNG" style="height:184px; width:274px"></p>
 
-<p><img alt="" src="" style="height:184px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/upload/201004/pi.PNG" style="height:184px; width:274px"></p>
 
 <p>이다솜 : 휴... 이겼다.</p>
 

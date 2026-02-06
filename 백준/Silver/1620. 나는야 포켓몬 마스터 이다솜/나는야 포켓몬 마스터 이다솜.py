@@ -1,17 +1,20 @@
 import sys
+input = sys.stdin.readline
 
-n,m = map(int,sys.stdin.readline().split())
-pocketmon = {}
-pocketmonlist = []
+n, m = map(int, input().split())
+pocketmonNameToNumList = dict()
+pocketmonNumToNameList = dict()
 
 for i in range(n):
-    name = sys.stdin.readline().strip()
-    pocketmonlist.append(name)
-    pocketmon[name] = i + 1
+    name = input().strip()
+    pocketmonNameToNumList[i + 1] = name
+    pocketmonNumToNameList[name] = i + 1
 
-for i in range(m):
-    question = sys.stdin.readline().strip()
+for _ in range(m):
+    question = input().strip()
+
     if question.isdigit():
-        print(pocketmonlist[int(question) - 1])
+        num = int(question)
+        print(pocketmonNameToNumList[num])
     else:
-        print(pocketmon[question])
+        print(pocketmonNumToNameList[question])
