@@ -1,26 +1,28 @@
 import sys
-from collections import deque
+input = sys.stdin.readline
 
-n = int(sys.stdin.readline())
-st = deque()
-arr = []
-temp = 1
+n = int(input())
+stack = []
+num = 1
+ans = []
 
-for _ in range(n):
-    number = int(sys.stdin.readline())
-    while temp <= number:
-        st.append(temp)
-        arr.append('+')
-        temp += 1
+for i in range(n):
+    target = int(input().strip())
+    while True:
+        if target >= num:
+            stack.append(num)
+            ans.append('+')
+            num += 1
+        elif stack:
+            if stack[-1] == target:
+                stack.pop()
+                ans.append('-')
+                break
+            else:
+                ans.append('NO')
+                break
 
-    if number == st[-1]:
-        st.pop()
-        arr.append('-')
-
-    elif number not in st:
-        break
-
-if len(st) != 0:
+if 'NO' in ans:
     print('NO')
 else:
-    print('\n'.join(arr))
+    print('\n'.join(ans))
