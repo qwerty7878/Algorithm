@@ -1,12 +1,13 @@
 import sys
+input = sys.stdin.readline
 
-n,m = map(int,sys.stdin.readline().split())
-dic = {}
+n,m = map(int, input().split())
 
-for i in range(n):
-    site,pw = sys.stdin.readline().split()
-    dic[site] = pw
+sites = {}
+for _ in range(n):
+    name, password = input().split()
+    sites[name] = password
 
-for i in range(m):
-    searchsite = sys.stdin.readline().rstrip()
-    print(dic[searchsite])
+for _ in range(m):
+    site = input().strip()
+    print(sites[site])
