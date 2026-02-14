@@ -1,10 +1,12 @@
-str = input()
-alpha = [-1] * 26
+s = input().lower()
+arr = [-1] * 26
+alpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
-for i in str:
-    if alpha[ord(i) - ord('a')] != -1:
-        continue
-    alpha[ord(i) - ord('a')] += (str.index(i) + 1)
+for char in s:
+    idx = alpha.index(char)
+    pos = s.index(char) + 1
 
-for i in alpha:
-    print(i, end=' ')
+    if arr[idx] == -1:
+        arr[idx] += pos
+
+print(' '.join(map(str, arr)))
