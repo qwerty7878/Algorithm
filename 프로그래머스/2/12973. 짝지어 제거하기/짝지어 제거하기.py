@@ -1,14 +1,19 @@
 def solution(s):
-    answer = 1
-    st = []
+    answer = -1
+    st = list(s)
+    # print(st)
+    temp = []
     
-    for i in s:
-        if st and st[-1] != i:
-            st.append(i)
-        elif st and st[-1] == i:
-            st.pop()
+    for char in st:
+        if not temp:
+            temp.append(char)
+        elif temp and temp[-1] == char:
+            temp.pop()
         else:
-            st.append(i)
-    if st:
+            temp.append(char)
+            
+    if not temp:
+        answer = 1
+    else:
         answer = 0
     return answer
