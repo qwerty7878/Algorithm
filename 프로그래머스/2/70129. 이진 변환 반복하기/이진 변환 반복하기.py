@@ -1,18 +1,20 @@
 def solution(s):
     answer = []
-    zerocnt = 0
-    cnt = 0
+    
+    zero = 0
+    length = len(s)
+    removezero = 0
+    count = 0
     
     while True:
-        if s == '1':
+        zero += s.count('0')
+        length = len(s) - s.count('0')
+        removezero = bin(length)[2:]
+        s = str(removezero)
+        count += 1
+        
+        if str(removezero) == '1':
             break
-        else:
-            zerocnt += s.count('0')
-            s = s.replace('0', '')
-            s = str(bin(len(s))[2:])
-            cnt += 1
-
-    answer.append(cnt)
-    answer.append(zerocnt)
-    
-    return answer
+            
+    # print(zero, count)
+    return [count, zero]
