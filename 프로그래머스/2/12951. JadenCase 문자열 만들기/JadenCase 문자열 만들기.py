@@ -1,9 +1,20 @@
 def solution(s):
-    answer = []
-    arr = s.split(' ')
-    for i in range(len(arr)):
-        if arr[i] == '':
-            answer.append(arr[i])
+    answer = ''
+    s = s.lower()
+    # print(s)
+    idx = 0
+    for char in s:
+        if char == ' ':
+            answer += char
+            idx = 0
+        elif idx == 0:
+            if char.isdigit():
+                answer += char
+                idx += 1
+            else:
+                char = char.upper()
+                answer += char
+                idx += 1
         else:
-            answer.append(arr[i][0].upper() + arr[i][1:].lower())
-    return ' '.join(answer)
+            answer += char    
+    return answer
