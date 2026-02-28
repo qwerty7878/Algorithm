@@ -1,14 +1,10 @@
 def solution(n):
-    answer = 0
-    
-    num = str(bin(n)[2:]).count('1')
-    print(num)
-    
-    bigger = n + 1
+    answer = n + 1
+    origin = str(bin(n)[2:])
     while True:
-        if num == str(bin(bigger)[2:]).count('1'):
-            answer = bigger
+        target = str(bin(answer)[2:])
+        if origin.count('1') == target.count('1'):
             break
         else:
-            bigger += 1
+            answer += 1
     return answer
