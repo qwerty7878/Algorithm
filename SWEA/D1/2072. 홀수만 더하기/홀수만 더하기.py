@@ -1,10 +1,9 @@
 t = int(input())
 
-for i in range(t):
+for idx in range(t):
     sum = 0
-    arr = list(map(int, input().split()))
-    for j in arr:
-        if j % 2 != 0:
-            sum += j
-
-    print(f'#{i + 1}', sum)
+    numlist = list(map(int, input().split()))
+    for num in numlist:
+       	if num % 2 != 0:
+            sum += num
+    print(f"#{idx + 1} {sum}")
