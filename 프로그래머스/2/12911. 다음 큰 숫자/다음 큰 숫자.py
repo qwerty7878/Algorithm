@@ -1,10 +1,9 @@
 def solution(n):
     answer = n + 1
-    origin = str(bin(n)[2:])
+    onecnt = str(bin(n))[2:].count('1')
+    # print(onecnt)
     while True:
-        target = str(bin(answer)[2:])
-        if origin.count('1') == target.count('1'):
+        if onecnt == str(bin(answer))[2:].count('1'):
             break
-        else:
-            answer += 1
+        answer += 1
     return answer
