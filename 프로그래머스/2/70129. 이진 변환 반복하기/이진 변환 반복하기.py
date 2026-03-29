@@ -1,20 +1,16 @@
 def solution(s):
     answer = []
     
-    zero = 0
-    length = len(s)
-    removezero = 0
-    count = 0
+    turn = 0
+    zerocnt = 0
     
     while True:
-        zero += s.count('0')
-        length = len(s) - s.count('0')
-        removezero = bin(length)[2:]
-        s = str(removezero)
-        count += 1
+        if s == '1':
+            return [turn, zerocnt]
+
+        target = len(s) - s.count('0')
+        zerocnt += s.count('0')
+        s = str(bin(target))[2:]
+        turn += 1
         
-        if str(removezero) == '1':
-            break
-            
-    # print(zero, count)
-    return [count, zero]
+    return answer
