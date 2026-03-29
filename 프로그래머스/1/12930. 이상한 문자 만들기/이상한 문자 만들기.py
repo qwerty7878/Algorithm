@@ -1,15 +1,15 @@
 def solution(s):
     answer = ''
-    words = s.split(' ')
-    temp = []
-    print(words)
-    for word in words:
-        newWord = ''
-        for idx in range(len(word)):
-            if (idx + 1) % 2 == 0:
-                newWord += word[idx].lower()
+    
+    idx = 0
+    for char in s:
+        if char == ' ':
+            answer += ' '
+            idx = 0
+        else:
+            if idx % 2 == 0:
+                answer += char.upper()
             else:
-                newWord += word[idx].upper()
-        temp.append(newWord)
-    answer = ' '.join(temp)
+                answer += char.lower()
+            idx += 1
     return answer
