@@ -1,17 +1,9 @@
 def solution(cards1, cards2, goal):
-    answer = 'Yes'
-    
     for word in goal:
-        if word in cards1:
-            if cards1[0] == word:
-                cards1.remove(word)
-            else:
-                answer = "No"
-                break
+        if cards1 and cards1[0] == word:
+            cards1.remove(word)
+        elif cards2 and cards2[0] == word:
+            cards2.remove(word)
         else:
-            if cards2[0] == word:
-                cards2.remove(word)
-            else:
-                answer = "No"
-                break
-    return answer
+            return "No"
+    return 'Yes'
