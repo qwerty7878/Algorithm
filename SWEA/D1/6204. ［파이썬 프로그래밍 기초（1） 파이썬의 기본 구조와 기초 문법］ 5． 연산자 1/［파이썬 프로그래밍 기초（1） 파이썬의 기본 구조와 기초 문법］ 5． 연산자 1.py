@@ -1,3 +1,2 @@
-t = int(input())
-
-print(f'{t}.00 inch => {t * 2.54} cm')
+inch = int(input())
+print(f'{inch}.00 inch =>  {inch * 2.54} cm')
