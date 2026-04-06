@@ -1,18 +1,13 @@
 def solution(a, b, n):
     answer = 0
-    rest = 0
+
     while True:
+        answer += (n // a) * b
+        # print(answer)
+        rest = n % a
+        new = (n // a) * b
+        n = new + rest
         if n < a:
             break
-        
-        if n % a == 0:
-            answer += (n // a) * b
-        else:
-            answer += (n // a) * b
-            rest = n % a
-        n //= a
-        n *= b
-        if rest != 0:
-            n += rest
-            rest = 0
+            
     return answer
