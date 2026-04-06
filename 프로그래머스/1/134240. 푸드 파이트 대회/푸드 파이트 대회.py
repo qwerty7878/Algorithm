@@ -1,9 +1,13 @@
 def solution(food):
     answer = ''
-    temp = ''
-    for i in range(1, len(food)):
-        if food[i] // 2 > 0:
-            temp +=  str(i) * (food[i] // 2)
-    reverseTemp = temp[::-1]
-    answer += temp + '0' + reverseTemp
+    food.remove(food[0])
+    
+    half = ''
+    for idx in range(len(food)):
+        mode = food[idx] // 2
+        if mode >= 1:
+            half += str(idx + 1) * mode
+        # print(half)
+    
+    answer = half + '0' + half[::-1]
     return answer
