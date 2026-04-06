@@ -1,17 +1,11 @@
 def solution(n):
     answer = 0
-    temp = []
     
-    while True:
-        if n < 3:
-            temp.append(n)
-            break
-        if n % 3 == 0:
-            temp.append(0)
-        elif n % 3 != 0:
-            temp.append(n % 3)
+    temp = ''
+    while n > 0:
+        temp += str(n % 3)
         n //= 3
     
-    print(*temp)
-    
+    # print(temp)
+    answer = int(temp, 3)
     return answer
