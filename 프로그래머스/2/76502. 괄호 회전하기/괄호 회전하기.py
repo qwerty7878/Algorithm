@@ -2,30 +2,30 @@ from collections import deque
 
 def solution(s):
     answer = 0
-    dq = deque(s)
-    for i in s:
+
+    s_list = deque(s)
+    for _ in range(len(s)):
         temp = []
-        iscollect = True
-        for char in dq:
-            if char == '(' or char == '[' or char == '{':
+        isDone = True
+        for char in s_list:
+            if char == '[' or char == '(' or char == '{':
                 temp.append(char)
             else:
-                if temp and (temp[-1] == '{' or temp[-1] == '(' or temp[-1] == '['):
-                    if temp[-1] == '{' and char == '}':
-                        temp.pop()
-                    elif temp[-1] == '(' and char == ')':
-                        temp.pop()
-                    elif temp[-1] == '[' and char == ']':
-                        temp.pop()
-                else:
-                    iscollect = False
+                if not temp and (char == ']' or char == ')' or char == '}'):
+                    isDone = False
                     break
-
-        if len(temp) != 0:
-            iscollect = False
-
-        if iscollect:
+                elif temp:
+                    if char == ']' and temp[-1] == '[':
+                        temp.pop()
+                    elif char == '}' and temp[-1] == '{':
+                        temp.pop()
+                    elif char == ')' and temp[-1] == '(':
+                        temp.pop()
+                    else:
+                        isDone = False
+                        break
+        if isDone and not temp:
             answer += 1
-            
-        dq.append(dq.popleft())
+
+        s_list.appendleft(s_list.pop())
     return answer
