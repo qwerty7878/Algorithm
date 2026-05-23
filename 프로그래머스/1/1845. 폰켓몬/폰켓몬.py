@@ -1,7 +1,6 @@
 def solution(nums):
     answer = 0
-    totalPocketmon = len(nums) // 2
-    pocketmonType = len(set(nums))
-    
-    answer = min(totalPocketmon, pocketmonType)
+    length = len(nums) // 2
+    phoneket = len(set(nums))
+    answer = min(length, phoneket)
     return answer
