@@ -2,12 +2,8 @@ def solution(a, b):
     answer = ''
     
     week = ['FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU']
-    day = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
-    total = b - 1
-    for i in range(a - 1):
-        total += day[i] 
-    # print(total)
-    
+    total = sum(days[:a - 1]) + b - 1
     answer = week[total % 7]
     return answer
