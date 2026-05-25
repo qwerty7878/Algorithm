@@ -1,16 +1,16 @@
 def solution(people, limit):
-    people.sort()
     answer = 0
-    first = 0
-    second = len(people) - 1
+    people.sort()
     
-    while first <= second:
-        if people[first] + people[second] <= limit:
-            answer += 1
-            first += 1
-            second -= 1
-        else:
-            answer += 1
-            second -= 1
+    start = 0
+    end = len(people) - 1
+    
+    while start <= end:
+        boat = people[start] + people[end]
+        
+        if boat <= limit:
+            start += 1
             
+        answer += 1
+        end -= 1
     return answer
