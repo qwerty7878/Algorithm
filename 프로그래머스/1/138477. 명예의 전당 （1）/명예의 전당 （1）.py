@@ -1,14 +1,22 @@
-import heapq
-
 def solution(k, score):
     answer = []
-    heap = []
+    li = []
     
     for num in score:
-        heapq.heappush(heap, num)
-        
-        if len(heap) > k:
-            heapq.heappop(heap)
-            
-        answer.append(heap[0])
+        if len(li) < k:
+            if not li:
+                li.append(num)
+                answer.append(num)
+            else:
+                li.append(num)
+                li.sort()
+                answer.append(li[0])
+        elif len(li) == k:
+            if num > li[0]:
+                li.remove(li[0])
+                li.append(num)
+                li.sort()
+                answer.append(li[0])
+            else:
+                answer.append(li[0])
     return answer
