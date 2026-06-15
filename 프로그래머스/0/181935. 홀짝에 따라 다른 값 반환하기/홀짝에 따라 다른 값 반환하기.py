@@ -1,11 +1,12 @@
 def solution(n):
-    answer = 0
-    if n % 2 == 0:
-        for num in range(1,n + 1):
-            if num % 2 == 0:
-                answer += (num ** 2)
-    else:
-        for num in range(1,n + 1):
+    hap = 0
+    if n % 2 != 0:
+        for num in range(1, n + 1):
             if num % 2 != 0:
-                answer += num
-    return answer
+                hap += num
+        return hap
+    else:
+        for num in range(1, n + 1):
+            if num % 2 == 0:
+                hap += (num ** 2)
+        return hap
