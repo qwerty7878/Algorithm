@@ -1,6 +1,6 @@
 # [level 1] 경기도에 위치한 식품창고 목록 출력하기 - 131114 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131114?language=mysql) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131114?language=oracle) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 06월 15일 18:40:13
+2026년 06월 15일 18:40:30
 
 ### 문제 설명
 
