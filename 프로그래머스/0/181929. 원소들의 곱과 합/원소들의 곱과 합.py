@@ -1,12 +1,10 @@
 def solution(num_list):
-    answer = 0
-    multiple = 1
-    sumpow = sum(num_list) ** 2
-    for num in num_list:
-        multiple *= num
+    answer = 1
     
-    if multiple > sumpow:
+    gop = 1
+    for num in num_list:
+        gop *= num
+        
+    if sum(num_list) ** 2 < gop:
         answer = 0
-    else:
-        answer = 1
     return answer
