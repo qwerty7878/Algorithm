@@ -1,11 +1,10 @@
 def solution(num_list):
-    answer = 0
-    odd_num = ''
-    even_num = ''
+    odd = []
+    even = []
     for num in num_list:
         if num % 2 == 0:
-            even_num += str(num)
+            even.append(num)
         else:
-            odd_num += str(num)
-    answer = int(even_num) + int(odd_num)
-    return answer
+            odd.append(num)
+    hap = int(''.join(map(str, even))) + int(''.join(map(str, odd)))
+    return hap
