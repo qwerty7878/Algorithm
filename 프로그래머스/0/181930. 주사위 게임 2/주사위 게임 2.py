@@ -1,9 +1,11 @@
 def solution(a, b, c):
     answer = 0
-    if a == b and b == c and c == a:
-        answer = ((a ** 3) + (b ** 3) + (c ** 3)) * (a + b + c) * ((a ** 2) + (b ** 2) + (c ** 2))
-    elif a != b and b != c and c != a:
+    dice = {a, b, c}
+    print(dice)
+    if len(dice) == 3:
         answer = a + b + c
+    elif len(dice) == 1:
+        answer = (a * 3) * (a ** 2 * 3) * (a ** 3 * 3)
     else:
-        answer = (a + b + c) * ((a ** 2) + (b ** 2) + (c ** 2))
+        answer = (a + b + c) * (a ** 2 + b ** 2 + c ** 2)
     return answer
