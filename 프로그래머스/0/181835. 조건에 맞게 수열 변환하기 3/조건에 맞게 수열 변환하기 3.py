@@ -1,11 +1,3 @@
 def solution(arr, k):
-    answer = []
-    
-    if k % 2 == 0:
-        for number in arr:
-            answer.append(number + k)
-    else:
-        for number in arr:
-            answer.append(number * k)
-    
+    answer = [num * k if k % 2 != 0 else num + k for num in arr]
     return answer
