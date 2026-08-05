@@ -1,10 +1,10 @@
 # [level 0] 몫 구하기 - 120805 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120805?language=kotlin) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120805) 
 
 ### 성능 요약
 
-메모리: 61.2 MB, 시간: 0.03 ms
+메모리: 80.5 MB, 시간: 0.02 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 10월 27일 20:25:07
+2026년 08월 06일 04:05:01
 
 ### 문제 설명
 
