@@ -1,5 +1,5 @@
 def solution(a, b):
     answer = 0
-    for num in range(min(a,b), max(a,b) + 1):
-        answer += num
+    for idx in range(min(a, b), max(a, b) + 1):
+        answer += idx
     return answer
