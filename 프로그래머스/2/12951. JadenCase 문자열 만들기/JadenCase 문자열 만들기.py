@@ -1,20 +1,15 @@
 def solution(s):
     answer = ''
-    s = s.lower()
-    # print(s)
-    idx = 0
-    for char in s:
+    
+    isFirst = True
+    for char in s.lower():
         if char == ' ':
+            isFirst = True
             answer += char
-            idx = 0
-        elif idx == 0:
-            if char.isdigit():
-                answer += char
-                idx += 1
-            else:
-                char = char.upper()
-                answer += char
-                idx += 1
         else:
-            answer += char    
+            if isFirst:
+                answer += char.upper()
+                isFirst = False
+            else:
+                answer += char
     return answer
