@@ -1,9 +1,16 @@
 def solution(n):
-    answer = n + 1
-    onecnt = str(bin(n))[2:].count('1')
-    # print(onecnt)
+    answer = 0
+    current = bin(n)[2:]
+    ocnt = current.count('1')
+    # print(ocnt)
+    
+    nextnum = n + 1
     while True:
-        if onecnt == str(bin(answer))[2:].count('1'):
+        ncnt = bin(nextnum).count('1')
+    # print(ncnt)
+        if ncnt == ocnt:
+            answer = nextnum
             break
-        answer += 1
+        else:
+            nextnum += 1
     return answer
