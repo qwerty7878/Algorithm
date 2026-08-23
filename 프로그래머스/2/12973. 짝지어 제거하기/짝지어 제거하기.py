@@ -1,17 +1,19 @@
 def solution(s):
     answer = -1
-    temp = []
+    stack = []
+    
     for char in s:
-        if not temp:
-            temp.append(char)
+        if not stack:
+            stack.append(char)
         else:
-            if temp[-1] == char:
-                temp.pop()
+            if stack[-1] == char:
+                stack.pop()
             else:
-                temp.append(char)
-                
-    if not temp:
-        answer = 1
-    else:
+                stack.append(char)
+    
+    if stack:
         answer = 0
+    else:
+        answer = 1
+
     return answer
