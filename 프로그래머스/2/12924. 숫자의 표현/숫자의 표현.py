@@ -1,14 +1,13 @@
 def solution(n):
-    answer = 0
+    answer = 1
     
-    for cur in range(1, n + 1):
-        sum = 0
-        for num in range(cur, n + 1):
-            sum += num
-            if sum == n:
-                answer += 1
+    for current in range(1, n):
+        total = 0
+        for num in range(current, n + 1):
+            if total < n:
+                total += num
+            elif total >= n:
+                if total == n:
+                    answer += 1
                 break
-            else:
-                if sum > n:
-                    break
     return answer
