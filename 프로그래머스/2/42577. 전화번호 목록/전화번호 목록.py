@@ -1,11 +1,6 @@
 def solution(phone_book):
-    answer = True
-    
-    phone_book.sort()
+    sort_phone_book = sorted(phone_book)
     for idx in range(1, len(phone_book)):
-        target = phone_book[idx - 1]
-        phone_num = phone_book[idx]
-        if phone_num[:len(target)] == target:
-            answer = False
-            break
-    return answer
+        if sort_phone_book[idx].startswith(sort_phone_book[idx - 1]):
+            return False
+    return True
