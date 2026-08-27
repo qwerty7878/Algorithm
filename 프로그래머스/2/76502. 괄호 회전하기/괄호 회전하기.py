@@ -1,31 +1,38 @@
 from collections import deque
 
+def makeStack(array):
+    stack = []
+    for char in array:
+        if not stack:
+            stack.append(char)
+        else:
+            if char == ']' and stack[-1] == '[':
+                stack.pop()
+            elif char == '}' and stack[-1] == '{':
+                stack.pop()
+            elif char == ')' and stack[-1] == '(':
+                stack.pop()
+            else:
+                stack.append(char)
+    return stack
+
+def isCollect(array):
+    if makeStack(array):
+        return False
+    return True
+
+def makeinitDeque(s):
+    array = []
+    for char in s:
+        array.append(char)
+    return deque(array)
+    
 def solution(s):
     answer = 0
-
-    s_list = deque(s)
-    for _ in range(len(s)):
-        temp = []
-        isDone = True
-        for char in s_list:
-            if char == '[' or char == '(' or char == '{':
-                temp.append(char)
-            else:
-                if not temp and (char == ']' or char == ')' or char == '}'):
-                    isDone = False
-                    break
-                elif temp:
-                    if char == ']' and temp[-1] == '[':
-                        temp.pop()
-                    elif char == '}' and temp[-1] == '{':
-                        temp.pop()
-                    elif char == ')' and temp[-1] == '(':
-                        temp.pop()
-                    else:
-                        isDone = False
-                        break
-        if isDone and not temp:
+    array = makeinitDeque(s)
+    
+    for _ in range(len(array)):
+        if isCollect(array):
             answer += 1
-
-        s_list.appendleft(s_list.pop())
+        array.append(array.popleft())
     return answer
