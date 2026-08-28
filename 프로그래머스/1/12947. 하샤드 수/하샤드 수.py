@@ -1,11 +1,10 @@
 def solution(x):
     answer = True
-    hashad = 0
+    
+    divnum = 0
     for num in str(x):
-        hashad += int(num)
-
-    if x % hashad == 0:
-        answer = True
-    else:
+        divnum += int(num)
+        
+    if x % divnum != 0:
         answer = False
     return answer
