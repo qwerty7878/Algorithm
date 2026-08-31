@@ -1,6 +1,7 @@
 def solution(absolutes, signs):
     answer = 0
-    for idx in range(len(signs)):
+    
+    for idx in range(len(absolutes)):
         if signs[idx] == True:
             answer += absolutes[idx]
         else:
