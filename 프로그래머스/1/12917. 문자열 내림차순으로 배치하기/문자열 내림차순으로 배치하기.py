@@ -1,6 +1,9 @@
 def solution(s):
     answer = ''
-    answer = list(s)
-    answer.sort(reverse=True)
-    ans = ''.join(answer)
-    return ans
+    
+    temp = []
+    for char in s:
+        temp.append(char)
+        
+    answer = ''.join(sorted(temp, reverse=True))
+    return answer
