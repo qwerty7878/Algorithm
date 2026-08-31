@@ -1,10 +1,11 @@
 def solution(price, money, count):
-    answer = -1
+    answer = 0
     total = 0
-    for i in range(1, count + 1):
-        total += (price * i)
-    if total > money:
-        answer = total - money
-    else:
-        answer = 0
+    
+    for turn in range(1, count + 1):
+        total += (price * turn)
+        
+    answer = total - money
+    if answer <= 0:
+        return 0
     return answer
