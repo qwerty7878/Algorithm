@@ -1,6 +1,6 @@
-def solution(arr):
-    answer = [i for i in arr]
+def solution(arr):   
+    if len(arr) == 1:
+        return [-1]
+    answer = arr
     answer.remove(min(arr))
-    if not answer:
-        answer.append(-1)
     return answer
