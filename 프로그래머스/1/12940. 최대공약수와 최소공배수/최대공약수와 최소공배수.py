@@ -1,15 +1,13 @@
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return a
+def gcm(a, b):
+    if b == 0:
+        return a
+    return gcm(b, a % b)
 
-def lcm(a, b):
-    return (a * b) // gcd(a, b)
+def lcm(n, m):
+    return n * m // gcm(n, m)
 
 def solution(n, m):
-    answer = []
-    g = gcd(n, m)
-    answer.append(g)
-    l = lcm(n, m)
-    answer.append(l)
-    return answer
+    gnum = gcm(n, m)
+    lnum = lcm(n, m)
+    
+    return [gnum, lnum]
