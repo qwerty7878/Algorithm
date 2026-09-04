@@ -4,7 +4,7 @@ def solution(s):
     idx = 0
     for char in s:
         if char == ' ':
-            answer += ' '
+            answer += char
             idx = 0
         else:
             if idx % 2 == 0:
