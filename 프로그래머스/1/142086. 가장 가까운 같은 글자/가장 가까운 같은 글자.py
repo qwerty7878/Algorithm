@@ -4,13 +4,15 @@ def solution(s):
     temp = []
     for char in s:
         if char not in temp:
-            temp.append(char)
             answer.append(-1)
+            temp.append(char)
         else:
-            for idx in range(len(temp)):
-                if temp[-(idx + 1)] == char:
-                    answer.append(idx + 1)
-                    temp.append(char)
+            idx = 1
+            while True:
+                if char == temp[-idx]:
+                    answer.append(idx)
                     break
-    # print(temp)
+                else:
+                    idx += 1
+            temp.append(char)
     return answer
