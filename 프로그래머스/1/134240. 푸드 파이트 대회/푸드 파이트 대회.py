@@ -1,13 +1,14 @@
 def solution(food):
     answer = ''
-    food.remove(food[0])
     
-    half = ''
+    base = ''
     for idx in range(len(food)):
-        mode = food[idx] // 2
-        if mode >= 1:
-            half += str(idx + 1) * mode
-        # print(half)
+        if food[idx] < 2:
+            continue
+        else:
+            rep = food[idx] // 2
+            base += str(idx) * rep
+            
+    answer = base + '0' + base[::-1]
     
-    answer = half + '0' + half[::-1]
     return answer
