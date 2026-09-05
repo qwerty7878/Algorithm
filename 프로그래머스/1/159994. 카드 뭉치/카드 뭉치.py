@@ -1,9 +1,13 @@
 def solution(cards1, cards2, goal):
-    for word in goal:
-        if cards1 and cards1[0] == word:
-            cards1.remove(word)
-        elif cards2 and cards2[0] == word:
-            cards2.remove(word)
+    rev_cards1 = cards1[::-1]
+    rev_cards2 = cards2[::-1]
+    
+    for char in goal:
+        if rev_cards1 and char == rev_cards1[-1]:
+            rev_cards1.pop()
+        elif rev_cards2 and char == rev_cards2[-1]:
+            rev_cards2.pop()
         else:
-            return "No"
+            return 'No'
+        
     return 'Yes'
