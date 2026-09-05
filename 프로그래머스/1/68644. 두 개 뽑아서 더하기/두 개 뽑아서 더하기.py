@@ -1,9 +1,10 @@
+from itertools import combinations
+
 def solution(numbers):
     answer = []
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            sum = numbers[i] + numbers[j]
-            if sum not in answer:
-                answer.append(sum)
-    answer.sort()
-    return answer
+    
+    for combi in combinations(numbers, 2):
+        if sum(combi) not in answer:
+            answer.append(sum(combi))
+    
+    return sorted(answer)
