@@ -1,17 +1,10 @@
-def fibo(n):
-    if n == 1:
-        return 1
-    if n == 2:
-        return 2
-    
-    dp = [0] * (n + 1)
-    dp[1] = 1
-    dp[2] = 2
-    
-    for i in range(3, n + 1):
-        dp[i] = dp[i - 1] + dp[i - 2]
-    return dp[n]
-    
 def solution(n):
-    answer = fibo(n) % 1234567
-    return answer
+    if n <= 2:
+        return n
+    
+    a = 1
+    b = 2
+    
+    for _ in range(3, n + 1):
+        a, b = b, (a + b) % 1234567
+    return b
