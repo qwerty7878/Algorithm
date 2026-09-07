@@ -2,14 +2,18 @@ from collections import Counter
 
 def solution(k, tangerine):
     answer = 0
-    count = Counter(tangerine).most_common()
+    counter = Counter(tangerine)
+    # print(counter)
     
-    for num, cnt in count:
-        # print(num,cnt)
-        k -= cnt
-        answer += 1
+    temp = []
+    for cnt in counter.values():
+        temp.append(cnt)
         
+    sorted_temp = sorted(temp, reverse=True)
+    for num in sorted_temp:
         if k <= 0:
             break
-    
+        else:
+            k -= num
+            answer += 1
     return answer
