@@ -1,17 +1,13 @@
-def gcd(a, b):
+def gcm(a, b):
     if b == 0:
         return a
-    else:
-        return gcd(b, a % b)
+    return gcm(b, a % b)
 
 def lcm(a, b):
-    return (a * b) // gcd(a, b)
+    return (a * b) // gcm(a, b)
 
 def solution(arr):
-    answer = 0
-    temp = lcm(arr[0], arr[1])
-    for i in range(2, len(arr)):
-        temp = lcm(temp, arr[i])
-    answer = temp
-    
+    answer = arr[0]
+    for idx in range(1, len(arr)):
+        answer = lcm(answer, arr[idx])
     return answer
