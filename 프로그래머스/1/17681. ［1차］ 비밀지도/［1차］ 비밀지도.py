@@ -1,28 +1,20 @@
-def parsing(num, n):
-    binary_num = str(bin(num))[2:]
-    
-    diff = n - len(binary_num)
-    if diff != 0:
-        return '0' * diff + binary_num
-    else:
-        return binary_num
-
 def solution(n, arr1, arr2):
     answer = []
     
-    for a,b in zip(arr1, arr2):
-        s = ''
-        bi_a = parsing(a, n)
-        bi_b = parsing(b, n)
-
-        for idx in range(len(bi_a)):
-            if bi_a[idx] == '0':
-                if bi_b[idx] == '1':
-                    s += '#'
-                else:
-                    s += ' '
+    for idx in range(n):
+        binum1 = str(bin(arr1[idx])[2:])
+        binum2 = str(bin(arr2[idx])[2:])
+        
+        if len(binum1) != n:
+            binum1 = '0' * (n - len(binum1)) + binum1
+        if len(binum2) != n:
+            binum2 = '0' * (n - len(binum2)) + binum2
+        
+        target = ''
+        for j in range(n):
+            if binum1[j] == '1' or binum2[j] == '1':
+                target += '#'
             else:
-                s += '#'    
-            # print(s)
-        answer.append(s)
+                target += ' '
+        answer.append(target)
     return answer
