@@ -1,11 +1,15 @@
 def solution(citations):
-    answer = 0
-#     내림차순 정렬
     citations.sort(reverse=True)
-    for i in citations:
-        count = 0
-        for j in citations:
-            if i <= j:
-                count += 1
-            answer = max(min(count, i), answer)
-    return answer
+    
+    h = 0
+    while True:
+        answer = 0
+        
+        for citation in citations:
+            if citation >= h:
+                answer += 1
+        
+        if answer <= h:
+            return answer
+        else:
+            h += 1
