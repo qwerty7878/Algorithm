@@ -1,16 +1,11 @@
 def solution(name, yearning, photo):
     answer = []
-    
-    people = {}
-    for i in range(len(name)):
-        people[name[i]] = yearning[i]
-        
-    # print(people)
-    for pic in photo:
+
+    for li in photo:
         total = 0
-        for user in pic:
-            for dic in people.items():
-                if dic[0] == user:
-                    total += dic[1]
+        for i in range(len(li)):
+            for j in range(len(name)):
+                if li[i] == name[j]:
+                    total += yearning[j]
         answer.append(total)
     return answer
