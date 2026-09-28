@@ -2,17 +2,16 @@ from itertools import permutations
 
 def solution(k, dungeons):
     answer = -1
-    for combi in permutations(dungeons, len(dungeons)):
-        # print(combi)
-        count = 0
-        hp = k
-        for standard, consumption in combi:
-            # print(standard)
-            if hp >= standard:
-                hp -= consumption
-                count += 1
-            else:
+    
+    for combis in permutations(dungeons, len(dungeons)):
+        cnt = 0
+        current = k
+        for combi in combis:
+            if combi[0] > current:
                 break
-        # print(count)
-        answer = max(answer, count)
+            else:
+                current -= combi[1]
+                cnt += 1
+        if cnt > answer:
+            answer = cnt
     return answer
