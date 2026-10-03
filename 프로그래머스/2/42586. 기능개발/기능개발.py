@@ -1,23 +1,26 @@
-import math
+from collections import deque
 
 def solution(progresses, speeds):
     answer = []
-    
-    day = 0
-    count = 0
-    for idx in range(len(progresses)):
-        duration = 0
-        if (100 - progresses[idx]) % speeds[idx] == 0:
-            duration = (100 - progresses[idx]) // speeds[idx]
+
+    fin = []
+    for idx in range(len(speeds)):
+        if (100 - progresses[idx]) % speeds[idx] != 0:
+            fin.append((100 - progresses[idx]) // speeds[idx] + 1)
         else:
-            duration = (100 - progresses[idx]) // speeds[idx] + 1
-        # print(duration)
-        if day >= duration:
-            count += 1
-        else:
-            day = duration
-            if count != 0:
-                answer.append(count)
-            count = 1
-    answer.append(count)
+            fin.append((100 - progresses[idx]) // speeds[idx])
+
+    dq = deque(fin)
+
+    while dq:
+        day = dq.popleft()
+        cnt = 1
+        
+        while dq:
+            if dq[0] > day:
+                break
+            dq.popleft()
+            cnt += 1
+        answer.append(cnt)
+        
     return answer
