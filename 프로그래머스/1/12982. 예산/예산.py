@@ -1,12 +1,8 @@
 def solution(d, budget):
-    answer = 0
     d.sort()
-    
-    for num in d:
-        if budget >= num:
-            budget -= num
-            answer += 1
-        else:
+    while True:
+        if sum(d) <= budget:
             break
-            
-    return answer
+        else:
+            d.pop()
+    return len(d)
