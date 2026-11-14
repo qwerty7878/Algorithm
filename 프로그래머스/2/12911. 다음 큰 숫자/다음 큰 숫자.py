@@ -1,16 +1,13 @@
 def solution(n):
     answer = 0
-    current = bin(n)[2:]
-    ocnt = current.count('1')
-    # print(ocnt)
     
-    nextnum = n + 1
+    num = n + 1
+    target = bin(n)[2:].count('1')
+
     while True:
-        ncnt = bin(nextnum).count('1')
-    # print(ncnt)
-        if ncnt == ocnt:
-            answer = nextnum
+        if bin(num)[2:].count('1') == target:
+            answer = num
             break
         else:
-            nextnum += 1
+            num += 1
     return answer
