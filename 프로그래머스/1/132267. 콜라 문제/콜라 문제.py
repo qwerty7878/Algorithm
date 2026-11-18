@@ -1,8 +1,10 @@
 def solution(a, b, n):
     answer = 0
     
-    rest = 0
-    while n >= a:
+    while True:
         answer += (n // a) * b
-        n = (n // a) * b + (n % a) 
+        n = (n // a) * b + (n % a)
+        # print(answer, n)
+        if n < a:
+            break
     return answer
