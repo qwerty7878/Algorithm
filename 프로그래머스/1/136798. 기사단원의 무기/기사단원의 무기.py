@@ -1,17 +1,17 @@
 def solution(number, limit, power):
-    temp = []
+    answer = 0
     
-    for num in range(1, number + 1):
-        count = 0
-        for i in range(1, int(num ** 0.5) + 1):
-            if num % i == 0:
-                if i * i == num:
-                    count += 1
+    for n in range(1, number + 1):
+        temp = 0
+        for i in range(1, int(n ** 0.5) + 1):
+            if n % i == 0:
+                if i * i == n:
+                    temp += 1
                 else:
-                    count += 2
+                    temp += 2
                 
-        if count > limit:
-            temp.append(power)
+        if temp > limit:
+            answer += power
         else:
-            temp.append(count)
-    return sum(temp)
+            answer += temp
+    return answer
