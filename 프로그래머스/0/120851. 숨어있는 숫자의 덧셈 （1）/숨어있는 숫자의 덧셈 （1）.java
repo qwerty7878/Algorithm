@@ -1,10 +1,13 @@
 class Solution {
     public int solution(String my_string) {
         int answer = 0;
-        String s[] = my_string.replaceAll("[a-zA-Z]","").split("");
         
-        for(int i = 0; i < s.length; i++){
-            answer += Integer.parseInt(s[i]);
+        for(int i = 0; i < my_string.length(); i++){
+            char c = my_string.charAt(i);
+            
+            if (Character.isDigit(c)){
+                answer += Integer.parseInt(String.valueOf(c));
+            }
         }
         return answer;
     }
